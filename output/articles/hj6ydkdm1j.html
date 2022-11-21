@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+
+    <head prefix="og:http://ogp.me/ns#">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>【備忘録】SEGA音ゲー3機種の公式サイトの裏で流れてる楽曲リストJSONの解説 | Qman's Diary</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Play:wght@700&&family=Source+Code+Pro&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/destyle.css">
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/article.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/vs2015.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/assets/js/latest_articles.js"></script>
+    <script src="/assets/js/categories.js"></script>
+    <meta property="og:title" content="【備忘録】SEGA音ゲー3機種の公式サイトの裏で流れてる楽曲リストJSONの解説 | Qman's Diary">
+    <meta property="og:description" content="SEGA音ゲー3機種の公式サイトの裏には、楽曲リスト等のためのJSONが流れています。
+エンドポイントさえ知っていれば、それらを取得して活用することも可能です。
+ただ、正規で公開されているものではあり…">
+    <meta property="og:url" content="https://blog.qmainconts.dev/articles/hj6ydkdm1j.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Qman's Diary">
+</head>
+
+<body>
+    <header>
+        <div id="blogtitle"><a href="/">Qman's Diary</a></div>
+        <p>多趣味人間の備忘録</p>
+    </header>
+    <main>
+        <section id="maincol">
+            <section class="box">
+                <div class="date">2022-11-21</div>
+                <h1 id="articletitle">【備忘録】SEGA音ゲー3機種の公式サイトの裏で流れてる楽曲リストJSONの解説</h1>
+                <div class="tags">
+                    <div class="tag"><img src="/assets/tag.svg" alt="タグ" width="18" height="18"></div>
+                    <div class="tag"><a href="category/musicgame"></a>音楽ゲーム</div>
+                    <div class="tag"><a href="category/tech"></a>技術</div>
+                    <div class="tag"><a href="category/ongeki"></a>オンゲキ</div>
+                    <div class="tag"><a href="category/chunithm"></a>CHUNITHM</div>
+                    <div class="tag"><a href="category/maimai"></a>maimai</div>
+                </div>
+                <article id="atcbody">SEGA音ゲー3機種の公式サイトの裏には、楽曲リスト等のためのJSONが流れています。<br>
+エンドポイントさえ知っていれば、それらを取得して活用することも可能です。<br>
+ただ、正規で公開されているものではありませんし、いつ仕様が変更されたり使えなくなったりしても一切文句は言えません。<br>
+この情報を利用する際は、何があっても自己責任でお願いします。
+
+<h2>目次</h2>
+<ul>
+    <li><a href="#chunithm">CHUNITHM</a></li>
+    <ul>
+        <li><a href="#chunithm_musiclist">楽曲リスト</a></li>
+    </ul>
+    <li><a href="#chunithm_international">CHUNITHM海外版</a></li>
+    <ul>
+        <li><a href="#chuni_int_musiclist">楽曲リスト</a></li>
+    </ul>
+    <li><a href="#maimaidx">maimaiでらっくす</a></li>
+    <ul>
+        <li><a href="#maimaidx_musiclist">楽曲リスト</a></li>
+    </ul>
+    <li><a href="#ongeki">オンゲキ</a></li>
+    <ul>
+        <li><a href="#ongeki_musiclist">楽曲リスト</a></li>
+    </ul>
+    <li><a href="#international">maimaiでらっくす海外版について</a></li>
+</ul>
+
+<a name="chunithm"></a>
+<h2>CHUNITHM</h2>
+<a name="chunithm_musiclist"></a>
+<h3>楽曲リスト</h3>
+▼エンドポイント
+<pre class="prettyprint"><code>
+https://chunithm.sega.jp/storage/json/music.json
+‍
+</code></pre>
+著作権表示はJSONの中からは消えた。<a href="https://chunithm.sega.jp/music/new/" target="_blank">楽曲リスト</a>の一番下に全ての著作権表示がまとめて書いてある。<br>
+<br>
+▼レスポンス例
+<pre class="prettyprint"><code>
+[
+    {
+        "id": "2065",
+        "catname": "ORIGINAL",
+        "newflag": "0",
+        "title": "創世のコンツェルティーナ",
+        "reading": "ソウセイノコンツエルテイウナ",
+        "artist": "大嶋啓之",
+        "lev_bas": "3",
+        "lev_adv": "7",
+        "lev_exp": "10+",
+        "lev_mas": "13",
+        "lev_ult": "",
+        "we_kanji": "",
+        "we_star": "",
+        "image": "ec89f55fcf6e1c66.jpg"
+    },
+    {
+        "id": "107",
+        "catname": "ORIGINAL",
+        "newflag": "0",
+        "title": "We Gonna Journey",
+        "reading": "WEGONNAJOURNEY",
+        "artist": "Queen P.A.L.",
+        "lev_bas": "3",
+        "lev_adv": "6",
+        "lev_exp": "11",
+        "lev_mas": "14",
+        "lev_ult": "14+",
+        "we_kanji": "",
+        "we_star": "",
+        "image": "b43fef626f5b88cd.jpg"
+    },
+    {
+        "id": "8081",
+        "catname": "VARIETY",
+        "newflag": "0",
+        "title": "檄!帝国華撃団",
+        "reading": "ケキテイコクカケキタン",
+        "artist": "真宮寺さくら（横山智佐）＆帝国歌劇団「サクラ大戦」",
+        "lev_bas": "",
+        "lev_adv": "",
+        "lev_exp": "",
+        "lev_mas": "",
+        "lev_ult": "",
+        "we_kanji": "歌",
+        "we_star": "3",
+        "image": "b5570c700e7bbf75.jpg"
+    },
+]
+‍
+</code></pre>
+実際は1つのリストの中にすべての楽曲が入っている。<br>
+ここでは通常の楽曲とULTIMAの存在する楽曲、WORLD'S END楽曲1つずつを例として挙げた。<br>
+同一楽曲であっても通常譜面WORLD'S END譜面で1つずつ(WORLD'S END譜面が複数存在する場合はその数だけ)オブジェクトが存在する。<br>
+<br>
+▼各key/valueの説明
+<ul>
+    <li><span class="olc">id</span>: 楽曲ID</li>
+    <li><span class="olc">catname</span>: カテゴリ名</li>
+    <li><span class="olc">newflag</span>: 新曲か否か。新曲なら<span class="olc">1</span>が、そうでなければ<span class="olc">0</span>が文字列として入っている</li>
+    <li><span class="olc">title</span>: 楽曲タイトル</li>
+    <li><span class="olc">reading</span>: 不明(ソートのための曲名？)</li>
+    <li><span class="olc">artist</span>: 楽曲アーティスト</li>
+    <li><span class="olc">lev_bas</span>～<span class="olc">lev_mas</span>: それぞれBASIC～MASTERの譜面難易度。WORLD'S END譜面の場合は空欄</li>
+    <li><span class="olc">lev_ult</span>: ULTIMAの譜面難易度。ULTIMAが存在しないか、WORLD'S ENDの場合は空欄</li>
+    <li><span class="olc">we_kanji</span>: WORLD'S ENDの譜面属性。漢字1文字もしくは『！』『？』が入る。通常譜面の場合は空欄</li>
+    <li><span class="olc">we_star</span>: WORLD'S ENDの譜面難易度。数字「1」「3」「5」「7」「9」が文字列として入り、それぞれ☆～☆☆☆☆☆に対応する。通常譜面の場合は空欄</li>
+    <li><span class="olc">image</span>: ジャケット画像のファイル名。URL<span class="olc">https://new.chunithm-net.com/chuni-mobile/html/mobile/img/</span>に付け足すと画像を取得できる</li>
+</ul>
+
+<a name="chunihtm_international"></a>
+<h2>CHUNITHM海外版</h2>
+<a name="chuni_int_musiclist"></a>
+<h3>楽曲リスト</h3>
+▼エンドポイント
+<pre class="prettyprint"><code>
+https://chunithm.sega.com/assets/data/common.json
+‍
+</code></pre>
+以前まではmaimaiでらっくすと同じく、大型アップデートでしか更新されなさそうな雰囲気を醸し出していたのだが、(おそらくSUPER STAR PLUSから)サイトの見た目が整い、
+「情報は最新ではない可能性があります」(原文: "The Music List on this website may not be up-to-date.")の文言も消えた。<br>
+<br>
+▼レスポンス例
+<pre class="prettyprint"><code>
+[
+    {
+        "id": "7265",
+        "release": "220303",
+        "key": "",
+        "title": "[CRYSTAL_ACCESS]",
+        "catcode": "ORIGINAL",
+        "category": "original",
+        "new": "〇",
+        "reading": "CRYSTALACCESS",
+        "artist": "Blacklolita",
+        "lev_bas": "4",
+        "lev_adv": "6",
+        "lev_exp": "10+",
+        "lev_mas": "14+",
+        "copyright1": "",
+        "image": "7dd150d6.jpg"
+    },
+    {
+        "id": "8217",
+        "release": "220303",
+        "key": "",
+        "title": "幾四音-Ixion-",
+        "catcode": "WORLD'S END",
+        "category": "we",
+        "new": "",
+        "reading": "イクシオンIXION",
+        "artist": "M.S.S Project",
+        "lev_we": "☆",
+        "we_tex": "止",
+        "copyright1": "",
+        "image": "535f28ae.jpg"
+    },
+    {
+        "id": "4001",
+        "release": "220303",
+        "key": "",
+        "title": "FLOWER",
+        "catcode": "ULTIMA",
+        "category": "ultima",
+        "new": "〇",
+        "reading": "FLOWER",
+        "artist": "DJ YOSHITAKA",
+        "lev_ul": "14",
+        "copyright1": "©Konami Amusement",
+        "image": "c5adb583.jpg"
+    }
+]
+‍
+</code></pre>
+実際は1つのリストの中にすべての楽曲が入っている。<br>
+ここでは通常の楽曲とULTIMAの楽曲、WORLD'S END楽曲1つずつを例として挙げた。<br>
+同一楽曲であっても通常譜面WORLD'S END譜面で1つずつ(WORLD'S END譜面が複数存在する場合はその数だけ)オブジェクトが存在する。<br>
+日本版と同様CHUNITHM NEWにアップデートされたわけだが、ULTIMAは独立して管理されているようだ。
+
+<a name="maimaidx"></a>
+<h2>maimaiでらっくす</h2>
+<a name="maimaidx_musiclist"></a>
+<h3>楽曲リスト</h3>
+▼エンドポイント
+<pre class="prettyprint"><code>
+https://maimai.sega.jp/data/maimai_songs.json
+‍
+</code></pre>
+以前まで同じJSONファイルにあった著作権表記は、<span class="olc">https://maimai.sega.jp/data/RightsInfoText.json</span>にまとめられている。<br>
+<br>
+▼レスポンス例
+<pre class="prettyprint"><code>
+[
+    {
+        "artist": "Team Grimoire vs Laur",
+        "catcode": "ゲーム＆バラエティ",
+        "dx_lev_bas": "5",
+        "dx_lev_adv": "8",
+        "dx_lev_exp": "12",
+        "dx_lev_mas": "14",
+        "image_url": "6d9c69398720e097.png",
+        "sort": "477",
+        "title": "Grievous Lady",
+        "title_kana": "GRIEVOUSLADY",
+        "version": "21008"
+    },
+    {
+        "artist": "ナユタン星人",
+        "catcode": "niconico＆ボーカロイド",
+        "dx_lev_bas": "4",
+        "dx_lev_adv": "7",
+        "dx_lev_exp": "9",
+        "dx_lev_mas": "12+",
+        "image_url": "dfd85cc1f0611a87.png",
+        "lev_bas": "5",
+        "lev_adv": "7",
+        "lev_exp": "10",
+        "lev_mas": "12+",
+        "sort": "153",
+        "title": "ダンスロボットダンス",
+        "title_kana": "タンスロホツトタンス",
+        "version": "19007"
+    },
+    {
+        "artist": "TAKU1175 ft.駄々子",
+        "catcode": "maimai",
+        "date": "NEW",
+        "dx_lev_bas": "4",
+        "dx_lev_adv": "7+",
+        "dx_lev_exp": "10+",
+        "dx_lev_mas": "12+",
+        "image_url": "c110c819a6c43a54.png",
+        "key": "○",
+        "release": "210528",
+        "sort": "614",
+        "title": "星めぐり、果ての君へ。",
+        "title_kana": "ホシメクリハテノキミヘ",
+        "version": "21506"
+    }
+]
+‍
+</code></pre>
+実際は1つのリストの中にすべての楽曲が入っている。<br>
+譜面レベル部分以外のkeyが辞書順にソートされている。<br>
+<br>
+▼各key/valueの説明
+<ul>
+    <li><span class="olc">artist</span>: 楽曲アーティスト</li>
+    <li><span class="olc">catcode</span>: カテゴリ名</li>
+    <li><span class="olc">date</span>: 新曲か否か。新曲なら<span class="olc">NEW</span>というvalueが入る。そうでなければ存在しない</li>
+    <li><span class="olc">dx_lev_bas</span>～<span class="olc">dx_lev_remas</span>: それぞれBASIC～Re:MASTERのでらっくす譜面難易度。Re:Masterに関しては存在しない場合もあるほか、でらっくす譜面がなければ存在しない</li>
+    <li><span class="olc">id</span>: 不明なID。複数楽曲に同じIDが割り振られている。追加日が同じ楽曲は同じIDになる？</li>
+    <li><span class="olc">image_url</span>: ジャケット画像のファイル名。URL<span class="olc">https://maimaidx.jp/maimai-mobile/img/Music/</span>に付け足すと画像を取得できる。以前はURLが違った</li>
+    <li><span class="olc">key</span>: 不明(解禁が必要か否か？)。存在すれば<span class="olc">○</span>というvalueが入る。もしくは存在しない</li>
+    <li><span class="olc">release</span>: 楽曲リリース日(YYMMDD)。JSONのURL変更に際して2021年3月18日以前の情報が消えているので存在しない場合もある</li>
+    <li><span class="olc">lev_bas</span>～<span class="olc">lev_remas</span>: それぞれBASIC～Re:MASTERのスタンダード譜面難易度。Re:Masterに関しては存在しない場合もあるほか、スタンダード譜面がなければ存在しない</li>
+    <li><span class="olc">sort</span>: 不明。おそらく楽曲ID</li>
+    <li><span class="olc">title</span>: 楽曲タイトル</li>
+    <li><span class="olc">title_kana</span>: 不明。CHUNITHMにあった<span class="olc">reading</span>と同じ役割とみられる</li>
+    <li><span class="olc">version</span>: 不明。おそらく曲が入ったバージョン(大型アップデートで変わるものではなく、曲の更新があるごとに変わるもの)を示しているが、どれがどれと紐付いているのかはわからない</li>
+</ul>
+<br>
+
+<a name="ongeki"></a>
+<h2>オンゲキ</h2>
+
+<a name="ongeki_musiclist"></a>
+<h3>楽曲リスト</h3>
+▼エンドポイント
+<pre class="prettyprint"><code>
+https://ongeki.sega.jp/assets/json/music/music.json
+‍
+</code></pre>
+オンゲキ RED PLUSでファイル名が現在のものになった。
+<br>
+▼レスポンス例
+<pre class="prettyprint"><code>
+[
+    {
+        "new": "",
+        "date": "20200930",
+        "title": "STARTLINER -三角 葵ソロver.-",
+        "title_sort": "STARTLINERミスミアオイソロVER",
+        "artist": "曲：kz(livetune)／歌：三角 葵(CV：春野 杏)",
+        "id": "7020",
+        "chap_id": "01001",
+        "chapter": "目指せ！　いっぱいのエール！",
+        "character": "三角 葵",
+        "chara_id": "1030",
+        "category": "オンゲキ",
+        "category_id": "06",
+        "lunatic": "",
+        "bonus": "1",
+        "copyright1": "-",
+        "lev_bas": "2",
+        "lev_adv": "5",
+        "lev_exc": "8+",
+        "lev_mas": "11",
+        "lev_lnt": "",
+        "image_url": "01d93ad79c83.jpg"
+    },
+    {
+        "new": "",
+        "date": "20200930",
+        "title": "東亞 -O.N.G.E.K.I. MIX-",
+        "title_sort": "トウアONGEKIMIX",
+        "artist": "並木 学「怒首領蜂大往生」",
+        "id": "2060",
+        "chap_id": "04001",
+        "chapter": "災厄、来たる",
+        "character": "あおニャン",
+        "chara_id": "9040",
+        "category": "VARIETY",
+        "category_id": "04",
+        "lunatic": "1",
+        "bonus": "",
+        "copyright1": "-",
+        "lev_bas": "",
+        "lev_adv": "",
+        "lev_exc": "",
+        "lev_mas": "",
+        "lev_lnt": "13+",
+        "image_url": "eff9c7f18fd4.jpg"
+    }
+]
+‍
+</code></pre>
+実際は1つのリストの中にすべての楽曲が入っている。<br>
+ここでは通常楽曲とLUNATIC楽曲1つずつを例として挙げた。<br>
+同一楽曲であっても通常譜面とLUNATIC譜面で1つずつオブジェクトが存在する。<br>
+<br>
+▼各key/valueの説明
+<ul>
+    <li><span class="olc">new</span>: 新曲か否か。新曲なら<span class="olc">NEW</span>がvalueに入る</li>
+    <li><span class="olc">date</span>: 楽曲リリース日(YYYYMMDD)</li>
+    <li><span class="olc">title</span>: 楽曲タイトル</li>
+    <li><span class="olc">title_sort</span>: 名前からしてソートのための曲名？CHUNITHMの<span class="olc">reading</span>、maimaiの<span class="olc">title_kana</span>と同じと思われる</li>
+    <li><span class="olc">artist</span>: 楽曲アーティスト</li>
+    <li><span class="olc">id</span>: 楽曲ID</li>
+    <li><span class="olc">chap_id</span>: チャプターID</li>
+    <li><span class="olc">chapter</span>: チャプター名</li>
+    <li><span class="olc">character</span>: 対戦相手キャラ名</li>
+    <li><span class="olc">chara_id</span>: 対戦相手キャラID</li>
+    <li><span class="olc">category</span>: カテゴリ名</li>
+    <li><span class="olc">category_id</span>: カテゴリID</li>
+    <li><span class="olc">lunatic</span>: LUNATICか否か。LUNATICなら<span class="olc">1</span>、それ以外なら空白となる。</li>
+    <li><span class="olc">bonus</span>: ボーナストラックか否か。ボーナストラックなら<span class="olc">1</span>、それ以外なら空白となる。</li>
+    <li><span class="olc">copyright1</span>: 著作権表示。ない場合は<span class="olc">-</span>が入る</li>
+    <li><span class="olc">lev_bas</span>～<span class="olc">lev_mas</span>: それぞれBASIC～MASTERの譜面難易度。LUNATIC譜面の場合は空白となる。<b>EXPが『EXC』となっていることに注意</b></li>
+    <li><span class="olc">lev_lnt</span>: LUNATICの譜面難易度。通常譜面の場合は空白となる</li>
+    <li><span class="olc">image_url</span>: ジャケット画像のファイル名。URL<span class="olc">https://ongeki-net.com/ongeki-mobile/img/music/</span>に付け足すと画像を取得できる</li>
+</ul>
+<br>
+ちなみに<span class="olc">https://ongeki.sega.jp/assets/json/music/categories.json</span>というJSONもあるが、これは中身を見る限り完全にサイト上での楽曲検索用っぽいのであんまり我々が使えるものではなさそう。
+
+<a name="international"></a>
+<h2>maimaiでらっくす海外版について</h2>
+maimaiでらっくすにも、<a href="https://maimai.sega.com" target="_blank">日本版と似た仕様で楽曲一覧のJSONが用意されている。</a><br>
+しかし、サイトは(おそらく)大型アップデートのときにしか更新されず、楽曲情報も最新ではない。<br>
+ざっと探した限りではちゃんと更新されているWikiも見当たらず、公式Facebookを追うしかないと思われるが、各投稿をいい感じに整えてJSONとかにするのは多分至難の業である。<br>
+(海外版のmaimaiでらっくす-NETのアカウントを入手してSeleniumとかでスクレイピングできれば有料化しないかぎりは一番正確な情報を入手できそう)
+
+<h2>まとめ</h2>
+ゲーム自体の難易度まわりの仕様は似てるのにゲームによって仕様がバラバラすぎるだろと思ってたけどだんだん統合されてきてるような雰囲気を感じなくもない</article>
+            </section>
+        </section>
+        <section id="subcol">
+            <section class="box">
+                <div class="subcolbtn">
+                    <a href="https://qmainconts.dev/"></a>
+                    >> キューマンのコンテンツ置き場
+                </div>
+                <section class="widgetgroup">
+                    <div class="widgetindex">Profile</div>
+                    <p>オタクコンテンツで命を繋いでいる</p>
+                </section>
+                <section class="widgetgroup">
+                    <div class="widgetindex">Accounts</div>
+                    <ul>
+                        <li>Twitter: <a href="https://twitter.com/QmanEnobikto" target="_blank">@QmanEnobikto</a>
+                        </li>
+                        <li>GitHub: <a href="https://github.com/Qman11010101" target="_blank">Qman110101</a></li>
+                        <li>カクヨム: <a href="https://kakuyomu.jp/users/QmanEnobikto" target="_blank">QmanEnobikto</a>
+                        </li>
+                        <li>Qiita: <a href="https://qiita.com/KjumanEnobikto" target="_blank">@KjumanEnobikto</a>
+                        </li>
+                        <li>Zenn: <a href="https://zenn.dev/kjumanenobikto" target="_blank">@kjumanenobikto</a></li>
+                    </ul>
+                </section>
+                <section class="widgetgroup" id="recent">
+                    <div class="widgetindex">Recent Articles</div>
+                    <div id="recent-articles"></div>
+                </section>
+                <section class="widgetgroup">
+                    <div class="widgetindex">Category</div>
+                    <div id="categorydisplay">
+                    </div>
+                </section>
+            </section>
+        </section>
+    </main>
+    <footer>
+        <p>当ホームページに記載されている会社名・製品名・システム名などは、各社の登録商標、もしくは商標です。</p>
+        <p>© 2022 Kjuman Enobikto All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
+</body>
+
+</html>

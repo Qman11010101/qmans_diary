@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<head>
+    <head prefix="og:http://ogp.me/ns#">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{.Title}} | Qman's Diary</title>
@@ -19,6 +19,11 @@
     <script>hljs.highlightAll();</script>
     <script src="/assets/js/latest_articles.js"></script>
     <script src="/assets/js/categories.js"></script>
+    <meta property="og:title" content="{{.Title}} | Qman's Diary">
+    <meta property="og:description" content="{{$bodyfirst := index .Body 0}}{{trimSample $bodyfirst.Body}}">
+    <meta property="og:url" content="https://blog.qmainconts.dev/articles/{{.ID}}.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Qman's Diary">
 </head>
 
 <body>

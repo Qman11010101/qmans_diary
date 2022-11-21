@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-    <head prefix="og:http://ogp.me/ns#">
+<head prefix="og:http://ogp.me/ns#">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{.Title}} | Qman's Diary</title>
@@ -19,6 +19,7 @@
     <script>hljs.highlightAll();</script>
     <script src="/assets/js/latest_articles.js"></script>
     <script src="/assets/js/categories.js"></script>
+    <script src="/assets/js/tweet.js"></script>
     <meta property="og:title" content="{{.Title}} | Qman's Diary">
     <meta property="og:description" content="{{$bodyfirst := index .Body 0}}{{trimSample $bodyfirst.Body}}">
     <meta property="og:url" content="https://blog.qmainconts.dev/articles/{{.ID}}.html">
@@ -37,10 +38,12 @@
                 <div class="date">{{formatTime .PublishedAt}}</div>
                 <h1 id="articletitle">{{.Title}}</h1>
                 <div class="tags">
-                    <div class="tag"><img src="/assets/tag.svg" alt="タグ" width="18" height="18"></div>{{range .Category}}
+                    <div class="tag"><img src="/assets/tag.svg" alt="タグ" width="18" height="18"></div>{{range
+                    .Category}}
                     <div class="tag"><a href="category/{{.ID}}"></a>{{.Name}}</div>{{end}}
                 </div>
                 <article id="atcbody">{{range $bodies := .Body}}{{$bodies.Body}}{{end}}</article>
+                <img class="tweetbutton" src="/assets/Twitter.svg" width="32" alt="ツイートする" onclick="tweet();"></img>
             </section>
         </section>
         <section id="subcol">

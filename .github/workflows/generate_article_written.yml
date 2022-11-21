@@ -1,6 +1,6 @@
-name: Generate all articles
+name: Generate all articles when article is renewed
 on:
-  - push
+  - repository_dispatch
 
 jobs:
   generate:

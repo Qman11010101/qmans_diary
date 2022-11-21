@@ -1,0 +1,276 @@
+body {
+    background-color: #418d45;
+    font-family: "Noto Sans JP", sans-serif;
+}
+
+/* ヘッダ */
+
+header {
+    width: 100%;
+    padding: 20px;
+    background-color: #333333;
+    color: #eeeeee;
+}
+
+#blogtitle {
+    width: fit-content;
+    margin: 0 auto;
+    font-size: 2.3em;
+    font-family: "Play", sans-serif;
+}
+
+#blogtitle a {
+    color: #eeeeee;
+    text-decoration: none;
+}
+
+header p {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 500px) {
+    #blogtitle {
+        font-size: 1.8em;
+    }
+}
+
+/* 本体 */
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* 共通利用ボックス */
+
+.box {
+    background-color: #dddddd;
+    color: #333333;
+    padding: 20px;
+    border-radius: 20px;
+    line-height: 1.5;
+}
+
+.box:not(:first-child) {
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 1100px) {
+    .box {
+        box-sizing: border-box;
+    }
+}
+
+/* メイン部分 */
+
+#maincol {
+    margin: 20px 10px;
+    width: min(max(calc(100vw - 1000px), 700px), 1000px);
+}
+
+@media screen and (max-width: 1100px) {
+    #maincol {
+        margin: 10px 10px 5px;
+        width: min(calc(100% - 20px), 700px);
+    }
+}
+
+/* ウィジェット部分 */
+
+#subcol {
+    margin: 20px 10px;
+    width: 360px;
+}
+
+@media screen and (max-width: 1100px) {
+    #subcol {
+        margin: 5px 10px 10px;
+        width: min(100%, 700px);
+    }
+}
+
+.subcolbtn {
+    border: 3px solid #333;
+    border-radius: 10px;
+    height: 50px;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    transition-duration: .2s;
+}
+
+.subcolbtn:hover {
+    background-color: #333;
+    color: #eeeeee;
+    transition-duration: .2s;
+}
+
+.subcolbtn a {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.widgetindex {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+#categorydisplay {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* タグ周り */
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tag {
+    padding: 5px;
+    margin: 3px;
+    background-color: #bbbbbb;
+    color: #555555;
+    border-radius: 8px;
+    width: fit-content;
+    text-align: center;
+    position: relative;
+    transition-duration: .2s;
+}
+
+.tag:hover {
+    background-color: #555555;
+    color: #bbbbbb;
+    transition-duration: .2s;
+}
+
+.tag a {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.tags .tag:first-child {
+    background-color: #dddddd;
+}
+
+.tagcnt {
+    font-size: 0.8em;
+}
+
+/* date */
+
+.date {
+    color: #555555;
+}
+
+/* 最近の記事 */
+
+.recent {
+    margin: 5px 0;
+}
+
+.recent-date {
+    color: #555555;
+}
+
+.recent-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 4px 0;
+}
+
+.recent-title a {
+    text-decoration: none;
+    color: #333333;
+    cursor: pointer;
+    transition-duration: .2s;
+}
+
+.recent-title a:hover {
+    color: #0088cc;
+    transition-duration: .2s;
+}
+
+/* フッター */
+
+footer {
+    width: 100%;
+    padding: 20px;
+    background-color: #333333;
+    color: #eeeeee;
+}
+
+footer p {
+    line-height: 1.5;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+/* その他 */
+
+pre {
+    overflow: auto;
+    border-radius: 10px;
+    margin: 8px 0;
+}
+
+code {
+    font-family: Consolas, 'DejaVu Sans Mono', monospace;
+    font-size: 90%;
+}
+
+.inlinecode {
+    font-family: Consolas, 'DejaVu Sans Mono', monospace;
+    color: #eeeeee;
+    background-color: #333333;
+    font-size: 90%;
+    margin: 0px 5px;
+    padding: 1px 3px;
+    border-radius: 2px;
+}
+
+ul, ol {
+    margin-left: 20px;
+    list-style-type: disc;
+}
+
+ul ul, ul ol, ol ul, ol ol {
+    list-style-type: circle;
+}
+
+h1, h2, h3 {
+    font-weight: bold;
+}
+
+a:link {
+    text-decoration: none;
+    color: #0088cc;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #0088cc;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #7619c2;
+}
+
+a:active {
+    text-decoration: underline;
+    color: #333194;
+}

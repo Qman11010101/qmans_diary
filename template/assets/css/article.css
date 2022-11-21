@@ -1,0 +1,34 @@
+/* タイトル周り */
+
+#maincol h1 {
+    font-size: 2em;
+    line-height: 1;
+    margin: 10px 0;
+}
+
+.tags {
+    margin: 5px 0;
+}
+
+/* 記事本文 */
+
+#maincol article {
+    line-height: 1.5;
+    margin: 15px 0;
+}
+
+#maincol h2 {
+    font-size: 1.5em;
+    margin: 40px 0 10px;
+}
+
+#maincol h3 {
+    font-size: 1.2em;
+    margin: 15px 0 5px;
+}
+
+#maincol article img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}

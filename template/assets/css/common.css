@@ -245,10 +245,22 @@ code {
 
 ul, ol {
     margin-left: 20px;
+}
+
+ol {
+    list-style-type: decimal;
+}
+
+ul {
     list-style-type: disc;
 }
 
-ul ul, ul ol, ol ul, ol ol {
+ul ol, ol ol {
+    list-style-type: decimal;
+}
+
+
+ul ul, ol ul {
     list-style-type: circle;
 }
 

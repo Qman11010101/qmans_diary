@@ -275,3 +275,9 @@ a:active {
     text-decoration: underline;
     color: #333194;
 }
+
+blockquote {
+    padding: 10px;
+    border-left: 4px solid #bbb;
+    margin: 10px;
+}

@@ -2,7 +2,6 @@
 
 #maincol h1 {
     font-size: 2em;
-    line-height: 1;
     margin: 10px 0;
 }
 
@@ -19,7 +18,6 @@
 /* 記事本文 */
 
 #maincol article {
-    line-height: 1.5;
     margin: 15px 0;
 }
 

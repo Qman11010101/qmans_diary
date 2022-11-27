@@ -19,7 +19,7 @@ jobs:
           echo ${{github.event.client_payload.type}}
           echo ${{github.event.client_payload.id}}
       - name: Install microblogen
-        run: GOBIN=$(pwd) GOPRIVATE="github.com/Qman11010101/microblogen" go install github.com/Qman11010101/microblogen@latest
+        run: GOBIN=$(pwd) GOPRIVATE="github.com/Qman11010101/microblogen" go install github.com/Qman11010101/microblogen@v0.2
       - run: ls -la
       - name: run microblogen
         run: $(pwd)/microblogen

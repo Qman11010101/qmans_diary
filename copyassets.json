@@ -2,6 +2,7 @@
     "assets": [
         "favicon.ico",
         "404.html",
-        "assets"
+        "assets",
+        "preview.html"
     ]
 }

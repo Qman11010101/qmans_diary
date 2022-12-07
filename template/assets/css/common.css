@@ -137,11 +137,10 @@ main {
 }
 
 .tag {
-    padding: 5px;
+    padding: 2px 5px;
     margin: 3px;
     background-color: #bbbbbb;
     color: #555555;
-    border-radius: 8px;
     width: fit-content;
     text-align: center;
     position: relative;
@@ -169,6 +168,10 @@ main {
 
 .tagcnt {
     font-size: 0.8em;
+}
+
+.tag img {
+    vertical-align: middle;
 }
 
 /* date */

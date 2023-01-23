@@ -20,10 +20,7 @@
     <script src="/assets/js/latest_articles.js"></script>
     <script src="/assets/js/categories.js"></script>
     <meta property="og:title" content="【備忘録】SEGA音ゲー3機種の公式サイトの裏で流れてる楽曲リストJSONの解説 - Qman's Diary">
-    <meta property="og:description" content="【注】本記事は旧ブログからの移植記事です。
-
-SEGA音ゲー3機種の公式サイトの裏には、楽曲リスト等のためのJSONが流れています。
-エンドポイントさえ知っていれば、それらを取得して活用することも可能…">
+    <meta property="og:description" content="【注】本記事は旧ブログからの移植記事です。SEGA音ゲー3機種の公式サイトの裏には、楽曲リスト等のためのJSONが流れています。エンドポイントさえ知っていれば、それらを取得して活用することも可能です。…">
     <meta property="og:url" content="https://blog.qmainconts.dev/articles/hj6ydkdm1j.html">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="Qman's Diary">
@@ -47,372 +44,163 @@ SEGA音ゲー3機種の公式サイトの裏には、楽曲リスト等のため
                     <div class="tag"><a href="category/chunithm"></a>CHUNITHM</div>
                     <div class="tag"><a href="category/maimai"></a>maimai</div>
                 </div>
-                <article id="atcbody"><b>【注】本記事は旧ブログからの移植記事です。</b><br>
+                <article id="atcbody"><p><strong>【注】本記事は旧ブログからの移植記事です。</strong></p><p><br></p><p>SEGA音ゲー3機種の公式サイトの裏には、楽曲リスト等のためのJSONが流れています。</p><p>エンドポイントさえ知っていれば、それらを取得して活用することも可能です。</p><p>ただ、正規で公開されているものではありませんし、いつ仕様が変更されたり使えなくなったりしても一切文句は言えません。</p><p>この情報を利用する際は、何があっても自己責任でお願いします。</p><h2 id="h252f0b88c1">CHUNITHM</h2><h3 id="h40fe001faa">楽曲リスト</h3><p><strong>▶エンドポイント: </strong><code>https://chunithm.sega.jp/storage/json/music.json</code></p><p>以前は著作権情報もこのJSONファイル内にあったが、現在は<code>https://chunithm.sega.jp/storage/json/rightsInfo.json</code>にまとめて全て入っている。</p><p><br></p><p><strong>▼レスポンス例</strong></p><pre><code>[
+&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id": "2065",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "catname": "ORIGINAL",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "newflag": "0",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "title": "創世のコンツェルティーナ",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "reading": "ソウセイノコンツエルテイウナ",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "artist": "大嶋啓之",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "lev_bas": "3",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "lev_adv": "7",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "lev_exp": "10+",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "lev_mas": "13",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "lev_ult": "",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "we_kanji": "",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "we_star": "",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "image": "ec89f55fcf6e1c66.jpg"
+&nbsp;&nbsp;&nbsp; },
+&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id": "107",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "catname": "ORIGINAL",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "newflag": "0",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "title": "We Gonna Journey",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "reading": "WEGONNAJOURNEY",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "artist": "Queen P.A.L.",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "lev_bas": "3",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "lev_adv": "6",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "lev_exp": "11",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "lev_mas": "14",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "lev_ult": "14+",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "we_kanji": "",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "we_star": "",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "image": "b43fef626f5b88cd.jpg"
+&nbsp;&nbsp;&nbsp; },
+&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id": "8081",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "catname": "VARIETY",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "newflag": "0",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "title": "檄!帝国華撃団",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "reading": "ケキテイコクカケキタン",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "artist": "真宮寺さくら（横山智佐）＆帝国歌劇団「サクラ大戦」",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "lev_bas": "",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "lev_adv": "",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "lev_exp": "",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "lev_mas": "",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "lev_ult": "",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "we_kanji": "歌",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "we_star": "3",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "image": "b5570c700e7bbf75.jpg"
+&nbsp;&nbsp;&nbsp; }
+]</code></pre><p>実際は1つのリストの中にすべての楽曲が入っている。ここでは通常の楽曲とULTIMAの存在する楽曲、WORLD'S END楽曲1つずつを例として挙げた。</p><p>同一楽曲であっても、通常譜面とWORLD'S END譜面は別々でオブジェクトが存在する。さらに、同じ楽曲のWORLD'S END譜面が複数ある場合、その譜面の数だけオブジェクトがある。</p><p><br></p><p>ちなみに、<strong>クラス認定(旧コースモード)限定楽曲/譜面はここに含まれない。</strong>つまりCHUNITHM SUN時点ではクラス認定専用になっている「Trackless wilderness」「folern」「Trrricksters!!」の狂譜面(いずれもCLASS ∞コース「aWEsome!!!!」に登場)、Randomの分譜面6つ(CLASS EXTRAコース「RANDOM」に登場)は上記のJSONファイルには記載されていない。そもそも公式サイト上にクラス認定に関する項目がないので、情報を取りようがない。</p><p><br></p><p><strong>▼各key/valueの説明</strong></p><ul><li><code>id</code>: 楽曲ID</li><li><code>catname</code>: カテゴリ名</li><li><code>newflag</code>: 新曲か否かのフラグ。新曲なら<code>1</code>が、そうでなければ<code>0</code>が文字列として入っている</li><li><code>title</code>: 楽曲タイトル</li><li><code>reading</code>: 検索用の曲名。元のタイトルを一定のルールに従って変換したもので、濁点や小文字のないカタカナとアルファベット大文字のみで構成される</li><li><code>artist</code>: 楽曲アーティスト</li><li><code>lev_bas</code> ～ <code>lev_mas</code>: それぞれBASIC～MASTERの譜面レベル。WORLD'S END譜面の場合は空欄になる</li><li><code>lev_ult</code>: ULTIMAの譜面レベル。ULTIMAが存在しないか、WORLD'S END譜面の場合は空欄になる</li><li><code>we_kanji</code>: WORLD'S ENDの譜面属性。漢字1文字もしくは『！』『？』が入る。通常譜面の場合は空欄になる</li><li><code>we_star</code>: WORLD'S ENDの譜面難易度。数字「1」「3」「5」「7」「9」が文字列として入り、それぞれ☆～☆☆☆☆☆に対応する。通常譜面の場合は空欄になる</li><li><code>image</code>: ジャケット画像のファイル名。URL<code>https://new.chunithm-net.com/chuni-mobile/html/mobile/img/</code>に付け足すと画像を取得できる。</li></ul><h2 id="hecbf548053">CHUNITHM海外版</h2><h3 id="h40fe001faa">楽曲リスト</h3><p><strong>▶エンドポイント: </strong><code>https://chunithm.sega.com/assets/data/music.json</code></p><p>CHUNITHM NEWまでは日本版の古いJSONフォーマットと同一だったが、おそらくNEW PLUSになってからは現行日本版と完全に同一のフォーマットになった。</p><p>その他の差異は以下の通り。</p><ul><li>著作権表示のJSONファイルは<code>https://chunithm.sega.com/assets/data/rightsInfo.json</code>にある。</li><li>ジャケット画像のファイル名の前に付け足すURLは<code>https://chunithm-net-eng.com/mobile/img/</code>である。</li></ul><p><br></p><p>なお、中国大陸版については、そもそも公式サイトが存在しないものと思われる。</p><blockquote>
+<details>
+<summary>WORLD'S ENDの譜面難易度に関する余談(クリック/タップして展開)</summary>
+<p>上記ファイル内において、WORLD'S ENDの難易度は5段階にもかかわらず何故か飛び飛びの奇数が設定されている。この理由については推測だが、<b>WORLD'S END実装前はさらに細かい難易度分けをしようとしていた</b>のではないかと推察できる。</p>
+<p>CHUNITHM-NET上でWORLD'S ENDの楽曲が表示される画面では、譜面属性アイコンの横に難易度を表す星の画像があるが、この画像のURLにも上記と同様の数字が存在する。</p>
+<p>例えば、「5」の画像は<code>https://new.chunithm-net.com/chuni-mobile/html/mobile/images/icon_we_star5.png</code>である。</p>
 <br>
-SEGA音ゲー3機種の公式サイトの裏には、楽曲リスト等のためのJSONが流れています。<br>
-エンドポイントさえ知っていれば、それらを取得して活用することも可能です。<br>
-ただ、正規で公開されているものではありませんし、いつ仕様が変更されたり使えなくなったりしても一切文句は言えません。<br>
-この情報を利用する際は、何があっても自己責任でお願いします。
-
-<h2>目次</h2>
-<ul>
-    <li><a href="#chunithm">CHUNITHM</a></li>
-    <ul>
-        <li><a href="#chunithm_musiclist">楽曲リスト</a></li>
-    </ul>
-    <li><a href="#chunithm_international">CHUNITHM海外版</a></li>
-    <ul>
-        <li><a href="#chuni_int_musiclist">楽曲リスト</a></li>
-    </ul>
-    <li><a href="#maimaidx">maimaiでらっくす</a></li>
-    <ul>
-        <li><a href="#maimaidx_musiclist">楽曲リスト</a></li>
-    </ul>
-    <li><a href="#ongeki">オンゲキ</a></li>
-    <ul>
-        <li><a href="#ongeki_musiclist">楽曲リスト</a></li>
-    </ul>
-    <li><a href="#international">maimaiでらっくす海外版について</a></li>
-</ul>
-
-<a name="chunithm"></a>
-<h2>CHUNITHM</h2>
-<a name="chunithm_musiclist"></a>
-<h3>楽曲リスト</h3>
-▼エンドポイント
-<pre class="prettyprint"><code class="language-plaintext">
-https://chunithm.sega.jp/storage/json/music.json
-‍
-</code></pre>
-著作権表示はJSONの中からは消えた。<a href="https://chunithm.sega.jp/music/new/" target="_blank">楽曲リスト</a>の一番下に全ての著作権表示がまとめて書いてある。<br>
-<br>
-▼レスポンス例
-<pre class="prettyprint"><code>
-[
-    {
-        "id": "2065",
-        "catname": "ORIGINAL",
-        "newflag": "0",
-        "title": "創世のコンツェルティーナ",
-        "reading": "ソウセイノコンツエルテイウナ",
-        "artist": "大嶋啓之",
-        "lev_bas": "3",
-        "lev_adv": "7",
-        "lev_exp": "10+",
-        "lev_mas": "13",
-        "lev_ult": "",
-        "we_kanji": "",
-        "we_star": "",
-        "image": "ec89f55fcf6e1c66.jpg"
-    },
-    {
-        "id": "107",
-        "catname": "ORIGINAL",
-        "newflag": "0",
-        "title": "We Gonna Journey",
-        "reading": "WEGONNAJOURNEY",
-        "artist": "Queen P.A.L.",
-        "lev_bas": "3",
-        "lev_adv": "6",
-        "lev_exp": "11",
-        "lev_mas": "14",
-        "lev_ult": "14+",
-        "we_kanji": "",
-        "we_star": "",
-        "image": "b43fef626f5b88cd.jpg"
-    },
-    {
-        "id": "8081",
-        "catname": "VARIETY",
-        "newflag": "0",
-        "title": "檄!帝国華撃団",
-        "reading": "ケキテイコクカケキタン",
-        "artist": "真宮寺さくら（横山智佐）＆帝国歌劇団「サクラ大戦」",
-        "lev_bas": "",
-        "lev_adv": "",
-        "lev_exp": "",
-        "lev_mas": "",
-        "lev_ult": "",
-        "we_kanji": "歌",
-        "we_star": "3",
-        "image": "b5570c700e7bbf75.jpg"
-    },
-]
-‍
-</code></pre>
-実際は1つのリストの中にすべての楽曲が入っている。<br>
-ここでは通常の楽曲とULTIMAの存在する楽曲、WORLD'S END楽曲1つずつを例として挙げた。<br>
-同一楽曲であっても通常譜面WORLD'S END譜面で1つずつ(WORLD'S END譜面が複数存在する場合はその数だけ)オブジェクトが存在する。<br>
-<br>
-▼各key/valueの説明
-<ul>
-    <li><code>id</code>: 楽曲ID</li>
-    <li><code>catname</code>: カテゴリ名</li>
-    <li><code>newflag</code>: 新曲か否か。新曲なら<code>1</code>が、そうでなければ<code>0</code>が文字列として入っている</li>
-    <li><code>title</code>: 楽曲タイトル</li>
-    <li><code>reading</code>: 不明(ソートのための曲名？)</li>
-    <li><code>artist</code>: 楽曲アーティスト</li>
-    <li><code>lev_bas</code>～<code>lev_mas</code>: それぞれBASIC～MASTERの譜面難易度。WORLD'S END譜面の場合は空欄</li>
-    <li><code>lev_ult</code>: ULTIMAの譜面難易度。ULTIMAが存在しないか、WORLD'S ENDの場合は空欄</li>
-    <li><code>we_kanji</code>: WORLD'S ENDの譜面属性。漢字1文字もしくは『！』『？』が入る。通常譜面の場合は空欄</li>
-    <li><code>we_star</code>: WORLD'S ENDの譜面難易度。数字「1」「3」「5」「7」「9」が文字列として入り、それぞれ☆～☆☆☆☆☆に対応する。通常譜面の場合は空欄</li>
-    <li><code>image</code>: ジャケット画像のファイル名。URL<code>https://new.chunithm-net.com/chuni-mobile/html/mobile/img/</code>に付け足すと画像を取得できる</li>
-</ul>
-
-<a name="chunihtm_international"></a>
-<h2>CHUNITHM海外版</h2>
-<a name="chuni_int_musiclist"></a>
-<h3>楽曲リスト</h3>
-▼エンドポイント
-<pre class="language-plaintext"><code>
-https://chunithm.sega.com/assets/data/common.json
-‍
-</code></pre>
-以前まではmaimaiでらっくすと同じく、大型アップデートでしか更新されなさそうな雰囲気を醸し出していたのだが、(おそらくSUPER STAR PLUSから)サイトの見た目が整い、
-「情報は最新ではない可能性があります」(原文: "The Music List on this website may not be up-to-date.")の文言も消えた。<br>
-<br>
-▼レスポンス例
-<pre class="prettyprint"><code>
-[
-    {
-        "id": "7265",
-        "release": "220303",
-        "key": "",
-        "title": "[CRYSTAL_ACCESS]",
-        "catcode": "ORIGINAL",
-        "category": "original",
-        "new": "〇",
-        "reading": "CRYSTALACCESS",
-        "artist": "Blacklolita",
-        "lev_bas": "4",
-        "lev_adv": "6",
-        "lev_exp": "10+",
-        "lev_mas": "14+",
-        "copyright1": "",
-        "image": "7dd150d6.jpg"
-    },
-    {
-        "id": "8217",
-        "release": "220303",
-        "key": "",
-        "title": "幾四音-Ixion-",
-        "catcode": "WORLD'S END",
-        "category": "we",
-        "new": "",
-        "reading": "イクシオンIXION",
-        "artist": "M.S.S Project",
-        "lev_we": "☆",
-        "we_tex": "止",
-        "copyright1": "",
-        "image": "535f28ae.jpg"
-    },
-    {
-        "id": "4001",
-        "release": "220303",
-        "key": "",
-        "title": "FLOWER",
-        "catcode": "ULTIMA",
-        "category": "ultima",
-        "new": "〇",
-        "reading": "FLOWER",
-        "artist": "DJ YOSHITAKA",
-        "lev_ul": "14",
-        "copyright1": "©Konami Amusement",
-        "image": "c5adb583.jpg"
-    }
-]
-‍
-</code></pre>
-実際は1つのリストの中にすべての楽曲が入っている。<br>
-ここでは通常の楽曲とULTIMAの楽曲、WORLD'S END楽曲1つずつを例として挙げた。<br>
-同一楽曲であっても通常譜面WORLD'S END譜面で1つずつ(WORLD'S END譜面が複数存在する場合はその数だけ)オブジェクトが存在する。<br>
-日本版と同様CHUNITHM NEWにアップデートされたわけだが、ULTIMAは独立して管理されているようだ。
-
-<a name="maimaidx"></a>
-<h2>maimaiでらっくす</h2>
-<a name="maimaidx_musiclist"></a>
-<h3>楽曲リスト</h3>
-▼エンドポイント
-<pre class="language-plaintext"><code>
-https://maimai.sega.jp/data/maimai_songs.json
-‍
-</code></pre>
-以前まで同じJSONファイルにあった著作権表記は、<code>https://maimai.sega.jp/data/RightsInfoText.json</code>にまとめられている。<br>
-<br>
-▼レスポンス例
-<pre class="prettyprint"><code>
-[
-    {
-        "artist": "Team Grimoire vs Laur",
-        "catcode": "ゲーム＆バラエティ",
-        "dx_lev_bas": "5",
-        "dx_lev_adv": "8",
-        "dx_lev_exp": "12",
-        "dx_lev_mas": "14",
-        "image_url": "6d9c69398720e097.png",
-        "sort": "477",
-        "title": "Grievous Lady",
-        "title_kana": "GRIEVOUSLADY",
-        "version": "21008"
-    },
-    {
-        "artist": "ナユタン星人",
-        "catcode": "niconico＆ボーカロイド",
-        "dx_lev_bas": "4",
-        "dx_lev_adv": "7",
-        "dx_lev_exp": "9",
-        "dx_lev_mas": "12+",
-        "image_url": "dfd85cc1f0611a87.png",
-        "lev_bas": "5",
-        "lev_adv": "7",
-        "lev_exp": "10",
-        "lev_mas": "12+",
-        "sort": "153",
-        "title": "ダンスロボットダンス",
-        "title_kana": "タンスロホツトタンス",
-        "version": "19007"
-    },
-    {
-        "artist": "TAKU1175 ft.駄々子",
-        "catcode": "maimai",
-        "date": "NEW",
-        "dx_lev_bas": "4",
-        "dx_lev_adv": "7+",
-        "dx_lev_exp": "10+",
-        "dx_lev_mas": "12+",
-        "image_url": "c110c819a6c43a54.png",
-        "key": "○",
-        "release": "210528",
-        "sort": "614",
-        "title": "星めぐり、果ての君へ。",
-        "title_kana": "ホシメクリハテノキミヘ",
-        "version": "21506"
-    }
-]
-‍
-</code></pre>
-実際は1つのリストの中にすべての楽曲が入っている。<br>
-譜面レベル部分以外のkeyが辞書順にソートされている。<br>
-<br>
-▼各key/valueの説明
-<ul>
-    <li><code>artist</code>: 楽曲アーティスト</li>
-    <li><code>catcode</code>: カテゴリ名</li>
-    <li><code>date</code>: 新曲か否か。新曲なら<code>NEW</code>というvalueが入る。そうでなければ存在しない</li>
-    <li><code>dx_lev_bas</code>～<code>dx_lev_remas</code>: それぞれBASIC～Re:MASTERのでらっくす譜面難易度。Re:Masterに関しては存在しない場合もあるほか、でらっくす譜面がなければ存在しない</li>
-    <li><code>id</code>: 不明なID。複数楽曲に同じIDが割り振られている。追加日が同じ楽曲は同じIDになる？</li>
-    <li><code>image_url</code>: ジャケット画像のファイル名。URL<code>https://maimaidx.jp/maimai-mobile/img/Music/</code>に付け足すと画像を取得できる。以前はURLが違った</li>
-    <li><code>key</code>: 不明(解禁が必要か否か？)。存在すれば<code>○</code>というvalueが入る。もしくは存在しない</li>
-    <li><code>release</code>: 楽曲リリース日(YYMMDD)。JSONのURL変更に際して2021年3月18日以前の情報が消えているので存在しない場合もある</li>
-    <li><code>lev_bas</code>～<code>lev_remas</code>: それぞれBASIC～Re:MASTERのスタンダード譜面難易度。Re:Masterに関しては存在しない場合もあるほか、スタンダード譜面がなければ存在しない</li>
-    <li><code>sort</code>: 不明。おそらく楽曲ID</li>
-    <li><code>title</code>: 楽曲タイトル</li>
-    <li><code>title_kana</code>: 不明。CHUNITHMにあった<code>reading</code>と同じ役割とみられる</li>
-    <li><code>version</code>: 不明。おそらく曲が入ったバージョン(大型アップデートで変わるものではなく、曲の更新があるごとに変わるもの)を示しているが、どれがどれと紐付いているのかはわからない</li>
-</ul>
-<br>
-
-<a name="ongeki"></a>
-<h2>オンゲキ</h2>
-
-<a name="ongeki_musiclist"></a>
-<h3>楽曲リスト</h3>
-▼エンドポイント
-<pre class="language-plaintext"><code>
-https://ongeki.sega.jp/assets/json/music/music.json
-‍
-</code></pre>
-オンゲキ RED PLUSでファイル名が現在のものになった。
-<br>
-▼レスポンス例
-<pre class="prettyprint"><code>
-[
-    {
-        "new": "",
-        "date": "20200930",
-        "title": "STARTLINER -三角 葵ソロver.-",
-        "title_sort": "STARTLINERミスミアオイソロVER",
-        "artist": "曲：kz(livetune)／歌：三角 葵(CV：春野 杏)",
-        "id": "7020",
-        "chap_id": "01001",
-        "chapter": "目指せ！　いっぱいのエール！",
-        "character": "三角 葵",
-        "chara_id": "1030",
-        "category": "オンゲキ",
-        "category_id": "06",
-        "lunatic": "",
-        "bonus": "1",
-        "copyright1": "-",
-        "lev_bas": "2",
-        "lev_adv": "5",
-        "lev_exc": "8+",
-        "lev_mas": "11",
-        "lev_lnt": "",
-        "image_url": "01d93ad79c83.jpg"
-    },
-    {
-        "new": "",
-        "date": "20200930",
-        "title": "東亞 -O.N.G.E.K.I. MIX-",
-        "title_sort": "トウアONGEKIMIX",
-        "artist": "並木 学「怒首領蜂大往生」",
-        "id": "2060",
-        "chap_id": "04001",
-        "chapter": "災厄、来たる",
-        "character": "あおニャン",
-        "chara_id": "9040",
-        "category": "VARIETY",
-        "category_id": "04",
-        "lunatic": "1",
-        "bonus": "",
-        "copyright1": "-",
-        "lev_bas": "",
-        "lev_adv": "",
-        "lev_exc": "",
-        "lev_mas": "",
-        "lev_lnt": "13+",
-        "image_url": "eff9c7f18fd4.jpg"
-    }
-]
-‍
-</code></pre>
-実際は1つのリストの中にすべての楽曲が入っている。<br>
-ここでは通常楽曲とLUNATIC楽曲1つずつを例として挙げた。<br>
-同一楽曲であっても通常譜面とLUNATIC譜面で1つずつオブジェクトが存在する。<br>
-<br>
-▼各key/valueの説明
-<ul>
-    <li><code>new</code>: 新曲か否か。新曲なら<code>NEW</code>がvalueに入る</li>
-    <li><code>date</code>: 楽曲リリース日(YYYYMMDD)</li>
-    <li><code>title</code>: 楽曲タイトル</li>
-    <li><code>title_sort</code>: 名前からしてソートのための曲名？CHUNITHMの<code>reading</code>、maimaiの<code>title_kana</code>と同じと思われる</li>
-    <li><code>artist</code>: 楽曲アーティスト</li>
-    <li><code>id</code>: 楽曲ID</li>
-    <li><code>chap_id</code>: チャプターID</li>
-    <li><code>chapter</code>: チャプター名</li>
-    <li><code>character</code>: 対戦相手キャラ名</li>
-    <li><code>chara_id</code>: 対戦相手キャラID</li>
-    <li><code>category</code>: カテゴリ名</li>
-    <li><code>category_id</code>: カテゴリID</li>
-    <li><code>lunatic</code>: LUNATICか否か。LUNATICなら<code>1</code>、それ以外なら空白となる。</li>
-    <li><code>bonus</code>: ボーナストラックか否か。ボーナストラックなら<code>1</code>、それ以外なら空白となる。</li>
-    <li><code>copyright1</code>: 著作権表示。ない場合は<code>-</code>が入る</li>
-    <li><code>lev_bas</code>～<code>lev_mas</code>: それぞれBASIC～MASTERの譜面難易度。LUNATIC譜面の場合は空白となる。<b>EXPが『EXC』となっていることに注意</b></li>
-    <li><code>lev_lnt</code>: LUNATICの譜面難易度。通常譜面の場合は空白となる</li>
-    <li><code>image_url</code>: ジャケット画像のファイル名。URL<code>https://ongeki-net.com/ongeki-mobile/img/music/</code>に付け足すと画像を取得できる</li>
-</ul>
-<br>
-ちなみに<code>https://ongeki.sega.jp/assets/json/music/categories.json</code>というJSONもあるが、これは中身を見る限り完全にサイト上での楽曲検索用っぽいのであんまり我々が使えるものではなさそう。
-
-<a name="international"></a>
-<h2>maimaiでらっくす海外版について</h2>
-maimaiでらっくすにも、<a href="https://maimai.sega.com" target="_blank">日本版と似た仕様で楽曲一覧のJSONが用意されている。</a><br>
-しかし、サイトは(おそらく)大型アップデートのときにしか更新されず、楽曲情報も最新ではない。<br>
-ざっと探した限りではちゃんと更新されているWikiも見当たらず、公式Facebookを追うしかないと思われるが、各投稿をいい感じに整えてJSONとかにするのは多分至難の業である。<br>
-(海外版のmaimaiでらっくす-NETのアカウントを入手してSeleniumとかでスクレイピングできれば有料化しないかぎりは一番正確な情報を入手できそう)
-
-<h2>まとめ</h2>
-ゲーム自体の難易度まわりの仕様は似てるのにゲームによって仕様がバラバラすぎるだろと思ってたけどだんだん統合されてきてるような雰囲気を感じなくもない</article>
+<p>結論から言うと、<b>この星の画像は全部で20枚ある。</b>URLの番号部分を0～19に入れ替えて見てみると、その画像が姿を現す。</p>
+<p>0・2・4・6・8には星が半分だけある画像が、10～19には黄色く塗りつぶされた星の画像がある。いずれも未使用である。</p>
+</details>
+</blockquote><h2 id="h130d660a93">maimaiでらっくす</h2><h3 id="h40fe001faa">楽曲リスト</h3><p><strong>▶エンドポイント: </strong><code>https://maimai.sega.jp/data/maimai_songs.json</code></p><p>CHUNITHMと同じく、著作権情報は<code>https://maimai.sega.jp/data/RightsInfoText.json</code>に分けられている。</p><p><br></p><p><strong>▼レスポンス例</strong></p><pre><code>[
+&nbsp; &nbsp; {
+&nbsp; &nbsp; &nbsp; &nbsp; "artist": "ツミキ　feat.音楽的同位体　可不（KAFU）",
+&nbsp; &nbsp; &nbsp; &nbsp; "catcode": "niconico＆ボーカロイド",
+&nbsp; &nbsp; &nbsp; &nbsp; "dx_lev_bas": "2",
+&nbsp; &nbsp; &nbsp; &nbsp; "dx_lev_adv": "6",
+&nbsp; &nbsp; &nbsp; &nbsp; "dx_lev_exp": "9+",
+&nbsp; &nbsp; &nbsp; &nbsp; "dx_lev_mas": "11",
+&nbsp; &nbsp; &nbsp; &nbsp; "dx_lev_remas": "13",
+&nbsp; &nbsp; &nbsp; &nbsp; "image_url": "e6f1a560ee4c29d9.png",
+&nbsp; &nbsp; &nbsp; &nbsp; "release": "220915",
+&nbsp; &nbsp; &nbsp; &nbsp; "sort": "110",
+&nbsp; &nbsp; &nbsp; &nbsp; "title": "フォニイ",
+&nbsp; &nbsp; &nbsp; &nbsp; "title_kana": "フオニイ",
+&nbsp; &nbsp; &nbsp; &nbsp; "version": "23000"
+&nbsp; &nbsp; },
+&nbsp; &nbsp; {
+&nbsp; &nbsp; &nbsp; &nbsp; "artist": "ナユタン星人",
+&nbsp; &nbsp; &nbsp; &nbsp; "catcode": "niconico＆ボーカロイド",
+&nbsp; &nbsp; &nbsp; &nbsp; "dx_lev_bas": "3",
+&nbsp; &nbsp; &nbsp; &nbsp; "dx_lev_adv": "7",
+&nbsp; &nbsp; &nbsp; &nbsp; "dx_lev_exp": "9",
+&nbsp; &nbsp; &nbsp; &nbsp; "dx_lev_mas": "12+",
+&nbsp; &nbsp; &nbsp; &nbsp; "image_url": "dfd85cc1f0611a87.png",
+&nbsp; &nbsp; &nbsp; &nbsp; "release": "000000",
+&nbsp; &nbsp; &nbsp; &nbsp; "lev_bas": "6",
+&nbsp; &nbsp; &nbsp; &nbsp; "lev_adv": "8",
+&nbsp; &nbsp; &nbsp; &nbsp; "lev_exp": "11",
+&nbsp; &nbsp; &nbsp; &nbsp; "lev_mas": "13",
+&nbsp; &nbsp; &nbsp; &nbsp; "sort": "213",
+&nbsp; &nbsp; &nbsp; &nbsp; "title": "ダンスロボットダンス",
+&nbsp; &nbsp; &nbsp; &nbsp; "title_kana": "タンスロホツトタンス",
+&nbsp; &nbsp; &nbsp; &nbsp; "version": "19007"
+&nbsp; &nbsp; },
+&nbsp; &nbsp; {
+&nbsp; &nbsp; &nbsp; &nbsp; "artist": "HiTECH NINJA",
+&nbsp; &nbsp; &nbsp; &nbsp; "catcode": "オンゲキ＆CHUNITHM",
+&nbsp; &nbsp; &nbsp; &nbsp; "date": "NEW",
+&nbsp; &nbsp; &nbsp; &nbsp; "dx_lev_bas": "5",
+&nbsp; &nbsp; &nbsp; &nbsp; "dx_lev_adv": "8",
+&nbsp; &nbsp; &nbsp; &nbsp; "dx_lev_exp": "12+",
+&nbsp; &nbsp; &nbsp; &nbsp; "dx_lev_mas": "14",
+&nbsp; &nbsp; &nbsp; &nbsp; "image_url": "74c92bac1b51a9c3.png",
+&nbsp; &nbsp; &nbsp; &nbsp; "key": "○",
+&nbsp; &nbsp; &nbsp; &nbsp; "release": "230120",
+&nbsp; &nbsp; &nbsp; &nbsp; "sort": "996",
+&nbsp; &nbsp; &nbsp; &nbsp; "title": "電光石火",
+&nbsp; &nbsp; &nbsp; &nbsp; "title_kana": "テンコウセツカ",
+&nbsp; &nbsp; &nbsp; &nbsp; "version": "23011"
+&nbsp; &nbsp; }
+]</code></pre><p>実際は1つのリストの中にすべての楽曲が入っている。</p><p>オブジェクトの中で譜面レベル部分以外のkeyが辞書順にソートされている。</p><p>また、CHUNITHMと違ってそのデータに該当するものが存在しない場合は空欄ではなくkeyそのものが存在しないようになっている。でらっくす/通常譜面の二種があり、空欄方式を採用するとファイルの文字数が増えてしまうからだろうか？</p><p><br></p><p><strong>▼各key/valueの説明</strong></p><ul><li><code>artist</code>: 楽曲アーティスト</li><li><code>catname</code>: カテゴリ名</li><li><code>date</code>: 新曲か否か。このkeyが存在する場合は<code>NEW</code>という文字列のvalueが入る。そうでなければkeyそのものが存在しない</li><li><code>dx_lev_bas</code> ～ <code>dx_lev_mas</code>: それぞれでらっくす譜面のBASIC～MASTERの譜面レベル。でらっくす譜面がなければkeyそのものが存在しない</li><li><code>dx_lev_remas</code>: でらっくす譜面のRe:MASTERの譜面レベル。譜面がなければkeyそのものが存在しない</li><li><code>image_url</code>: ジャケット画像のファイル名。URL<code>https://maimaidx.jp/maimai-mobile/img/Music/</code>に付け足すと画像を取得できる。</li><li><code>key</code>: 解禁が必要か否かのフラグ。このkeyが存在する場合は<code>○</code>(U+25CB)という文字列のvalueが入る。そうでなければkeyそのものが存在しない</li><li><code>release</code>: 楽曲リリース日。<code>YYMMDD</code>形式の文字列。現在稼働しているバージョン以外で登場した楽曲のリリース日情報は全て<code>000000</code>にされている(maimai でらっくす FESTiVAL稼働時点では稼働開始日である2022/9/15以前の数字が存在しない)。さらには、後から譜面が追加された場合、その譜面の一般解禁日がこの値になることから、楽曲自体のリリース日にはならないこともある。</li><li><code>lev_bas</code> ～ <code>lev_mas</code>: それぞれスタンダード譜面のBASIC～MASTERの譜面レベル。スタンダード譜面がなければ存在しない</li><li><code>lev_remas</code>: スタンダード譜面のRe:MASTERの譜面レベル。譜面がなければkeyそのものが存在しない</li><li><code>sort</code>: 楽曲ソート用の番号(文字列)だと思われる。JavaScriptソースコード上では後述の<code>version</code>が同一値だった際のソート用の値として使用されている</li><li><code>title</code>: 楽曲タイトル</li><li><code>title_kana</code>: 検索用の曲名。元のタイトルを一定のルールに従って変換したもので、濁点や小文字のないカタカナとアルファベット大文字のみで構成される</li><li><code>version</code>: バージョンを表す5桁の番号(文字列)。詳細は後述</li></ul><h3 id="h9b6a845b96">versionについて</h3><p>maimaiの楽曲リストJSONに存在する<code>version</code>は、楽曲の追加されたゲームのバージョンを表す文字列である。ここで言うバージョンとは、2週間ごとにある楽曲追加ごとに変更される(内部的な)バージョンであり、名前のついたバージョンを意味しない。</p><p>この番号は上3桁・下2桁に分けることができ、それぞれ以下のような意味合いがある。</p><ul><li>上3桁: その楽曲が収録された名前付きバージョン(「maimai GreeN」「‍maimai でらっくす Splash PLUS」など)の識別番号。</li><li>下2桁: その名前付きバージョンにおける更新の何回目で収録されたかを表す値。当該バージョン稼働日の<code>00</code>から始まり、1ずつ数字が増えていく。</li></ul><p>これに従うと、例えば<code>18015</code>は「maimai MURASAKiの14回目の更新」であることがわかる。</p><p><br></p><p>以下は上3桁とどのバージョンが紐づいているかのリストである。</p><ul><li><code>100xx</code>: maimai</li><li><code>110xx</code>: maimai PLUS</li><li><code>120xx</code>: maimai GreeN</li><li><code>130xx</code>: maimai GreeN PLUS</li><li><code>140xx</code>: maimai ORANGE</li><li><code>150xx</code>: maimai ORANGE PLUS</li><li><code>160xx</code>: maimai PiNK</li><li><code>170xx</code>: maimai PiNK PLUS</li><li><code>180xx</code>: maimai MURASAKi</li><li><code>185xx</code>: maimai MURASAKi PLUS</li><li><code>190xx</code>: maimai MiLK</li><li><code>195xx</code>: maimai MiLK PLUS</li><li><code>200xx</code>: maimai でらっくす</li><li><code>205xx</code>: maimai でらっくす PLUS</li><li><code>210xx</code>: maimai でらっくす Splash</li><li><code>215xx</code>: maimai でらっくす Splash PLUS</li><li><code>220xx</code>: maimai でらっくす UNiVERSE</li><li><code>225xx</code>: maimai でらっくす UNiVERSE PLUS</li><li><code>230xx</code>: maimai でらっくす FESTiVAL</li></ul><p>今後もこの法則に従うと仮定するなら、バージョンごとに数値は5ずつ増えていくものと思われる。</p><p><br></p><p>なお、ゲーム自体が2週間毎に更新されるからといって、この値からリリース日を算出することはできない。</p><p>エイプリルフールの更新や新型コロナウイルスによる2020年の更新のブランクなどが存在するためである。</p><h2 id="hbf62d886e0">maimai海外版</h2><h3 id="h40fe001faa">楽曲リスト</h3><p><strong>▶エンドポイント: </strong><code>https://maimai.sega.com/assets/data/maimai_songs.json</code></p><p>フォーマットは現行日本版と同一。ただし、情報が最新でない可能性がある旨が表示されている。</p><p>おそらく、大型アップデートの際のみ更新されるものと思われる。</p><p><img src="https://images.microcms-assets.io/assets/0b0ca8a0456441b1913290d8b4a73344/f618f78206004bca82304c7d2ae08835/maimai-intl-noupdate.png" alt="" width="462" height="185"></p><p>その他の差異は以下の通り。</p><ul><li>著作権表示のJSONファイルは<code>https://maimai.sega.com/assets/data/RightsInfoText.json</code>にある。</li><li>ジャケット画像のファイル名の前に付け足すURLは<code>https://maimaidx-eng.com/maimai-mobile/img/Music/</code>である。</li></ul><p><br></p><p>なお、中国大陸版については、CHUNITHM同様そもそも公式サイトが存在しないものと思われる。</p><h2 id="h3fcdf31843">オンゲキ</h2><h3 id="h40fe001faa">楽曲リスト</h3><p><strong>▶エンドポイント: </strong><code>https://ongeki.sega.jp/assets/json/music/music.json</code></p><p><strong>▼レスポンス例</strong></p><pre><code>[
+&nbsp; &nbsp; {
+&nbsp; &nbsp; &nbsp; &nbsp; "new": "",
+&nbsp; &nbsp; &nbsp; &nbsp; "date": "20200930",
+&nbsp; &nbsp; &nbsp; &nbsp; "title": "STARTLINER -星咲 あかりソロver.-",
+&nbsp; &nbsp; &nbsp; &nbsp; "title_sort": "STARTLINERホシサキアカリソロVER",
+&nbsp; &nbsp; &nbsp; &nbsp; "artist": "曲：kz(livetune)／歌：星咲 あかり(CV：赤尾 ひかる)",
+&nbsp; &nbsp; &nbsp; &nbsp; "id": "709200",
+&nbsp; &nbsp; &nbsp; &nbsp; "chap_id": "01001",
+&nbsp; &nbsp; &nbsp; &nbsp; "chapter": "目指せ！　いっぱいのエール！",
+&nbsp; &nbsp; &nbsp; &nbsp; "character": "星咲 あかり",
+&nbsp; &nbsp; &nbsp; &nbsp; "chara_id": "1010",
+&nbsp; &nbsp; &nbsp; &nbsp; "category": "オンゲキ",
+&nbsp; &nbsp; &nbsp; &nbsp; "category_id": "06",
+&nbsp; &nbsp; &nbsp; &nbsp; "lunatic": "",
+&nbsp; &nbsp; &nbsp; &nbsp; "bonus": "1",
+&nbsp; &nbsp; &nbsp; &nbsp; "copyright1": "-",
+&nbsp; &nbsp; &nbsp; &nbsp; "lev_bas": "2",
+&nbsp; &nbsp; &nbsp; &nbsp; "lev_adv": "5",
+&nbsp; &nbsp; &nbsp; &nbsp; "lev_exc": "8+",
+&nbsp; &nbsp; &nbsp; &nbsp; "lev_mas": "11",
+&nbsp; &nbsp; &nbsp; &nbsp; "lev_lnt": "",
+&nbsp; &nbsp; &nbsp; &nbsp; "image_url": "92bac6746c5cd534.png"
+&nbsp; &nbsp; },
+&nbsp; &nbsp; {
+&nbsp; &nbsp; &nbsp; &nbsp; "new": "",
+&nbsp; &nbsp; &nbsp; &nbsp; "date": "20201008",
+&nbsp; &nbsp; &nbsp; &nbsp; "title": "ロボットプラネットユートピア",
+&nbsp; &nbsp; &nbsp; &nbsp; "title_sort": "ロホツトフラネツトユトヒア",
+&nbsp; &nbsp; &nbsp; &nbsp; "artist": "lumo",
+&nbsp; &nbsp; &nbsp; &nbsp; "id": "913900",
+&nbsp; &nbsp; &nbsp; &nbsp; "chap_id": "04099",
+&nbsp; &nbsp; &nbsp; &nbsp; "chapter": "END CHAPTER（第4章）",
+&nbsp; &nbsp; &nbsp; &nbsp; "character": "みどニャン",
+&nbsp; &nbsp; &nbsp; &nbsp; "chara_id": "9030",
+&nbsp; &nbsp; &nbsp; &nbsp; "category": "チュウマイ",
+&nbsp; &nbsp; &nbsp; &nbsp; "category_id": "05",
+&nbsp; &nbsp; &nbsp; &nbsp; "lunatic": "1",
+&nbsp; &nbsp; &nbsp; &nbsp; "bonus": "",
+&nbsp; &nbsp; &nbsp; &nbsp; "copyright1": "-",
+&nbsp; &nbsp; &nbsp; &nbsp; "lev_bas": "",
+&nbsp; &nbsp; &nbsp; &nbsp; "lev_adv": "",
+&nbsp; &nbsp; &nbsp; &nbsp; "lev_exc": "",
+&nbsp; &nbsp; &nbsp; &nbsp; "lev_mas": "",
+&nbsp; &nbsp; &nbsp; &nbsp; "lev_lnt": "0",
+&nbsp; &nbsp; &nbsp; &nbsp; "image_url": "59fb1dc1b106d17f.png"
+&nbsp; &nbsp; }
+]</code></pre><p>実際は1つのリストの中にすべての楽曲が入っている。</p><p>ここでは通常楽曲とLUNATIC楽曲1つずつを例として挙げた。</p><p>同一楽曲であっても通常譜面とLUNATIC譜面で1つずつオブジェクトが存在する。</p><p><br></p><p><strong>▼各key/valueの説明</strong></p><ul><li><code>new</code>: 新曲か否か。新曲なら<code>NEW</code>が、そうでなければ空文字列がvalueとなる</li><li><code>date</code>: 楽曲リリース日(<code>YYYYMMDD</code>形式)</li><li><code>title</code>: 楽曲タイトル</li><li><code>title_sort</code>: ソート用の曲名。元のタイトルを一定のルールに従って変換したもので、濁点や小文字のないカタカナとアルファベット大文字のみで構成される。<strong>形式自体はCHUNITHMやmaimaiと同一だが、こちらは検索には使用されていない</strong></li><li><code>artist</code>: 楽曲アーティスト</li><li><code>id</code>: 楽曲ID</li><li><code>chap_id</code>: 楽曲が属するチャプターのID</li><li><code>chapter</code>: 楽曲が属するチャプター名</li><li><code>character</code>: 楽曲での対戦相手の名前</li><li><code>chara_id</code>: 楽曲での対戦相手のID</li><li><code>category</code>: 楽曲カテゴリ名</li><li><code>category_id</code>: 楽曲カテゴリのID。名前との紐付きは<code>https://ongeki.sega.jp/assets/json/music/categories.json</code>でも確認できる</li><li><code>lunatic</code>: LUNATICか否か。LUNATIC楽曲なら<code>1</code>が、そうでなければ空文字列がvalueとなる</li><li><code>bonus</code>: ボーナストラックか否か。ボーナストラックなら<code>1</code>が、そうでなければ空文字列がvalueとなる</li><li><code>copyright1</code>: 著作権表示。内容が無い場合は<code>-</code>がvalueとなる</li><li><code>lev_bas</code> ～ <code>lev_mas</code>: それぞれBASIC～MASTERの譜面レベル。LUNATIC楽曲の場合はいずれも空欄。<strong>『EXP』が『EXC』となっていることに注意</strong></li><li><code>lev_lnt</code>: LUNATICの譜面レベル。通常楽曲の場合は空欄となる</li><li><code>image_url</code>: ジャケット画像のファイル名。URL<code>https://ongeki-net.com/ongeki-mobile/img/music/</code>に付け足すとジャケット画像を取得できる。</li></ul><h2 id="ha214098e44">まとめ</h2><p>ゲームによって結構仕様がバラバラになっている。さらに仕様やファイル名すらちょこちょこ変わるので定期的な確認が必要である。</p></article>
                 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
                     data-lang="ja" data-show-count="false">Tweet</a>
                 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

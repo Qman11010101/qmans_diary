@@ -19,6 +19,8 @@
     <script>hljs.highlightAll();</script>
     <script src="/assets/js/latest_articles.js"></script>
     <script src="/assets/js/categories.js"></script>
+    <link rel="canonical" href="https://blog.qmainconts.dev/articles/{{.ID}}.html">
+    <meta name="description" content="{{$bodyfirst := index .Body 0}}{{trimSample $bodyfirst.Body}}">
     <meta property="og:title" content="{{.Title}} - Qman's Diary">
     <meta property="og:description" content="{{$bodyfirst := index .Body 0}}{{trimSample $bodyfirst.Body}}">
     <meta property="og:url" content="https://blog.qmainconts.dev/articles/{{.ID}}.html">

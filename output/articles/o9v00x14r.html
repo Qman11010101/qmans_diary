@@ -19,6 +19,8 @@
     <script>hljs.highlightAll();</script>
     <script src="/assets/js/latest_articles.js"></script>
     <script src="/assets/js/categories.js"></script>
+    <link rel="canonical" href="https://blog.qmainconts.dev/articles/o9v00x14r.html">
+    <meta name="description" content="10年間使っていたFirefoxに別れを告げ、Vivaldiに乗り換えました。なんで？Web Share APIが使えないからです。それだけが原因ではないですが、きっかけの一つではありました。ブラウザ…">
     <meta property="og:title" content="10年間ありがとうFirefox、これからよろしくVivaldi - Qman's Diary">
     <meta property="og:description" content="10年間使っていたFirefoxに別れを告げ、Vivaldiに乗り換えました。なんで？Web Share APIが使えないからです。それだけが原因ではないですが、きっかけの一つではありました。ブラウザ…">
     <meta property="og:url" content="https://blog.qmainconts.dev/articles/o9v00x14r.html">
@@ -39,8 +41,6 @@
                 <div class="tags">
                     <div class="tag"><img src="/assets/tag.svg" alt="タグ" width="18" height="18"></div>
                     <div class="tag"><a href="category/browser"></a>ブラウザ</div>
-                    <div class="tag"><a href="category/firefox"></a>Firefox</div>
-                    <div class="tag"><a href="category/vivaldi"></a>Vivaldi</div>
                 </div>
                 <article id="atcbody"><p>10年間使っていたFirefoxに別れを告げ、Vivaldiに乗り換えました。</p><h2 id="hc02c29c9fd">なんで？</h2><p><a href="https://developer.mozilla.org/ja/docs/Web/API/Web_Share_API" target="_blank" rel="noopener noreferrer">Web Share API</a>が使えないからです。それだけが原因ではないですが、きっかけの一つではありました。</p><p><br></p><p>ブラウザにネイティブの共有機能があることを知って、<a href="https://reiwa.f5.si/chunibestimg/" target="_blank" rel="noopener noreferrer">CHUNITHM ベスト枠画像ジェネレーター</a>に実装しようと思い、APIについて調べていたところ、<strong>Firefoxの対応状況だけがメタメタでした</strong>。流石に機能をサポートしていないブラウザで開発するわけにはいきません。</p><p>さらには、別件でとあるエンジニアの人が「正直Firefoxは使えない機能が多すぎてサポートから外したい」ということを言っているのを聞いていたので、せっかくだから新しいブラウザを探してみるかと思い立った次第です。</p><p>そこで、知り合いが最近メインで使っていて、度々レビューを流してくるVivaldiを試しに使ってみることにしました。</p><h2 id="h80d5338abe">Vivaldiってどうなの？</h2><p>Chrome系ブラウザなので基本的な機能周りは特に問題ありません。</p><p>後発ブラウザだけあって、広告ブロックやマウスジェスチャー等、拡張機能にあるような機能がデフォルトで搭載されています。</p><p>それに加えてChromeの拡張機能も利用可能なので、自由度が非常に高いブラウザと言えます。</p><p><br></p><p>ただ、大手ではないので安定性に不安がある節もあります。</p><p>YouTubeがやたら点滅した(グラフィックドライバを更新することで解決。ハードウェアアクセラレーション切るという手段もあったけど露骨にfpsが下がった)ほか、ロゴが表示されなかったりYouTubeがオフラインにされたり(どちらかといえば広告ブロックのフィルターが悪さをしていた。そのページでだけ広告ブロックを無効化してuBlock originに任せることで解決)、いろいろあるにはあるとはいえ、全体的に機能には満足しているのでこれからも使っていこうと思います。</p><p><br></p><p>個人的には垂直タブが大変助かります。</p><h2 id="he3513661bb">Web標準か利便性か</h2><p>ChromeというかBlinkというか、Googleの開発姿勢に疑問を抱くことは間違っていないと思います。</p><p>実際WebUSBやWebBluetoothなどはかなりよろしくないharmfulな機能だと思いますし、Firefoxが廃れてしまえばWeb標準の世界に危機が訪れるというのは正しいとは思います。</p><p><br></p><p>ただ、それにしてもちょっとしんどいと感じる場面が多いです。</p><p>Web Share APIが使えない。<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter" target="_blank" rel="noopener noreferrer">Intl.Segmenter</a>が動作しない。大きな要素では<a href="https://html2canvas.hertzen.com/" target="_blank" rel="noopener noreferrer">html2canvas</a>が正常に動作しない。</p><p>個人でちょっと触っただけでも、これだけの苦労をしました。</p><p>世の中ではFirefoxがサポート対象外にされるといった事態が散見されており、当時は「シェアが低いからって切っていいもんじゃないだろう」と思っていました。</p><p>しかし、こうしてみるとFirefoxがサポートされないのは、なにもシェアが低いだけが原因ではないように思えるのです。</p><p><br></p><p>個人的にはFirefoxを応援していきたい気持ちはありますし、今後も自分の作るサイトは可能な限りFirefoxをサポートしていきたいと思っていますが、世の中から排斥されていることについても理解を示してしまいます。理解したからこそ、こうしてブラウザの乗り換えを決行しました。</p><h2 id="ha214098e44">まとめ</h2><p>Firefoxへの後ろ向きな気持ちで出発してこそいますが、なんだかんだ新しく手に入れたアイテムのカスタマイズは楽しいですね。</p><p>いろいろ自分好みになるまで弄り倒してみたいと思います。</p></article>
                 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"

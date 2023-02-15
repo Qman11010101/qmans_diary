@@ -22,6 +22,8 @@ jobs:
         env:
           MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
           SERVICE_DOMAIN: ${{ secrets.SERVICE_DOMAIN }}
+      - name: remove microblogen binary
+        run: rm microblogen
       - name: Commit & Push
         run: |
           set -x

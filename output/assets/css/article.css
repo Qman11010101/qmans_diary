@@ -38,13 +38,40 @@
     max-width: 100%;
 }
 
+pre {
+    overflow: auto;
+}
+
 code {
-    background-color: #333;
+    font-family: Consolas, 'DejaVu Sans Mono', monospace;
     color: #eee;
+    background-color: #333;
+    font-size: 90%;
+    margin: 0px 5px;
+    padding: 1px 3px;
+    border-radius: 2px;
+}
+
+pre code {
     padding: 2px;
-    margin: 0 2px;
-    border-radius: 4px;
+    margin: 0;
+    padding: 0;
+    border-radius: 20px; /* ファイル名があるなら 0 20px 20px; */
     word-break: break-all;
+}
+
+.code-filename { /* ファイル名のやつ */
+    background-color: #555;
+    width: fit-content;
+    padding: 0 10px;
+    border-radius: 10px 10px 0 0;
+    color: #eee;
+    font-family: Consolas, 'DejaVu Sans Mono', monospace;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
 }
 
 /* ツイートボタン */

@@ -49,6 +49,17 @@ iframe {
     margin: 0 auto;
 }
 
+hr {
+    margin: 10px 0;
+    border-top: 2px solid #aaa;
+}
+
+/* TODO: table */
+
+figcaption {
+    text-align: center;
+}
+
 /* 共通利用ボックス */
 
 .box {
@@ -229,27 +240,6 @@ footer p {
 }
 
 /* その他 */
-
-pre {
-    overflow: auto;
-    border-radius: 10px;
-    margin: 8px 0;
-}
-
-code {
-    font-family: Consolas, 'DejaVu Sans Mono', monospace;
-    font-size: 90%;
-}
-
-.inlinecode {
-    font-family: Consolas, 'DejaVu Sans Mono', monospace;
-    color: #eeeeee;
-    background-color: #333333;
-    font-size: 90%;
-    margin: 0px 5px;
-    padding: 1px 3px;
-    border-radius: 2px;
-}
 
 ul, ol {
     margin-left: 20px;

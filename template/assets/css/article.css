@@ -80,6 +80,11 @@ table {
     width: 100%;
 }
 
+td, th {
+    border: 1px solid #333;
+    padding: 0 5px;
+}
+
 /* ツイートボタン */
 
 .tweetbutton {

@@ -71,6 +71,10 @@ pre code {
     font-family: Consolas, 'DejaVu Sans Mono', monospace;
 }
 
+.codeblock-margin {
+    margin: 10px 0;
+}
+
 table {
     border-collapse: collapse;
     width: 100%;

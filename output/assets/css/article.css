@@ -47,9 +47,11 @@ code {
     color: #eee;
     background-color: #333;
     font-size: 90%;
-    margin: 0px 5px;
-    padding: 1px 3px;
-    border-radius: 2px;
+    margin: 0 5px;
+    padding: 2px 4px;
+    border-radius: 6px;
+    display: inline;
+    vertical-align: 1px;
 }
 
 pre code {

@@ -44,6 +44,11 @@ main {
     align-items: flex-start;
 }
 
+iframe {
+    display: block;
+    margin: 0 auto;
+}
+
 /* 共通利用ボックス */
 
 .box {

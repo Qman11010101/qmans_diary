@@ -204,9 +204,13 @@
 &nbsp; &nbsp; &nbsp; &nbsp; "image_url": "59fb1dc1b106d17f.png"
 &nbsp; &nbsp; }
 ]</code></pre><p>実際は1つのリストの中にすべての楽曲が入っている。</p><p>ここでは通常楽曲とLUNATIC楽曲1つずつを例として挙げた。</p><p>同一楽曲であっても通常譜面とLUNATIC譜面で1つずつオブジェクトが存在する。</p><p><br></p><p><strong>▼各key/valueの説明</strong></p><ul><li><code>new</code>: 新曲か否か。新曲なら<code>NEW</code>が、そうでなければ空文字列がvalueとなる</li><li><code>date</code>: 楽曲リリース日(<code>YYYYMMDD</code>形式)</li><li><code>title</code>: 楽曲タイトル</li><li><code>title_sort</code>: ソート用の曲名。元のタイトルを一定のルールに従って変換したもので、濁点や小文字のないカタカナとアルファベット大文字のみで構成される。<strong>形式自体はCHUNITHMやmaimaiと同一だが、こちらは検索には使用されていない</strong></li><li><code>artist</code>: 楽曲アーティスト</li><li><code>id</code>: 楽曲ID</li><li><code>chap_id</code>: 楽曲が属するチャプターのID</li><li><code>chapter</code>: 楽曲が属するチャプター名</li><li><code>character</code>: 楽曲での対戦相手の名前</li><li><code>chara_id</code>: 楽曲での対戦相手のID</li><li><code>category</code>: 楽曲カテゴリ名</li><li><code>category_id</code>: 楽曲カテゴリのID。名前との紐付きは<code>https://ongeki.sega.jp/assets/json/music/categories.json</code>でも確認できる</li><li><code>lunatic</code>: LUNATICか否か。LUNATIC楽曲なら<code>1</code>が、そうでなければ空文字列がvalueとなる</li><li><code>bonus</code>: ボーナストラックか否か。ボーナストラックなら<code>1</code>が、そうでなければ空文字列がvalueとなる</li><li><code>copyright1</code>: 著作権表示。内容が無い場合は<code>-</code>がvalueとなる</li><li><code>lev_bas</code> ～ <code>lev_mas</code>: それぞれBASIC～MASTERの譜面レベル。LUNATIC楽曲の場合はいずれも空欄。<strong>『EXP』が『EXC』となっていることに注意</strong></li><li><code>lev_lnt</code>: LUNATICの譜面レベル。通常楽曲の場合は空欄となる</li><li><code>image_url</code>: ジャケット画像のファイル名。URL<code>https://ongeki-net.com/ongeki-mobile/img/music/</code>に付け足すとジャケット画像を取得できる。</li></ul><h2 id="ha214098e44">まとめ</h2><p>ゲームによって結構仕様がバラバラになっている。さらに仕様やファイル名すらちょこちょこ変わるので定期的な確認が必要である。</p></article>
-                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
-                    data-lang="ja" data-show-count="false">Tweet</a>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <div class="widget-wrapper">
+                    <div class="widget-child-wrapper">
+                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+                            data-size="large" data-lang="ja" data-show-count="false">Tweet</a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                </div>
             </section>
             <section class="box">
                 <section class="widgetgroup" id="recent">

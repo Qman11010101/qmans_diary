@@ -85,6 +85,17 @@ td, th {
     padding: 0 5px;
 }
 
+/* シェアボタン周りのウィジェットラッパー */
+
+.widget-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.widget-child-wrapper {
+    margin: 3px;
+}
+
 /* ツイートボタン */
 
 .tweetbutton {

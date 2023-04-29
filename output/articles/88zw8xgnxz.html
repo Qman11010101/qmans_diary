@@ -55,9 +55,13 @@ if !ok {
 &nbsp; &nbsp; &nbsp; &nbsp; Limit: &nbsp; &nbsp;5,
 &nbsp; &nbsp; &nbsp; &nbsp; Orders: &nbsp; []string{"-publishedAt"},
 &nbsp; &nbsp; }, &amp;articlesLatest)</code></pre><p>もしこれが現れるより前に何かで<code>err</code>を使ってしまっていた場合、<code>no new variables on left side of :=</code>と怒られてしまいます。</p><p>どうも<a href="https://go.dev/ref/spec#Short_variable_declarations" target="_blank" rel="noopener noreferrer">多値返却だとこれが起こらない</a>っぽいのですが、多値返却でない場合は<code>:=</code>を<code>=</code>にするしかないように思えます。</p><p>統一されておらず気持ち悪い気がするのですが、もっと何か良い方法があるのでしょうか……？</p><h2 id="h723f1d6479">反省点</h2><p>プログラムを書く上で失敗したと思う点を記します。Go言語に限らない点が多いです。</p><h3 id="h83c1383a10">書く前に設計をする</h3><p>まずは動くところまで持っていこうと思い、雑に考えながらプログラムを書いていたところ、構造が定まらなかったせいであとになって書き直す羽目になった部分がいくつもあります。</p><p>スパゲッティコードの原因にもなるので、途中で変更するとしても事前に設計しておいたほうが楽に開発できたと思います。</p><h3 id="hdc8880fce1">用語を統一する</h3><p>記事に紐づけるカテゴリについて、「カテゴリ」「タグ」の二種類の呼び方を混在させてしまっていました。混乱の原因になっていたので、少なくともmicroblogen上では「カテゴリ」に統一しました。</p><h3 id="h54c21e5d1a">自分のためにコメントを書く</h3><p>要所要所にメモ程度に書いておけばいいだろうと思っていましたが、関数に分けられていない似た処理が混在していることもありわかりづらくなってしまいました。その場しのぎではありますがコメントを書くことである程度見通しが良くなりました。</p><h2 id="ha6c8410437">Goを書いてみて</h2><p>小さいプログラムとはいえ、Goをこれくらい書いたのは多分初めてなのですが、それなりに良い印象を受けました。</p><p>PythonやJavaScriptといった型のない言語から入った自分でもすんなり書けますし、型推論も助かります。エディタの機能のおかげで型のメリットも享受できました。</p><p>公式ドキュメントでなくとも、日本語の情報がたくさんあります。動的型の言語からプログラミングを始めて静的型の言語も触ってみたいという人がいたら、Goを勧めると思います。</p><p><br></p><p>言語仕様のシンプルさについても、本当に必要なものを選んでいることは伝わってきました。最小セットで始めて必要な人がいたらアップデートで追加するというのも悪くないスタイルです。しかし、それでも痒いところに手が届かないなと思うことがいくつかありました。</p><p>Goへの批判とそれに対する反論の記事はたまに見かけては読んでいたので、Goの思想については理解しているつもりです。ただ、Battery includedを思想とするPythonから移ってきた身としては「それもできないんだ」と思ってしまうこともあります。</p><p>とはいえ、今回利用させていただいた <a href="https://github.com/otiai10/copy" target="_blank" rel="noopener noreferrer">otiai10/copy</a> のように、有志がライブラリを作ってその不便さを打ち消そうとしていたり、公式側も必要なものは入れていくという思想だったり(現にGenericsは手のひらを返して1.18で入っていますし)、そういうところを見ているとこれからもGoという言語の利便性は上がっていくように思えました。</p></article>
-                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
-                    data-lang="ja" data-show-count="false">Tweet</a>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <div class="widget-wrapper">
+                    <div class="widget-child-wrapper">
+                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+                            data-size="large" data-lang="ja" data-show-count="false">Tweet</a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                </div>
             </section>
             <section class="box">
                 <section class="widgetgroup" id="recent">

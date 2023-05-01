@@ -91,6 +91,21 @@ th {
     background-color: #ccc;
 }
 
+/* カスタムclass */
+
+.spoiler {
+    background-color: #333;
+    color: #333;
+    padding: 0 5px 2px;
+    transition-duration: .2s;
+}
+
+.spoiler:hover, .spoiler:active {
+    color: #eee;
+    transition-duration: .2s;
+}
+
+
 /* シェアボタン周りのウィジェットラッパー */
 
 .widget-wrapper {

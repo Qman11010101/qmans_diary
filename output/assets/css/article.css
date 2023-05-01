@@ -78,11 +78,17 @@ pre code {
 table {
     border-collapse: collapse;
     width: 100%;
+    border: 2px solid #999;
+    margin: 10px 0;
 }
 
 td, th {
-    border: 1px solid #333;
+    border: 1px solid #999;
     padding: 0 5px;
+}
+
+th {
+    background-color: #ccc;
 }
 
 /* シェアボタン周りのウィジェットラッパー */

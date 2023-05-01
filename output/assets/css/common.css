@@ -54,10 +54,10 @@ hr {
     border-top: 2px solid #aaa;
 }
 
-/* TODO: table */
-
 figcaption {
     text-align: center;
+    font-size: 90%;
+    color: #666;
 }
 
 /* 共通利用ボックス */
@@ -290,4 +290,5 @@ blockquote {
     padding: 10px;
     border-left: 4px solid #bbb;
     margin: 10px;
+    color: #666;
 }

@@ -47,7 +47,7 @@ main {
 iframe {
     display: block;
     margin: 0 auto;
-    width: min(100%, fit-content);
+    max-width: 100%;
 }
 
 hr {
@@ -59,6 +59,7 @@ figcaption {
     text-align: center;
     font-size: 90%;
     color: #666;
+    margin-bottom: 20px;
 }
 
 /* 共通利用ボックス */

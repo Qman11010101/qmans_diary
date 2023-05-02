@@ -109,6 +109,18 @@ th {
     transition-duration: .2s;
 }
 
+.warning {
+    display: block;
+    background-color: #fbb;
+    margin: 10px 0;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.warning::before {
+    content: url("/assets/warning.svg");
+}
+
 
 /* シェアボタン周りのウィジェットラッパー */
 

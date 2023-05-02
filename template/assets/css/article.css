@@ -58,11 +58,13 @@ pre code {
     padding: 2px;
     margin: 0;
     padding: 0;
-    border-radius: 20px; /* ファイル名があるなら 0 20px 20px; */
+    border-radius: 20px;
+    /* ファイル名があるなら 0 20px 20px; */
     word-break: break-all;
 }
 
-.code-filename { /* ファイル名のやつ */
+.code-filename {
+    /* ファイル名のやつ */
     background-color: #555;
     width: fit-content;
     padding: 0 10px;
@@ -82,7 +84,8 @@ table {
     margin: 10px 0;
 }
 
-td, th {
+td,
+th {
     border: 1px solid #999;
     padding: 0 5px;
 }
@@ -100,7 +103,8 @@ th {
     transition-duration: .2s;
 }
 
-.spoiler:hover, .spoiler:active {
+.spoiler:hover,
+.spoiler:active {
     color: #eee;
     transition-duration: .2s;
 }

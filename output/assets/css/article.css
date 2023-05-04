@@ -58,6 +58,7 @@ code {
     border-radius: 6px;
     display: inline;
     vertical-align: 1px;
+    word-break: break-all;
 }
 
 pre code {

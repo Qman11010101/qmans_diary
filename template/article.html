@@ -44,7 +44,7 @@
                     .Category}}
                     <div class="tag"><a href="category/{{.ID}}"></a>{{.Name}}</div>{{end}}
                 </div>
-                <article id="atcbody">{{range $bodies := .Body}}{{$bodies.Body}}{{end}}</article>
+                <article id="atcbody">{{range $bodies := .Body}}{{replaceWebp $bodies.Body}}{{end}}</article>
                 <div class="widget-wrapper">
                     <div class="widget-child-wrapper">
                         <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"

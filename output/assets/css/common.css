@@ -182,6 +182,9 @@ figcaption {
 
 .tags .tag:first-child {
     background-color: #dddddd;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .tagcnt {

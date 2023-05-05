@@ -36,12 +36,14 @@
     display: block;
     margin: 20px auto;
     max-width: 100%;
+    height: auto;
 }
 
 #maincol article figure img {
     display: block;
     margin: 20px auto 10px;
     max-width: 100%;
+    height: auto;
 }
 
 pre {

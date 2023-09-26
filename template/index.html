@@ -42,11 +42,11 @@
                     </div>{{$bodyfirst := index .Body 0}}{{trimSample $bodyfirst.Body}}
                 </div>{{end}}{{if totalGreater .Totalcount .Limit}}
                 <div class="prev_next_index">{{if isNotFirst .Offset}}<div id="prev" class="prev_next_btn">
-                        <a href="{{if eq .PrevPage 1}}{{.Root}}{{else}}{{.Root}}page/{{.PrevPage}}{{end}}"></a>←PREV
+                        <a href="{{if eq .PrevPage 1}}{{.Root}}{{else}}{{.Root}}page/{{.PrevPage}}{{end}}"></a>← Previous
                     </div>{{end}}<div class="page_view">
                         Page {{sub .NextPage 1}} / {{.AllPage}}
                     </div>{{if isNotLast .Limit .Offset .Totalcount}}<div id="next" class="prev_next_btn">
-                        <a href="{{.Root}}page/{{.NextPage}}"></a>NEXT→
+                        <a href="{{.Root}}page/{{.NextPage}}"></a>Next →
                     </div>{{end}}
                 </div>{{end}}
             </section>

@@ -74,7 +74,7 @@ pre code {
 
 .code-filename {
     /* ファイル名のやつ */
-    font-family: "Source Code Pro", Consolas, "M PLUS 1 Code", monospace;
+    font-family: "Source Code Pro", "M PLUS 1 Code", Consolas, monospace;
     background-color: #555;
     width: fit-content;
     padding: 0 10px;

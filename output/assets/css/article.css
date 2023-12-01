@@ -51,7 +51,7 @@ pre {
 }
 
 code {
-    font-family: Consolas, 'DejaVu Sans Mono', monospace;
+    font-family: "Source Code Pro", Consolas, monospace;
     color: #eee;
     background-color: #333;
     font-size: 90%;
@@ -74,12 +74,12 @@ pre code {
 
 .code-filename {
     /* ファイル名のやつ */
+    font-family: "Source Code Pro", Consolas, monospace;
     background-color: #555;
     width: fit-content;
     padding: 0 10px;
     border-radius: 10px 10px 0 0;
     color: #eee;
-    font-family: Consolas, 'DejaVu Sans Mono', monospace;
 }
 
 .codeblock-margin {
@@ -118,21 +118,47 @@ th {
     transition-duration: .2s;
 }
 
-.warning {
+/* information-block */
+.warning, .caution, .info {
     display: flex;
-    background-color: #fbb;
     margin: 10px 0;
     padding: 20px;
     border-radius: 10px;
 }
 
-.warning::before {
+.warning {
+    background-color: #fbb;
+    border: 2px solid rgb(223, 86, 86);;
+}
+
+.caution {
+    background-color: rgb(255, 200, 138);
+    border: 2px solid rgb(235, 140, 28);
+}
+
+.info {
+    background-color: rgb(130, 236, 156);
+    border: 2px solid rgb(11, 177, 34);
+}
+
+.warning::before, .caution::before, .info::before {
     display: block;
-    content: url("/assets/warning.svg");
     width: 30px;
     height: 30px;
     margin-right: 10px;
     flex-shrink: 0;
+}
+
+.warning::before {
+    content: url("/assets/warning.svg");
+}
+
+.caution::before {
+    content: url("/assets/caution.svg");
+}
+
+.info::before {
+    content: url("/assets/info.svg");
 }
 
 

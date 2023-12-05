@@ -1,5 +1,4 @@
 import os
-import sys
 
 import requests_oauthlib
 
@@ -13,5 +12,5 @@ session = requests_oauthlib.OAuth1Session(
 
 session.post(
     "https://api.twitter.com/2/tweets",
-    json={"text": f"ブログを更新しました: {sys.argv[2]}\nhttps://blog.qmainconts.dev/articles/{sys.argv[1]}/"}
+    json={"text": f"ブログを更新しました: {os.environ['TITLE']}\nhttps://blog.qmainconts.dev/articles/{os.environ['ID']}/"}
 )

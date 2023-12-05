@@ -1,15 +1,17 @@
+import os
 import sys
 
 import requests_oauthlib
 
 session = requests_oauthlib.OAuth1Session(
-    sys.argv[1],
-    sys.argv[2],
-    sys.argv[3],
-    sys.argv[4]
+    # envに設定した値を取得
+    os.environ["X_API_KEY"],
+    os.environ["X_API_KEY_SECRET"],
+    os.environ["X_ACCESS_TOKEN"],
+    os.environ["X_ACCESS_TOKEN_SECRET"]
 )
 
 session.post(
     "https://api.twitter.com/2/tweets",
-    json={"text": f"ブログを更新しました: {sys.argv[6]}\nhttps://blog.qmainconts.dev/articles/{sys.argv[5]}/"}
+    json={"text": f"ブログを更新しました: {sys.argv[2]}\nhttps://blog.qmainconts.dev/articles/{sys.argv[1]}/"}
 )

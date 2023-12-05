@@ -45,4 +45,9 @@ jobs:
         if: github.event.client_payload.type == 'new'
         run: |
           pip install requests requests_oauthlib
-          python .github/workflows/tweet.py ${{secrets.X_API_KEY}} ${{secrets.X_API_SECRET_KEY}} ${{secrets.X_ACCESS_TOKEN}} ${{secrets.X_ACCESS_TOKEN_SECRET}} ${{github.event.client_payload.id}} ${{github.event.client_payload.contents.new.title}}
+          python .github/workflows/tweet.py ${{github.event.client_payload.id}} ${{github.event.client_payload.contents.new.title}}
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET_KEY: ${{ secrets.X_API_SECRET_KEY }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}

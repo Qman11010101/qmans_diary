@@ -37,12 +37,12 @@ jobs:
           git commit --author=. -m 'Automatically generated'
           git push
       - name: Python environment
-        if: github.event.client_payload.type == 'new'
+        if: github.event.client_payload.type == 'new' || github.event.client_payload.type == 'edit'
         uses: actions/setup-python@v4
         with:
           python-version: "3.11"
       - name: Tweet
-        if: github.event.client_payload.type == 'new'
+        if: github.event.client_payload.type == 'new' || github.event.client_payload.type == 'edit'
         run: |
           pip install requests requests_oauthlib
           python .github/workflows/tweet.py ${{github.event.client_payload.id}} ${{github.event.client_payload.contents.new.title}}

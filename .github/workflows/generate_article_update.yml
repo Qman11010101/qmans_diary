@@ -1,6 +1,7 @@
 name: Generate all articles when article is updated
 on:
-  - repository_dispatch
+  repository_dispatch:
+    types: [update_post]
 
 jobs:
   generate:
@@ -9,10 +10,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-            ref: ${{ github.head_ref }}
+          ref: ${{ github.head_ref }}
       - uses: actions/setup-go@v3
         with:
-          go-version: '>=1.19.3'
+          go-version: ">=1.19.3"
           cache: false
       - name: Event display
         run: |
@@ -35,3 +36,12 @@ jobs:
           git add .
           git commit --author=. -m 'Automatically generated'
           git push
+      - name: Python environment
+        if: github.event.client_payload.type == 'new'
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      - name: Tweet
+        run: |
+          pip install requests requests_oauthlib
+          python .github/workflows/tweet.py ${{secrets.X_API_KEY}} ${{secrets.X_API_SECRET_KEY}} ${{secrets.ACCESS_TOKEN}} ${{secrets.ACCESS_TOKEN_SECRET}} ${{github.event.client_payload.id}} ${{github.event.client_payload.contents.new.title}}

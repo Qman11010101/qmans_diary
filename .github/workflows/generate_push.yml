@@ -16,7 +16,6 @@ jobs:
           cache: false
       - name: Install microblogen
         run: GOBIN=$(pwd) GOPRIVATE="github.com/Qman11010101/microblogen" go install github.com/Qman11010101/microblogen@latest
-      - run: ls -la
       - name: run microblogen
         run: $(pwd)/microblogen
         env:

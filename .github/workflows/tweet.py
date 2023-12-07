@@ -10,6 +10,8 @@ session = requests_oauthlib.OAuth1Session(
     os.environ["X_ACCESS_TOKEN_SECRET"]
 )
 
+print(os.environ["TITLE"], os.environ["ID"])
+
 res = session.post(
     "https://api.twitter.com/2/tweets",
     json={"text": f"ブログを更新しました: {os.environ['TITLE']}\nhttps://blog.qmainconts.dev/articles/{os.environ['ID']}/"}

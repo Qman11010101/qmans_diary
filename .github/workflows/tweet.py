@@ -11,7 +11,7 @@ session = requests_oauthlib.OAuth1Session(
     os.environ["X_ACCESS_TOKEN_SECRET"]
 )
 
-title = requests.get(f"https://{os.environ['SERVICE_DOMAIN']}.microcms.io/api/v1/articles/{os.environ['ID']}?fields=title", headers={
+title = requests.get(f"https://{os.environ['SERVICE_DOMAIN']}.microcms.io/api/v1/article/{os.environ['ID']}?fields=title", headers={
     "X-MICROCMS-API-KEY": os.environ["MICROCMS_API_KEY"],
 }).json()["title"]
 

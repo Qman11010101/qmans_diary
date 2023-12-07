@@ -41,9 +41,9 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: "3.11"
-      - name: chk
+      - name: check payload
         run: |
-          echo ${{github.event.client_payload.contents.new.publishValue.title}}
+          echo ${{github.event.client_payload}}
       - name: Tweet
         if: github.event.client_payload.type == 'new' || github.event.client_payload.type == 'edit'
         run: |

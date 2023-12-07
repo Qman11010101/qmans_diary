@@ -1,5 +1,6 @@
 import os
 
+import requests
 import requests_oauthlib
 
 session = requests_oauthlib.OAuth1Session(
@@ -10,11 +11,13 @@ session = requests_oauthlib.OAuth1Session(
     os.environ["X_ACCESS_TOKEN_SECRET"]
 )
 
-print(os.environ["TITLE"], os.environ["ID"])
+title = requests.get(f"https://{os.environ['SERVICE_DOMAIN']}.microcms.io/api/v1/articles/{os.environ['ID']}?fields=title", headers={
+    "X-MICROCMS-API-KEY:": os.environ["MICROCMS_API_KEY"],
+}).json()["title"]
 
 res = session.post(
     "https://api.twitter.com/2/tweets",
-    json={"text": f"ブログを更新しました: {os.environ['TITLE']}\nhttps://blog.qmainconts.dev/articles/{os.environ['ID']}/"}
+    json={"text": f"ブログを更新しました: {title}\nhttps://blog.qmainconts.dev/articles/{os.environ['ID']}/"}
 )
 
 print(res.text)

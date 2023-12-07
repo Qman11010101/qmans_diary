@@ -41,9 +41,9 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: "3.11"
-      - name: check payload
+      - name: get article title
         run: |
-          echo "payload: ${{ toJson(github.event.client_payload) }}"
+          echo TITLE=$(curl -X GET https://$SERVICE_DOMAIN.microcms.io/api/v1/articles/${{github.event.client_payload.id}}?fields=title -H "X-MICROCMS-API-KEY:$MICROCMS_API_KEY" | jq -r '.title') >> $GITHUB_ENV
       - name: Tweet
         if: github.event.client_payload.type == 'new' || github.event.client_payload.type == 'edit'
         run: |

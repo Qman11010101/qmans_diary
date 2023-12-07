@@ -44,7 +44,7 @@ jobs:
       - name: Tweet
         if: github.event.client_payload.type == 'new' || github.event.client_payload.type == 'edit'
         run: |
-          pip install requests requests_oauthlib
+          pip install requests_oauthlib
           python .github/workflows/tweet.py
         env:
           X_API_KEY: ${{ secrets.X_API_KEY }}

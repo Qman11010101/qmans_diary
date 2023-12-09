@@ -22,6 +22,10 @@
     margin: 15px 0;
 }
 
+#maincol article p {
+    margin: 10px 0;
+}
+
 #maincol h2 {
     font-size: 1.5em;
     margin: 30px 0 10px;
@@ -119,7 +123,9 @@ th {
 }
 
 /* information-block */
-.warning, .caution, .info {
+.warning,
+.caution,
+.info {
     display: flex;
     margin: 10px 0;
     padding: 20px;
@@ -128,7 +134,8 @@ th {
 
 .warning {
     background-color: #fbb;
-    border: 2px solid rgb(223, 86, 86);;
+    border: 2px solid rgb(223, 86, 86);
+    ;
 }
 
 .caution {
@@ -141,7 +148,9 @@ th {
     border: 2px solid rgb(11, 177, 34);
 }
 
-.warning::before, .caution::before, .info::before {
+.warning::before,
+.caution::before,
+.info::before {
     display: block;
     width: 30px;
     height: 30px;

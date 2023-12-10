@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head prefix="og:http://ogp.me/ns#">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>maimaiのべ枠画像生成ツールとかマイ定数表作るために譜面定数データ欲しい - Qman's Diary</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&family=Noto+Sans+JP:wght@400;700&family=Play:wght@700&family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/destyle.css">
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/article.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/vs2015.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/assets/js/latest_articles.js"></script>
+    <script src="/assets/js/categories.js"></script>
+    <script src="/assets/js/codeblock.js"></script>
+    <link rel="canonical" href="https://blog.qmainconts.dev/articles/c32lhxomzgkb.html">
+    <meta name="description" content="欲しい！有り体に言えば、なんでmaimaiのツールを作ってないのかの話をします。一言で言えばクソバカアホボケ大変だからです。が、それで納得してもらえるとも思えないので、プログラミング的な話をちまちま挟…">
+    <meta property="og:title" content="maimaiのべ枠画像生成ツールとかマイ定数表作るために譜面定数データ欲しい - Qman's Diary">
+    <meta property="og:description" content="欲しい！有り体に言えば、なんでmaimaiのツールを作ってないのかの話をします。一言で言えばクソバカアホボケ大変だからです。が、それで納得してもらえるとも思えないので、プログラミング的な話をちまちま挟…">
+    <meta property="og:url" content="https://blog.qmainconts.dev/articles/c32lhxomzgkb.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Qman's Diary">
+</head>
+
+<body>
+    <header>
+        <div id="blogtitle"><a href="/">Qman's Diary</a></div>
+        <p>多趣味人間の備忘録</p>
+    </header>
+    <main>
+        <section id="maincol">
+            <section class="box">
+                <div class="date">2023-12-10</div>
+                <h1 id="articletitle">maimaiのべ枠画像生成ツールとかマイ定数表作るために譜面定数データ欲しい</h1>
+                <div class="tags">
+                    <div class="tag"><img src="/assets/tag.svg" alt="タグ" width="18" height="18" draggable="false"></div>
+                    <div class="tag"><a href="category/tech"></a>技術</div>
+                    <div class="tag"><a href="category/musicgame"></a>音楽ゲーム</div>
+                    <div class="tag"><a href="category/maimai"></a>maimai</div>
+                </div>
+                <article id="atcbody"><p>欲しい！</p><p>有り体に言えば、<strong>なんでmaimaiのツールを作ってないのか</strong>の話をします。</p><p>一言で言えば<strong>クソバカアホボケ大変だから</strong>です。が、それで納得してもらえるとも思えないので、プログラミング的な話をちまちま挟みつつ解説します。</p><h2 id="h06d459b4e3">もっと詳しい話</h2><h3 id="hd320702332">ツールを作るためには譜面定数データが必要</h3><p>当たり前ですね。こういった譜面定数データはどこからやってきているのでしょうか？</p><p>それは、CHUNITHMであればchunirecから、オンゲキであればOngekiScoreLogからデータをいただいています。(本当にありがとうございます)</p><h3 id="hf1689bbe90">CHUNITHM (chunirec) の場合</h3><p>例えば、chunirecの曲のデータはこのようになっています。(1曲だけ抜粋しています)</p><div data-filename="chunirecの曲データ"><pre><code class="language-json">[
+  {
+    &quot;meta&quot;: {
+      &quot;id&quot;: &quot;6a88218b1a936bd3&quot;,
+      &quot;title&quot;: &quot;B.B.K.K.B.K.K.&quot;,
+      &quot;genre&quot;: &quot;VARIETY&quot;,
+      &quot;artist&quot;: &quot;nora2r&quot;,
+      &quot;release&quot;: &quot;2015-07-17&quot;,
+      &quot;bpm&quot;: 170
+    },
+    &quot;data&quot;: {
+      &quot;BAS&quot;: {
+        &quot;level&quot;: 3,
+        &quot;const&quot;: 0,
+        &quot;maxcombo&quot;: 333,
+        &quot;is_const_unknown&quot;: 1
+      },
+      &quot;ADV&quot;: {
+        &quot;level&quot;: 5,
+        &quot;const&quot;: 0,
+        &quot;maxcombo&quot;: 541,
+        &quot;is_const_unknown&quot;: 1
+      },
+      &quot;EXP&quot;: {
+        &quot;level&quot;: 10,
+        &quot;const&quot;: 10,
+        &quot;maxcombo&quot;: 1051,
+        &quot;is_const_unknown&quot;: 0
+      },
+      &quot;MAS&quot;: {
+        &quot;level&quot;: 12.5,
+        &quot;const&quot;: 12.5,
+        &quot;maxcombo&quot;: 960,
+        &quot;is_const_unknown&quot;: 0
+      },
+      &quot;ULT&quot;: {
+        &quot;level&quot;: 13.5,
+        &quot;const&quot;: 13.7,
+        &quot;maxcombo&quot;: 1626,
+        &quot;is_const_unknown&quot;: 0
+      }
+    }
+  }
+]</code></pre></div><p>プログラミング的なことが何もわからない人でも、何が書かれているのかはなんとなくわかると思います。このようなカッチリした書き方のおかげで、プログラムから読みやすいようになっているわけです。</p><h3 id="ha5b5d93dac">オンゲキ (OngekiScoreLogの場合)</h3><p>OngekiScoreLogは上記のような形ではありませんが、表の形で定数を提供してくれています。(参照: <a href="https://ongeki-score.net/music" target="_blank" rel="noopener noreferrer nofollow">OngekiScoreLog - 楽曲リスト</a>)</p><p>これを、プログラミングの力で、こうして……</p><figure><img src="https://images.microcms-assets.io/assets/0b0ca8a0456441b1913290d8b4a73344/31c1113bb8274d3fbaa041e778e34fba/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202023-12-08%20014413.png?fm=webp" alt="" width="829" height="861"><figcaption>Google Spreadsheet、愛してる</figcaption></figure><p>これだけだと曲を作った人の情報とかが欠けてるので、公式サイトからもデータを持ってきて……</p><figure><img src="https://images.microcms-assets.io/assets/0b0ca8a0456441b1913290d8b4a73344/da5586fde680484da03429abafa07307/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202023-12-08%20014629.png?fm=webp" alt="" width="1592" height="850"><figcaption>色分けすると&quot;表&quot;って感じしていいよね</figcaption></figure><p><strong>気合で合体します。</strong></p><figure><img src="https://images.microcms-assets.io/assets/0b0ca8a0456441b1913290d8b4a73344/5efe12c4ad804182b553ff6098329205/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202023-12-08%20014931.png?fm=webp" alt="" width="1085" height="857"><figcaption>𝓟𝓮𝓻𝓯𝓮𝓬𝓽...</figcaption></figure><p>まあやってることは二つのデータの曲のタイトルを照らし合わせながらデータをいい感じに組み合わせていくという作業なんですが、これもちょっと大変です。<strong>Singularityが3つあるせいで。</strong></p><figure><img src="https://images.microcms-assets.io/assets/0b0ca8a0456441b1913290d8b4a73344/89b30d203de44ff0b0eb87b1f94578e8/image.png?fm=webp" alt="" width="763" height="236"><figcaption>なんか苦労してて草</figcaption></figure><figure><img src="https://images.microcms-assets.io/assets/0b0ca8a0456441b1913290d8b4a73344/855d798e53e2412bbbb77d82fc06b206/image.png?fm=webp" alt="" width="618" height="280"><figcaption>同じタイトルの曲がなかったら必要なかった数行のコード。せっかくなので晒しておきます</figcaption></figure><p>そしてこれをプログラミングの力でさらにごにょごにょして……</p><div data-filename="オンゲキ マイ定数表で使ってるデータ"><pre><code class="language-json">[
+  {
+    &quot;title&quot;: &quot;ＧＯ！ＧＯ！ラブリズム♥&quot;,
+    &quot;artist&quot;: &quot;片霧烈火オンザみんマンション&quot;,
+    &quot;has_lunatic&quot;: false,
+    &quot;only_lunatic&quot;: false,
+    &quot;category&quot;: &quot;チュウマイ&quot;,
+    &quot;img_url&quot;: &quot;5a9758493362722b.png&quot;,
+    &quot;music_id&quot;: 51,
+    &quot;add_date&quot;: &quot;2018-07-25T15:00:00.000Z&quot;,
+    &quot;lnt_add_date&quot;: &quot;&quot;,
+    &quot;basic&quot;: {
+      &quot;level&quot;: &quot;3&quot;,
+      &quot;const&quot;: 3,
+      &quot;is_unknown&quot;: true
+    },
+    &quot;advanced&quot;: {
+      &quot;level&quot;: &quot;6&quot;,
+      &quot;const&quot;: 6,
+      &quot;is_unknown&quot;: true
+    },
+    &quot;expert&quot;: {
+      &quot;level&quot;: &quot;8+&quot;,
+      &quot;const&quot;: 8.7,
+      &quot;is_unknown&quot;: true
+    },
+    &quot;master&quot;: {
+      &quot;level&quot;: &quot;11+&quot;,
+      &quot;const&quot;: 11.9,
+      &quot;is_unknown&quot;: false
+    },
+    &quot;lunatic&quot;: {
+      &quot;level&quot;: &quot;&quot;,
+      &quot;const&quot;: &quot;&quot;,
+      &quot;is_unknown&quot;: false
+    }
+  }
+]</code></pre></div><p>完成です。お疲れ様でした。これを作るのには結構苦労しましたが、結果としてそれなりに良いものができたんじゃないでしょうか。</p><p>もちろん、自作のせいで変なバグをいろいろ仕込んだりもしましたが……報告してくれた方々、ありがとうございます。</p><h2 id="h1158e34e67">maimaiの譜面定数の話</h2><p>maimaiにも譜面定数表はあるだろって？　そうですね。あります。ありますが、正直言って<strong>実用に堪えません</strong>。</p><p><span class="caution">譜面定数表を作ってくださる皆様へ: めっちゃディスるようなことを言って申し訳ありません。理由についてはちゃんとこの後に書いてあるので読んでいただければ幸いです。役に立たないのは我々の特殊な理由によるものであって、実際のところ、ほとんどの人にとって皆様の作ってくださる譜面定数表は大変役に立ちます。本当にありがとうございます。</span></p><p>……言い訳も済んだので、ちゃんと説明します。</p><p>ここで言う『実用に堪えない』という結論は、以下の4つの理由から構成されています。</p><h3 id="hbc4c258119">機械的に読み取りづらい</h3><p>ここでは、とりあえず有力な定数情報ソースたりうるWikiを例に取り上げます。</p><p>突然ですが、皆さんは以下の表を見てどう思いますか？</p><figure><img src="https://images.microcms-assets.io/assets/0b0ca8a0456441b1913290d8b4a73344/ab3dee580335422082a6831e9314d590/image.png?fm=webp" alt="" width="575" height="836"><figcaption>CHUNITHM Wikiより引用。あげつらうつもりはないので許して欲しい</figcaption></figure><p>別に見やすいですよね？私もそう思います。</p><p>しかし、何も考えずに作られたプログラムには、おそらく以下のように見えます。ここでは15.1の最初のところだけ抜粋します。</p><table><tbody><tr><td colspan="1" rowspan="1"><p>15.1</p></td><td colspan="1" rowspan="1"><p></p></td><td colspan="1" rowspan="1"><p></p></td><td colspan="1" rowspan="1"><p></p></td><td colspan="1" rowspan="1"><p></p></td></tr><tr><td colspan="1" rowspan="1"><p>ULT</p></td><td colspan="1" rowspan="1"><p>VAR</p></td><td colspan="1" rowspan="1"><p>Aleph-0</p></td><td colspan="1" rowspan="1"><p>1519</p></td><td colspan="1" rowspan="1"><p>15.0</p></td></tr><tr><td colspan="1" rowspan="1"><p>MAS</p></td><td colspan="1" rowspan="1"><p>撃舞</p></td><td colspan="1" rowspan="1"><p>sølips</p></td><td colspan="1" rowspan="1"><p>2750</p></td><td colspan="1" rowspan="1"><p>N</p></td></tr><tr><td colspan="1" rowspan="1"><p>LAMIA</p></td><td colspan="1" rowspan="1"><p>3000</p></td><td colspan="1" rowspan="1"><p>N</p></td><td colspan="1" rowspan="1"><p></p></td><td colspan="1" rowspan="1"><p></p></td></tr><tr><td colspan="1" rowspan="1"><p>ORI</p></td><td colspan="1" rowspan="1"><p>POTENTIAL</p></td><td colspan="1" rowspan="1"><p>2808</p></td><td colspan="1" rowspan="1"><p>-</p></td><td colspan="1" rowspan="1"><p></p></td></tr></tbody></table><p>ここでは、『<strong>列ごとの情報の種類が同一でない</strong>』という問題が生じています。</p><p>Webサイトを表示するための言語であるHTMLの都合上、ここで言うMASや撃舞のような複数行にまたがる長いセルは、<strong>それが登場する最初の行で「このセルは◯行分の高さです」と宣言する</strong>構造になっています(詳しい方向けに言えばtdのrowspanの値が行数分になっています)。そのため以降の行ではMASセルや撃舞が登場せず、いきなり曲名から始まります。</p><p>まあ、行あたりのデータの数を最大5つと決め打ちして、数に応じて右からデータを見ていくのでもできなくはないでしょうが……正直、面倒です。</p><p>ちなみに余談ですが、Excelのセルを結合するなと怒り狂うエンジニアをよく見かけるのもだいたい同じ理由です。機械的に読み取りにくいんだわ。</p><p>さらに言えば、この表にはもう1つ問題があります。それは、<strong>今見ている行の曲の定数がわからない</strong>ことです。</p><p>譜面定数は上の行を1行まるまる使って表示されていますが、普通プログラムが表を見るときは上から1行ずつ読んでいくので、譜面定数の行を読み込んだら<strong>一旦その譜面定数を記憶しておかなければいけない</strong>という面倒くささが生じます。</p><p>それを考えると、OngekiScoreLogの提供しているこちらの定数表がいかに読みやすいかを実感できますね。<strong>1行読めば必要な情報が全部手に入る</strong>わけですから。</p><figure><img src="https://images.microcms-assets.io/assets/0b0ca8a0456441b1913290d8b4a73344/66fba06fea494eb48b7df9b28f2070df/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202023-12-08%20185741.png?fm=webp" alt="" width="649" height="386"><figcaption>冗長な表現もたまには必要</figcaption></figure><h3 id="hd7985d5739">曲名が間違っていることがある</h3><p>表示の都合上か、あるいは単純に見間違えたのか、曲名の文字が本来と違うこともあります。例えば、Wikiでは『[CRYSTAL_ACCESS]』が『［CRYSTAL_ACEESS］』になっていたのを見たことがあります。カッコが全角になっていますね。</p><p>先程オンゲキのところで述べたように、「曲名を照らし合わせてデータを扱う」ということはよくあります。少し込み入った話になりますが、例えば私が曲のジャケット画像を公式サイトから取得する際は、曲タイトルと作曲者名を組み合わせたものにmd5という処理をかけた名前にしています。</p><figure><img src="https://images.microcms-assets.io/assets/0b0ca8a0456441b1913290d8b4a73344/514d141fa03841fc84678d3f8fceb02a/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202023-12-08%20200521.png?fm=webp" alt="" width="1017" height="532"><figcaption>曲タイトルとかそのままだとファイル名に使えない特殊な文字使ってることがありますからね</figcaption></figure><p><span class="info">md5については、不正確ですがここでは『突っ込まれたデータをいじくり回して32文字にする処理』と考えてくれればいいです。同じデータを突っ込んだら必ず同じ32文字が出てきます。そして、別々のデータを突っ込んで同じ32文字が出てくる確率はほぼ0です。詳しくは『暗号学的ハッシュ関数』で検索！</span></p><p>上の方で出したchunirecのデータにも曲タイトルと作曲者名が含まれているので、それを使って画像URLを作っています。1文字でも文字が違えば出てくる32文字は全く違うものになるので、正確性は大切です。</p><h3 id="h54de3ca4dd">情報ソース元が安定しない</h3><p>探していると、実は機械的に読みやすいmaimaiの定数表があります。</p><p>それは、現時点では<a href="https://docs.google.com/spreadsheets/d/1vSqx2ghJKjWwCLrDEyZTUMSy5wkq_gY4i0GrJgSreQc/edit#gid=1451494508" target="_blank" rel="noopener noreferrer nofollow">[mDX9.0]BUDDiES譜面定数表</a>です。ただし、みんなが見ている見やすい表ではなく、<strong>一番右のTmaiタブ</strong>です。管理ページです。</p><figure><img src="https://images.microcms-assets.io/assets/0b0ca8a0456441b1913290d8b4a73344/c2402c62c6a9444ab9dd5f11974deeb4/image.png?fm=webp" alt="" width="850" height="318"><figcaption>なんて見やすいんだ……！</figcaption></figure><p>ここには『曲名』『譜面種別(でらっくす譜面かスタンダード譜面か)』『難易度』『譜面定数』の情報が揃っています。オンゲキのときと同じ要領で作曲者の情報を組み合わせれば、多分定数表として申し分ないものができるでしょう。曲名の間違いも見た感じなさそうですし、まああったとしても少量なのでこちらでカバーできそうな雰囲気があります。</p><p>しかし、この定数表にも問題があります。その1つが、<strong>この定数表はBUDDiESの間しか使えない</strong>ということです。新しいバージョンが稼働すれば、新しいバージョンの定数表が用意されます。その度に、私が手動で定数表のURLを書き換えないといけないわけです。仕方ないとはいえ、正直面倒です。</p><p>あと、この定数表がずっとこの形であるとも限りません。次のバージョンで定数の列が1列右にずらされたりしたら、それだけでデータが壊れてしまいます。</p><h3 id="h302856249f">全楽曲が載っていない</h3><p>また、上記の定数表はあくまでも『譜面定数を調べるときに書き込む』ものであり、最初から全楽曲が掲載されているわけではありません。そのため、これを定数表として用いる場合は、情報が見つからなかったら仮の情報に置き換える必要があります。</p><p>先程から何度か引き合いに出しているOngekiScoreLogの譜面定数表は、データが欠けている場合は最初から仮のデータが入るようになっています。レベルが12+であればそのレベルの最低定数である12.7が仮で入っているということです。chunirecも同様で、<code>data</code>の中の<code>is_const_unknown</code>が<code>1</code>ならば『譜面定数は未調査で仮の値が入っている』という意味合いになります。</p><figure><img src="https://images.microcms-assets.io/assets/0b0ca8a0456441b1913290d8b4a73344/f24889330ffa40da93c2069fdbdff74a/image.png?fm=webp" alt="" width="653" height="402"><figcaption>灰色の斜体は未調査・未確定の定数です。もっともADV以下が調べられることはないでしょうが……</figcaption></figure><p>これによって、多少不正確であっても欠けのない定数表を作ることができます。</p><p>この処理を自前で実装することは、まあ不可能ではありませんが骨が折れる作業です。</p><h2 id="ha214098e44">まとめ</h2><p>maimaiの譜面定数表を用意しようと考えると、私は以下のことを自分でやらないといけません。</p><ul><li>バージョンが変わるごとに譜面定数表のURLを変え、フォーマットが変化していないか確かめる</li><li>不完全な譜面定数表と公式サイトのデータをうまく合成する</li><li>曲名の間違いを自分で管理する</li><li>プレイヤーのデータからレートを計算する</li></ul><p>まあ、不可能ではないです。しかし、手間が大きいです。新たに一からプログラムを書く必要がありますし、定数表のURLなどプログラムではなく手動で管理する部分もあります。さらに言えば、maimaiにはメジャーなスコア管理ツールが存在していません。強いて言えば<a href="https://mai-score.com/">舞スコア</a>がありますが、こちらはchunirecやOngekiScoreLogと違って譜面定数なしで管理しているんですよね……そのため、レートを自力で計算する必要があります。</p><p>レートの計算の自力実装は、直近だと<a href="https://reiwa.f5.si/newbestimg/chunithm_int" target="_blank" rel="noopener noreferrer nofollow">海外版CHUNITHM用ベスト枠画像ジェネレーター</a>を作ったときにやりました。<strong>マジでもうやりたくないです。</strong>小数の計算で誤差が出まくった上何度も式をミスっては間違いを指摘されました(もちろん、指摘されるだけマシです)。レートなんて一番間違えちゃいけない部分ですからね。</p><p>ツールの作成は維持管理がミソです。バグがあったら直さなきゃいけないし、バージョンアップによって動かなくなることもあります。それを自分一人でmaimaiの分までやるのはマジで荷が重いです。一度作ってしまえばある程度楽なのかもしれないですけどね……誰かが定数表だけでも作ってくれれば、まあ、ぼちぼち作るかもしれないですが……。</p></article>
+                <div class="widget-wrapper">
+                    <div class="widget-child-wrapper">
+                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+                            data-size="large" data-lang="ja" data-show-count="false">Tweet</a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                </div>
+            </section>
+            <section class="box">
+                <section class="widgetgroup" id="recent">
+                    <div class="widgetindex">Recent Articles</div>
+                    <div id="recent-articles"></div>
+                </section>
+            </section>
+        </section>
+        <section id="subcol">
+            <section class="box">
+                <div class="subcolbtn">
+                    <a href="https://qmainconts.dev/"></a>
+                    >> キューマンのコンテンツ置き場
+                </div>
+                <section class="widgetgroup">
+                    <div class="widgetindex">Profile</div>
+                    <p>オタクコンテンツで命を繋いでいる</p>
+                </section>
+                <section class="widgetgroup">
+                    <div class="widgetindex">Accounts</div>
+                    <ul>
+                        <li>Twitter: <a href="https://twitter.com/QmanEnobikto" target="_blank">@QmanEnobikto</a>
+                        </li>
+                        <li>GitHub: <a href="https://github.com/Qman11010101" target="_blank">Qman11010101</a></li>
+                        <li>カクヨム: <a href="https://kakuyomu.jp/users/QmanEnobikto" target="_blank">QmanEnobikto</a>
+                        </li>
+                        <li>Qiita: <a href="https://qiita.com/KjumanEnobikto" target="_blank">@KjumanEnobikto</a>
+                        </li>
+                        <li>Zenn: <a href="https://zenn.dev/kjumanenobikto" target="_blank">@kjumanenobikto</a></li>
+                    </ul>
+                </section>
+                <section class="widgetgroup">
+                    <div class="widgetindex">Category</div>
+                    <div id="categorydisplay">
+                    </div>
+                </section>
+                <section class="widgetgroup">
+                    <div class="widgetindex">Tweets</div>
+                    <a class="twitter-timeline" data-height="1000" href="https://twitter.com/QmanEnobikto?ref_src=twsrc%5Etfw">Tweets by QmanEnobikto</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+                </section>
+            </section>
+        </section>
+    </main>
+    <footer>
+        <p>当ホームページに記載されている会社名・製品名・システム名などは、各社の登録商標、もしくは商標です。</p>
+        <p>© 2022 Kjuman Enobikto All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

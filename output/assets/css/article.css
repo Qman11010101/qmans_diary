@@ -180,6 +180,10 @@ th {
     content: url("/assets/info.svg");
 }
 
+#time-course-warning::before {
+    content: url("/assets/time-course.svg");
+}
+
 #time-course-warning {
     display: none;
 }

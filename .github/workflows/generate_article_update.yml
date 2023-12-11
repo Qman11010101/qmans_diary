@@ -55,3 +55,4 @@ jobs:
           ID: ${{github.event.client_payload.id}}
           MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
           SERVICE_DOMAIN: ${{ secrets.SERVICE_DOMAIN }}
+          TIMEZONE: "Asia/Tokyo"

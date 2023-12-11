@@ -129,7 +129,8 @@ th {
 /* information-block */
 .warning,
 .caution,
-.info {
+.info,
+#time-course-warning {
     display: flex;
     margin: 10px 0;
     padding: 20px;
@@ -139,7 +140,6 @@ th {
 .warning {
     background-color: #fbb;
     border: 2px solid rgb(223, 86, 86);
-    ;
 }
 
 .caution {
@@ -152,9 +152,15 @@ th {
     border: 2px solid rgb(11, 177, 34);
 }
 
+#time-course-warning {
+    background-color: rgb(170, 204, 255);
+    border: 2px solid rgb(51, 128, 245);
+}
+
 .warning::before,
 .caution::before,
-.info::before {
+.info::before,
+#time-course-warning::before {
     display: block;
     width: 30px;
     height: 30px;

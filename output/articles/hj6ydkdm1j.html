@@ -18,6 +18,7 @@
     <script src="/assets/js/latest_articles.js"></script>
     <script src="/assets/js/categories.js"></script>
     <script src="/assets/js/codeblock.js"></script>
+    <script src="/assets/js/time-course.js"></script>
     <link rel="canonical" href="https://blog.qmainconts.dev/articles/hj6ydkdm1j.html">
     <meta name="description" content="【注】本記事は旧ブログからの移植記事です。SEGA音ゲー3機種の公式サイトの裏には、楽曲リスト等のためのJSONが流れています。エンドポイントさえ知っていれば、それらを取得して活用することも可能です。…">
     <meta property="og:title" content="【備忘録】SEGA音ゲー3機種の公式サイトの裏で流れてる楽曲リストJSONの解説 - Qman's Diary">
@@ -45,6 +46,7 @@
                     <div class="tag"><a href="category/chunithm"></a>CHUNITHM</div>
                     <div class="tag"><a href="category/maimai"></a>maimai</div>
                 </div>
+                <div id="time-course-warning"></div>
                 <article id="atcbody"><p><strong>【注】本記事は旧ブログからの移植記事です。</strong></p><p><br></p><p>SEGA音ゲー3機種の公式サイトの裏には、楽曲リスト等のためのJSONが流れています。</p><p>エンドポイントさえ知っていれば、それらを取得して活用することも可能です。</p><p>ただ、正規で公開されているものではありませんし、いつ仕様が変更されたり使えなくなったりしても一切文句は言えません。</p><p>この情報を利用する際は、何があっても自己責任でお願いします。</p><h2 id="h252f0b88c1">CHUNITHM</h2><h3 id="h40fe001faa">楽曲リスト</h3><p><strong>▶エンドポイント: </strong><code>https://chunithm.sega.jp/storage/json/music.json</code></p><p>以前は著作権情報もこのJSONファイル内にあったが、現在は<code>https://chunithm.sega.jp/storage/json/rightsInfo.json</code>にまとめて全て入っている。</p><p><br></p><p><strong>▼レスポンス例</strong></p><pre><code>[
 &nbsp;&nbsp;&nbsp; {
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id": "2065",

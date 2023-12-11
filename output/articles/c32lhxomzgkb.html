@@ -18,6 +18,7 @@
     <script src="/assets/js/latest_articles.js"></script>
     <script src="/assets/js/categories.js"></script>
     <script src="/assets/js/codeblock.js"></script>
+    <script src="/assets/js/time-course.js"></script>
     <link rel="canonical" href="https://blog.qmainconts.dev/articles/c32lhxomzgkb.html">
     <meta name="description" content="欲しい！有り体に言えば、なんでmaimaiのツールを作ってないのかの話をします。一言で言えばクソバカアホボケ大変だからです。が、それで納得してもらえるとも思えないので、プログラミング的な話をちまちま挟…">
     <meta property="og:title" content="maimaiのべ枠画像生成ツールとかマイ定数表作るために譜面定数データ欲しい - Qman's Diary">
@@ -43,6 +44,7 @@
                     <div class="tag"><a href="category/musicgame"></a>音楽ゲーム</div>
                     <div class="tag"><a href="category/maimai"></a>maimai</div>
                 </div>
+                <div id="time-course-warning"></div>
                 <article id="atcbody"><p>欲しい！</p><p>有り体に言えば、<strong>なんでmaimaiのツールを作ってないのか</strong>の話をします。</p><p>一言で言えば<strong>クソバカアホボケ大変だから</strong>です。が、それで納得してもらえるとも思えないので、プログラミング的な話をちまちま挟みつつ解説します。</p><h2 id="h06d459b4e3">もっと詳しい話</h2><h3 id="hd320702332">ツールを作るためには譜面定数データが必要</h3><p>当たり前ですね。こういった譜面定数データはどこからやってきているのでしょうか？</p><p>それは、CHUNITHMであればchunirecから、オンゲキであればOngekiScoreLogからデータをいただいています。(本当にありがとうございます)</p><h3 id="hf1689bbe90">CHUNITHM (chunirec) の場合</h3><p>例えば、chunirecの曲のデータはこのようになっています。(1曲だけ抜粋しています)</p><div data-filename="chunirecの曲データ"><pre><code class="language-json">[
   {
     &quot;meta&quot;: {

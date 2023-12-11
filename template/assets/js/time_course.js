@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const tcw = document.getElementById("time-course-warning");
     if (diffYear >= 1) {
-        tcw.style.display = "block";
+        tcw.style.display = "flex";
         tcw.innerText = "この記事は最終更新から" + String(diffYear) + "年以上が経過しています。";
     }
 }, false);

@@ -18,6 +18,7 @@
     <script src="/assets/js/latest_articles.js"></script>
     <script src="/assets/js/categories.js"></script>
     <script src="/assets/js/codeblock.js"></script>
+    <script src="/assets/js/time-course.js"></script>
     <link rel="canonical" href="https://blog.qmainconts.dev/articles/{{.ID}}.html">
     <meta name="description" content="{{$bodyfirst := index .Body 0}}{{trimSample $bodyfirst.Body}}">
     <meta property="og:title" content="{{.Title}} - Qman's Diary">
@@ -42,6 +43,7 @@
                     .Category}}
                     <div class="tag"><a href="category/{{.ID}}"></a>{{.Name}}</div>{{end}}
                 </div>
+                <div id="time-course-warning"></div>
                 <article id="atcbody">{{range $bodies := .Body}}{{replaceWebp $bodies.Body}}{{end}}</article>
                 <div class="widget-wrapper">
                     <div class="widget-child-wrapper">

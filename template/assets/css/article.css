@@ -111,6 +111,10 @@ th {
     background-color: #ccc;
 }
 
+.iframely-embed {
+    margin: 10px 0;
+}
+
 /* カスタムclass */
 
 .spoiler {

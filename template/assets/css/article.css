@@ -50,8 +50,23 @@
     height: auto;
 }
 
+.code-filename {
+    /* ファイル名のやつ */
+    font-family: "Source Code Pro", "M PLUS 1 Code", Consolas, monospace;
+    background-color: #555;
+    width: fit-content;
+    padding: 0 10px;
+    border-radius: 10px 10px 0 0;
+    color: #eee;
+}
+
 pre {
+    margin: 10px 0;
     overflow: auto;
+}
+
+div.code-filename + pre {
+    margin-top: 0;
 }
 
 code {
@@ -76,18 +91,8 @@ pre code {
     word-break: break-all;
 }
 
-.code-filename {
-    /* ファイル名のやつ */
-    font-family: "Source Code Pro", "M PLUS 1 Code", Consolas, monospace;
-    background-color: #555;
-    width: fit-content;
-    padding: 0 10px;
-    border-radius: 10px 10px 0 0;
-    color: #eee;
-}
-
-.codeblock-margin {
-    margin: 10px 0;
+div.code-filename + pre code {
+    border-radius: 0 20px 20px;
 }
 
 table {

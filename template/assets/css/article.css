@@ -127,6 +127,7 @@ th {
     color: #333;
     padding: 0 5px 2px;
     transition-duration: .2s;
+    user-select: none;
 }
 
 .spoiler:hover,

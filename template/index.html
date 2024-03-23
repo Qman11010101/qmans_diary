@@ -10,10 +10,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&family=Noto+Sans+JP:wght@400;700&family=Play:wght@700&family=Source+Code+Pro&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/reset.css">
-    <link rel="stylesheet" href="/assets/css/common.css">
-    <link rel="stylesheet" href="/assets/css/index.css">
-    <script src="/assets/js/latest_articles.js"></script>
-    <script src="/assets/js/categories.js"></script>
+    <link rel="stylesheet" href="/assets/css/common.css?b={{buildTime}}">
+    <link rel="stylesheet" href="/assets/css/index.css?b={{buildTime}}">
+    <script src="/assets/js/latest_articles.js?b={{buildTime}}"></script>
+    <script src="/assets/js/categories.js?b={{buildTime}}"></script>
     <link rel="canonical" href="https://blog.qmainconts.dev{{if eq .PrevPage 0}}{{.Root}}{{else}}{{.Root}}page/{{sub .NextPage 1}}{{end}}">
     <meta property="og:title" content="Qman's Diary">
     <meta property="og:description" content="キューマン・エノビクトによるブログです。">

@@ -10,15 +10,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&family=Noto+Sans+JP:wght@400;700&family=Play:wght@700&family=Source+Code+Pro&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/reset.css">
-    <link rel="stylesheet" href="/assets/css/common.css?b=1711186515">
-    <link rel="stylesheet" href="/assets/css/article.css?b=1711186515">
+    <link rel="stylesheet" href="/assets/css/common.css?b=1711352966">
+    <link rel="stylesheet" href="/assets/css/article.css?b=1711352966">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/vs2015.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
-    <script src="/assets/js/latest_articles.js?b=1711186515"></script>
-    <script src="/assets/js/categories.js?b=1711186515"></script>
-    <script src="/assets/js/codeblock.js?b=1711186515"></script>
-    <script src="/assets/js/time_course.js?b=1711186515"></script>
+    <script src="/assets/js/latest_articles.js?b=1711352966"></script>
+    <script src="/assets/js/categories.js?b=1711352966"></script>
+    <script src="/assets/js/codeblock.js?b=1711352966"></script>
+    <script src="/assets/js/time_course.js?b=1711352966"></script>
     <link rel="canonical" href="https://blog.qmainconts.dev/articles/hj6ydkdm1j.html">
     <meta name="description" content="【注】本記事は旧ブログからの移植記事です。SEGA音ゲー3機種の公式サイトの裏には、楽曲リスト等のためのJSONが流れています。エンドポイントさえ知っていれば、それらを取得して活用することも可能です。…">
     <meta property="og:title" content="【備忘録】SEGA音ゲー3機種の公式サイトの裏で流れてる楽曲リストJSONの解説 - Qman's Diary">
@@ -29,23 +29,17 @@
 </head>
 
 <body>
-    <header>
-        <div id="blogtitle"><a href="/">Qman's Diary</a></div>
-        <p>多趣味人間の備忘録</p>
-    </header>
-    <main>
+<header>
+    <div id="blogtitle"><a href="/">Qman's Diary</a></div>
+    <p>多趣味人間の備忘録</p>
+</header>
+<main>
         <section id="maincol">
             <section class="box">
-                <div class="date">2022-11-21 (2023-01-23 更新)</div>
+                <div class="date">2022-11-21(2023-01-23 更新)</div>
                 <h1 id="articletitle">【備忘録】SEGA音ゲー3機種の公式サイトの裏で流れてる楽曲リストJSONの解説</h1>
                 <div class="tags">
-                    <div class="tag"><img src="/assets/tag.svg" alt="タグ" width="18" height="18" draggable="false"></div>
-                    <div class="tag"><a href="category/musicgame"></a>音楽ゲーム</div>
-                    <div class="tag"><a href="category/tech"></a>技術</div>
-                    <div class="tag"><a href="category/ongeki"></a>オンゲキ</div>
-                    <div class="tag"><a href="category/chunithm"></a>CHUNITHM</div>
-                    <div class="tag"><a href="category/maimai"></a>maimai</div>
-                </div>
+                    <div class="tag"><img src="/assets/tag.svg" alt="タグ" width="18" height="18" draggable="false"></div><div class="tag"><a href="category/musicgame"></a>音楽ゲーム</div><div class="tag"><a href="category/tech"></a>技術</div><div class="tag"><a href="category/ongeki"></a>オンゲキ</div><div class="tag"><a href="category/chunithm"></a>CHUNITHM</div><div class="tag"><a href="category/maimai"></a>maimai</div></div>
                 <div id="time-course-warning"></div>
                 <article id="atcbody"><p><strong>【注】本記事は旧ブログからの移植記事です。</strong></p><p><br></p><p>SEGA音ゲー3機種の公式サイトの裏には、楽曲リスト等のためのJSONが流れています。</p><p>エンドポイントさえ知っていれば、それらを取得して活用することも可能です。</p><p>ただ、正規で公開されているものではありませんし、いつ仕様が変更されたり使えなくなったりしても一切文句は言えません。</p><p>この情報を利用する際は、何があっても自己責任でお願いします。</p><h2 id="h252f0b88c1">CHUNITHM</h2><h3 id="h40fe001faa">楽曲リスト</h3><p><strong>▶エンドポイント: </strong><code>https://chunithm.sega.jp/storage/json/music.json</code></p><p>以前は著作権情報もこのJSONファイル内にあったが、現在は<code>https://chunithm.sega.jp/storage/json/rightsInfo.json</code>にまとめて全て入っている。</p><p><br></p><p><strong>▼レスポンス例</strong></p><pre><code>[
 &nbsp;&nbsp;&nbsp; {
@@ -219,41 +213,41 @@
                 </section>
             </section>
         </section>
-        <section id="subcol">
-            <section class="box">
-                <div class="subcolbtn">
-                    <a href="https://qmainconts.dev/"></a>
-                    >> キューマンのコンテンツ置き場
-                </div>
-                <section class="widgetgroup">
-                    <div class="widgetindex">Profile</div>
-                    <p>オタクコンテンツで命を繋いでいる</p>
-                </section>
-                <section class="widgetgroup">
-                    <div class="widgetindex">Accounts</div>
-                    <ul>
-                        <li>Twitter: <a href="https://twitter.com/QmanEnobikto" target="_blank">@QmanEnobikto</a>
-                        </li>
-                        <li>GitHub: <a href="https://github.com/Qman11010101" target="_blank">Qman11010101</a></li>
-                        <li>カクヨム: <a href="https://kakuyomu.jp/users/QmanEnobikto" target="_blank">QmanEnobikto</a>
-                        </li>
-                        <li>Qiita: <a href="https://qiita.com/KjumanEnobikto" target="_blank">@KjumanEnobikto</a>
-                        </li>
-                        <li>Zenn: <a href="https://zenn.dev/kjumanenobikto" target="_blank">@kjumanenobikto</a></li>
-                    </ul>
-                </section>
-                <section class="widgetgroup">
-                    <div class="widgetindex">Category</div>
-                    <div id="categorydisplay">
-                    </div>
-                </section>
-                <section class="widgetgroup">
-                    <div class="widgetindex">Tweets</div>
-                    <a class="twitter-timeline" data-height="1000" href="https://twitter.com/QmanEnobikto?ref_src=twsrc%5Etfw">Tweets by QmanEnobikto</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
-                </section>
-            </section>
+<section id="subcol">
+    <section class="box">
+        <div class="subcolbtn">
+            <a href="https://qmainconts.dev/"></a>
+            >> キューマンのコンテンツ置き場
+        </div>
+        <section class="widgetgroup">
+            <div class="widgetindex">Profile</div>
+            <p>オタクコンテンツで命を繋いでいる人間</p>
         </section>
-    </main>
+        <section class="widgetgroup">
+            <div class="widgetindex">Accounts</div>
+            <ul>
+                <li>Twitter: <a href="https://twitter.com/QmanEnobikto" target="_blank">@QmanEnobikto</a>
+                </li>
+                <li>GitHub: <a href="https://github.com/Qman11010101" target="_blank">Qman11010101</a></li>
+                <li>カクヨム: <a href="https://kakuyomu.jp/users/QmanEnobikto" target="_blank">QmanEnobikto</a>
+                </li>
+                <li>Qiita: <a href="https://qiita.com/KjumanEnobikto" target="_blank">@KjumanEnobikto</a>
+                </li>
+                <li>Zenn: <a href="https://zenn.dev/kjumanenobikto" target="_blank">@kjumanenobikto</a></li>
+            </ul>
+        </section>
+        <section class="widgetgroup">
+            <div class="widgetindex">Category</div>
+            <div id="categorydisplay">
+            </div>
+        </section>
+        <section class="widgetgroup">
+            <div class="widgetindex">Tweets</div>
+            <a class="twitter-timeline" data-height="1000" href="https://twitter.com/QmanEnobikto?ref_src=twsrc%5Etfw">Tweets by QmanEnobikto</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+        </section>
+    </section>
+</section>
+</main>
     <footer>
         <p>当ホームページに記載されている会社名・製品名・システム名などは、各社の登録商標、もしくは商標です。</p>
         <p>© 2022 Kjuman Enobikto All rights reserved.</p>

@@ -1,3 +1,7 @@
+:root {
+    --toggle-display-width: 1100px;
+}
+
 body {
     background-color: #418d45;
     font-family: "Noto Sans JP", sans-serif;
@@ -10,6 +14,11 @@ header {
     padding: 20px;
     background-color: #333333;
     color: #eeeeee;
+
+    p {
+        width: fit-content;
+        margin: 0 auto;
+    }
 }
 
 #blogtitle {
@@ -17,16 +26,11 @@ header {
     margin: 0 auto;
     font-size: 2.3em;
     font-family: "Play", sans-serif;
-}
 
-#blogtitle a {
-    color: #eeeeee;
-    text-decoration: none;
-}
-
-header p {
-    width: fit-content;
-    margin: 0 auto;
+    a {
+        color: #eeeeee;
+        text-decoration: none;
+    }
 }
 
 @media screen and (max-width: 500px) {
@@ -70,10 +74,10 @@ figcaption {
     padding: 20px;
     border-radius: 20px;
     line-height: 1.8;
-}
 
-.box:not(:first-child) {
-    margin-top: 10px;
+    &:not(:first-child) {
+        margin-top: 10px;
+    }
 }
 
 @media screen and (max-width: 1100px) {
@@ -119,21 +123,21 @@ figcaption {
     position: relative;
     transition-duration: .2s;
     line-height: 1.5;
-}
 
-.subcolbtn:hover {
-    background-color: #333;
-    color: #eeeeee;
-    transition-duration: .2s;
-}
+    &:hover {
+        background-color: #333;
+        color: #eeeeee;
+        transition-duration: .2s;
+    }
 
-.subcolbtn a {
-    position: absolute;
-    display: block;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    a {
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
 }
 
 .widgetindex {
@@ -163,21 +167,25 @@ figcaption {
     text-align: center;
     position: relative;
     transition-duration: .2s;
-}
 
-.tag:hover {
-    background-color: #555555;
-    color: #bbbbbb;
-    transition-duration: .2s;
-}
+    &:hover {
+        background-color: #555555;
+        color: #bbbbbb;
+        transition-duration: .2s;
+    }
 
-.tag a {
-    position: absolute;
-    display: block;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    a {
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    img {
+        vertical-align: middle;
+    }
 }
 
 .tags .tag:first-child {
@@ -189,10 +197,6 @@ figcaption {
 
 .tagcnt {
     font-size: 0.8em;
-}
-
-.tag img {
-    vertical-align: middle;
 }
 
 /* date */
@@ -215,18 +219,18 @@ figcaption {
     font-size: 1.2em;
     font-weight: bold;
     margin: 4px 0;
-}
 
-.recent-title a {
-    text-decoration: none;
-    color: #333333;
-    cursor: pointer;
-    transition-duration: .2s;
-}
+    a {
+        text-decoration: none;
+        color: #333333;
+        cursor: pointer;
+        transition-duration: .2s;
 
-.recent-title a:hover {
-    color: #0088cc;
-    transition-duration: .2s;
+        &:hover {
+            color: #0088cc;
+            transition-duration: .2s;
+        }
+    }
 }
 
 /* フッター */
@@ -236,12 +240,12 @@ footer {
     padding: 20px;
     background-color: #333333;
     color: #eeeeee;
-}
 
-footer p {
-    line-height: 1.8;
-    width: fit-content;
-    margin: 0 auto;
+    p {
+        line-height: 1.8;
+        width: fit-content;
+        margin: 0 auto;
+    }
 }
 
 /* その他 */

@@ -73,7 +73,7 @@ figcaption {
     color: #333333;
     padding: 20px;
     border-radius: 20px;
-    line-height: 1.8;
+    line-height: 2.2;
 
     &:not(:first-child) {
         margin-top: 10px;

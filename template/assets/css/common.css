@@ -69,11 +69,11 @@ figcaption {
 /* 共通利用ボックス */
 
 .box {
-    background-color: #dddddd;
+    background-color: #eeeeee;
     color: #333333;
     padding: 20px;
     border-radius: 20px;
-    line-height: 2.2;
+    line-height: 2;
 
     &:not(:first-child) {
         margin-top: 10px;
@@ -161,7 +161,7 @@ figcaption {
 .tag {
     padding: 2px 5px;
     margin: 3px;
-    background-color: #bbbbbb;
+    background-color: #cccccc;
     color: #333;
     width: fit-content;
     text-align: center;
@@ -169,7 +169,7 @@ figcaption {
     transition-duration: .2s;
 
     &:hover {
-        background-color: #555555;
+        background-color: #444444;
         color: #bbbbbb;
         transition-duration: .2s;
     }
@@ -189,7 +189,7 @@ figcaption {
 }
 
 .tags .tag:first-child {
-    background-color: #dddddd;
+    background-color: #eeeeee;
     display: flex;
     flex-direction: column;
     justify-content: center;

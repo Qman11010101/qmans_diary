@@ -301,3 +301,19 @@ blockquote {
     margin: 10px;
     color: #666;
 }
+
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
+u {
+    text-decoration: underline;
+}
+
+s {
+    text-decoration: line-through;
+}

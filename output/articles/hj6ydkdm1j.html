@@ -6,30 +6,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>【備忘録】SEGA音ゲー3機種の公式サイトの裏で流れてる楽曲リストJSONの解説 - Qman's Diary</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&family=Noto+Sans+JP:wght@400;700&family=Play:wght@700&family=Source+Code+Pro&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&family=Noto+Sans+JP:wght@400;700&family=Play:wght@700&family=Source+Code+Pro&display=swap" media="print" onload='this.media="all"' />
-    <!-- <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&family=Noto+Sans+JP:wght@400;700&family=Play:wght@700&family=Source+Code+Pro&display=swap" rel="stylesheet"> -->
-    <link rel="stylesheet" href="/assets/css/reset.css">
-    <link rel="stylesheet" href="/assets/css/common.css?b=1723860695">
-    <link rel="stylesheet" href="/assets/css/article.css?b=1723860695">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/vs2015.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
-    <script src="/assets/js/latest_articles.js?b=1723860695"></script>
-    <script src="/assets/js/categories.js?b=1723860695"></script>
-    <script src="/assets/js/codeblock.js?b=1723860695"></script>
-    <script src="/assets/js/time_course.js?b=1723860695"></script>
-    <link rel="canonical" href="https://blog.qmainconts.dev/articles/hj6ydkdm1j.html">
-    <meta name="description" content="【注】本記事は旧ブログからの移植記事です。SEGA音ゲー3機種の公式サイトの裏には、楽曲リスト等のためのJSONが流れています。エンドポイントさえ知っていれば、それらを取得して活用することも可能です。…">
+    
+    <!-- Open Graph (OGP) Meta Tags -->
     <meta property="og:title" content="【備忘録】SEGA音ゲー3機種の公式サイトの裏で流れてる楽曲リストJSONの解説 - Qman's Diary">
     <meta property="og:description" content="【注】本記事は旧ブログからの移植記事です。SEGA音ゲー3機種の公式サイトの裏には、楽曲リスト等のためのJSONが流れています。エンドポイントさえ知っていれば、それらを取得して活用することも可能です。…">
     <meta property="og:url" content="https://blog.qmainconts.dev/articles/hj6ydkdm1j.html">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="Qman's Diary">
+    <meta property="og:image" content="https://blog.qmainconts.dev/assets/icon_large.png">
+    <meta property="og:locale" content="ja_JP">
+    
+    <!-- Twitter Cards Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="【備忘録】SEGA音ゲー3機種の公式サイトの裏で流れてる楽曲リストJSONの解説 - Qman's Diary">
+    <meta name="twitter:description" content="【注】本記事は旧ブログからの移植記事です。SEGA音ゲー3機種の公式サイトの裏には、楽曲リスト等のためのJSONが流れています。エンドポイントさえ知っていれば、それらを取得して活用することも可能です。…">
+    <meta name="twitter:url" content="https://blog.qmainconts.dev/articles/hj6ydkdm1j.html">
+    <meta name="twitter:site" content="@QmanEnobikto">
+    
+    <!-- その他 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&family=Noto+Sans+JP:wght@400;700&family=Play:wght@700&family=Source+Code+Pro&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&family=Noto+Sans+JP:wght@400;700&family=Play:wght@700&family=Source+Code+Pro&display=swap" media="print" onload='this.media="all"' />
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/common.css?b=1723864672">
+    <link rel="stylesheet" href="/assets/css/article.css?b=1723864672">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/vs2015.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="/assets/js/latest_articles.js?b=1723864672"></script>
+    <script src="/assets/js/categories.js?b=1723864672"></script>
+    <script src="/assets/js/codeblock.js?b=1723864672"></script>
+    <script src="/assets/js/time_course.js?b=1723864672"></script>
+    <link rel="canonical" href="https://blog.qmainconts.dev/articles/hj6ydkdm1j.html">
+    <meta name="description" content="【注】本記事は旧ブログからの移植記事です。SEGA音ゲー3機種の公式サイトの裏には、楽曲リスト等のためのJSONが流れています。エンドポイントさえ知っていれば、それらを取得して活用することも可能です。…">
     <meta name="google-site-verification" content="u0BTjFYkL3nKuJ0DyWuKngSx29oQe4lkzcAgTFfP2bQ" />
 </head>
+
 
 <body>
 <header>

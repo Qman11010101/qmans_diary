@@ -51,8 +51,7 @@
             <section class="box">
                 <div class="date">
                     {{- formatTime .PublishedAt -}}
-                    {{- if ne (formatTime .PublishedAt) (formatTime .UpdatedAt) -}}
-                    ({{formatTime .UpdatedAt}} 更新)
+                    {{- if ne (formatTime .PublishedAt) (formatTime .UpdatedAt) }} ({{formatTime .UpdatedAt}} 更新)
                     {{- end -}}</div>
                 <h1 id="articletitle">{{- .Title -}}</h1>
                 <div class="tags">

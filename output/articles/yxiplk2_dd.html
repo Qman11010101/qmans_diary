@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>【オセロ】ビットボードで石を置ける場所を計算して、ビットボードの凄さに触れよう - Qman's Diary</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <!-- Open Graph (OGP) Meta Tags -->
     <meta property="og:title" content="【オセロ】ビットボードで石を置ける場所を計算して、ビットボードの凄さに触れよう - Qman's Diary">
     <meta property="og:description" content="本記事は、Qiita全国学生対抗戦 Advent Calendar 2023 (シリーズ3) 9日目の記事です。先日こんな記事を書いたのですが、よく考えたらあんまりちゃんと中身まで解説できてなかったな…">
@@ -15,29 +15,29 @@
     <meta property="og:site_name" content="Qman's Diary">
     <meta property="og:image" content="https://blog.qmainconts.dev/assets/icon_large.png">
     <meta property="og:locale" content="ja_JP">
-    
+
     <!-- Twitter Cards Meta Tags -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="【オセロ】ビットボードで石を置ける場所を計算して、ビットボードの凄さに触れよう - Qman's Diary">
     <meta name="twitter:description" content="本記事は、Qiita全国学生対抗戦 Advent Calendar 2023 (シリーズ3) 9日目の記事です。先日こんな記事を書いたのですが、よく考えたらあんまりちゃんと中身まで解説できてなかったな…">
     <meta name="twitter:url" content="https://blog.qmainconts.dev/articles/yxiplk2_dd.html">
     <meta name="twitter:site" content="@QmanEnobikto">
-    
+
     <!-- その他 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&family=Noto+Sans+JP:wght@400;700&family=Play:wght@700&family=Source+Code+Pro&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&family=Noto+Sans+JP:wght@400;700&family=Play:wght@700&family=Source+Code+Pro&display=swap" media="print" onload='this.media="all"' />
     <link rel="stylesheet" href="/assets/css/reset.css">
-    <link rel="stylesheet" href="/assets/css/common.css?b=1723876072">
-    <link rel="stylesheet" href="/assets/css/article.css?b=1723876072">
+    <link rel="stylesheet" href="/assets/css/common.css?b=1723882313">
+    <link rel="stylesheet" href="/assets/css/article.css?b=1723882313">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/vs2015.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
-    <script src="/assets/js/latest_articles.js?b=1723876072"></script>
-    <script src="/assets/js/categories.js?b=1723876072"></script>
-    <script src="/assets/js/codeblock.js?b=1723876072"></script>
-    <script src="/assets/js/time_course.js?b=1723876072"></script>
+    <script src="/assets/js/latest_articles.js?b=1723882313"></script>
+    <script src="/assets/js/categories.js?b=1723882313"></script>
+    <script src="/assets/js/codeblock.js?b=1723882313"></script>
+    <script src="/assets/js/time_course.js?b=1723882313"></script>
     <link rel="canonical" href="https://blog.qmainconts.dev/articles/yxiplk2_dd.html">
     <meta name="description" content="本記事は、Qiita全国学生対抗戦 Advent Calendar 2023 (シリーズ3) 9日目の記事です。先日こんな記事を書いたのですが、よく考えたらあんまりちゃんと中身まで解説できてなかったな…">
     <meta name="google-site-verification" content="u0BTjFYkL3nKuJ0DyWuKngSx29oQe4lkzcAgTFfP2bQ" />
@@ -55,8 +55,9 @@
                 <div class="date">2023-12-09(2024-06-13 更新)</div>
                 <h1 id="articletitle">【オセロ】ビットボードで石を置ける場所を計算して、ビットボードの凄さに触れよう</h1>
                 <div class="tags">
-                    <div class="tag"><img src="/assets/tag.svg" alt="タグ" width="18" height="18" draggable="false"></div><div class="tag"><a href="category/tech"></a>技術</div><div class="tag"><a href="category/advent"></a>Advent Calendar</div></div>
-                <div id="time-course-warning"></div>
+                    <div class="tag"><img src="/assets/tag.svg" alt="タグ" width="18" height="18" draggable="false"></div><div class="tag"><a href="category/tech"></a>技術</div><div class="tag"><a href="category/advent"></a>Advent Calendar</div></div><a href="https://qiita.com/advent-calendar/2023/student" target="_blank">
+                    <div class="event-banner"><p>Qiita全国学生対抗戦 Advent Calendar 2023 (シリーズ3)</p></div>
+                </a><div id="time-course-warning"></div>
                 <article id="atcbody"><p><span class="info">本記事は、Qiita全国学生対抗戦 Advent Calendar 2023 (シリーズ3) 9日目の記事です。</span></p><p>先日<a href="https://qiita.com/KjumanEnobikto/items/31b2024f361987e26b5f" target="_blank" rel="noopener noreferrer nofollow">こんな記事</a>を書いたのですが、よく考えたらあんまりちゃんと中身まで解説できてなかったなと思ったのと、もっといい方法を思いついたのでもっと単純化して説明します。</p><h2 id="hef991f9040">前提: ビットボードとは？</h2><p><span class="info">ビットボードが何か分かっている方は次の節まで飛ばしていただいて構いません。</span></p><p>プログラム上で以下のオセロの盤面を表そうと思ったとき、どのようにすべきでしょうか？</p><figure><img src="https://images.microcms-assets.io/assets/0b0ca8a0456441b1913290d8b4a73344/9e25aa4589954da6ac41764ca43793f1/othello_1701424897173.png?fm=webp" alt="オセロの盤面" width="592" height="592"><figcaption>俺(黒番) vs AI(白番)。このあと1対63で負けた</figcaption></figure><p>パッと思いつくのは、二次元配列でしょうか。</p><div data-filename="二次元配列による盤面の表現"><pre><code class="language-python">board_othello = [
     [&quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;],
     [&quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;],
@@ -121,8 +122,7 @@ legal_board: u64 = (tmp_board &gt;&gt; 1) &amp; blank_board</code></pre><p>基�
 ]</code></pre><p>1文字を8bitとした場合、この盤面は512bit=64Byteで表現されています。</p><p>一方で、ビットボードの場合は白と黒のボードがそれぞれ64bit整数なので、128bit=16Byteで表現可能です。</p><p>現代のコンピューターの性能を考えればたかが48Byte程度の差など微々たるものではありますが、オセロAIなどを作る場合は探索した盤面をいくつも覚えておく必要が生じてくるので、意外とバカにできないです。</p><h3 id="h973412143f">メリット: 演算が高速</h3><p>二次元配列の場合、石を探す際に64個ある配列の要素をいちいちforループで探索する必要があります。加えて、1要素ごとに条件分岐を行う必要もあります。自分の石が見つかったらそこから周囲の石も探索しなければいけません。</p><p>一方、ビットボードの場合、擬似コードを見る限りではビット演算を27回行っています。基本的に、ビット演算というのはCPUの1クロックで行えるものなので、これは明らかに高速です。8方向調べる場合でも27×8=216回の演算で済みますし、条件分岐も生じません。さらに言えば、予め相手のボードと番人ボードをAND演算したボードを用意しておけば、もう少し計算回数が減少します。</p><p>これほど演算回数を少なくできるのは、<strong>石を複数個同時に扱えているから</strong>です。コンピュータが行っているのは結局のところ簡単な数字同士の計算ですが、数字をオセロのボードに見立てることでこのような計算を可能にしています。考えた人は頭が良すぎて恐ろしいですね。</p><h2 id="ha214098e44">まとめ</h2><p>ビットボードがなんかすごいことはなんとなく伝わったかと思います。やっていること自体は暴いてしまえばそこまで難しくはないものの、それをビット演算でいかに実現するかどうかというのは天才の所業ですね。</p><p>オセロは64bit整数でちょうど表せるので都合が良かったですが、やろうと思えば将棋なんかもビットボードにできるそうです。(まあそれはそう)</p><p>間違っていたら優しくマサカリを𝕏あたりに投げに来てください……修正しますので……</p></article>
                 <div class="widget-wrapper">
                     <div class="widget-child-wrapper">
-                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
-                            data-size="large" data-lang="ja" data-show-count="false">Tweet</a>
+                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-lang="ja" data-show-count="false">Post</a>
                         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                     </div>
                 </div>

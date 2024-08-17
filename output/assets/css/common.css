@@ -24,7 +24,7 @@ header {
 #blogtitle {
     width: fit-content;
     margin: 0 auto;
-    font-size: 2.3em;
+    font-size: 2.3rem;
     font-family: "Play", sans-serif;
 
     a {
@@ -35,7 +35,7 @@ header {
 
 @media screen and (max-width: 500px) {
     #blogtitle {
-        font-size: 1.8em;
+        font-size: 1.8rem;
     }
 }
 
@@ -141,7 +141,7 @@ figcaption {
 }
 
 .widgetindex {
-    font-size: 1.2em;
+    font-size: 1.2rem;
     font-weight: bold;
     margin: 10px 0;
 }
@@ -196,7 +196,7 @@ figcaption {
 }
 
 .tagcnt {
-    font-size: 0.8em;
+    font-size: 0.8rem;
 }
 
 /* date */
@@ -216,7 +216,7 @@ figcaption {
 }
 
 .recent-title {
-    font-size: 1.2em;
+    font-size: 1.2rem;
     font-weight: bold;
     margin: 4px 0;
 

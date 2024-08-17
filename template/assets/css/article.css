@@ -12,15 +12,13 @@
     }
 }
 
-.tags {
+/* .tags {
     margin: 5px 0;
-}
+} */
 
 /* 記事本文 */
 
 #maincol article {
-    margin: 15px 0;
-
     p {
         margin: 15px 0;
     }

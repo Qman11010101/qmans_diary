@@ -12,6 +12,7 @@
     font-size: 1.5rem;
     font-weight: bold;
     margin: 7px 0;
+    line-height: 1.8;
 
     a {
         text-decoration: none;
@@ -24,6 +25,11 @@
             transition-duration: .2s;
         }
     }
+}
+
+/* 記事プレビュー */
+.article-preview {
+    margin-top: 7px;
 }
 
 /* prev/nextボタン */

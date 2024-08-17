@@ -161,16 +161,16 @@ figcaption {
 .tag {
     padding: 2px 5px;
     margin: 3px;
-    background-color: #cccccc;
-    color: #333;
+    background-color: #ccc;
+    color: #222;
     width: fit-content;
     text-align: center;
     position: relative;
     transition-duration: .2s;
 
     &:hover {
-        background-color: #444444;
-        color: #bbbbbb;
+        background-color: #222;
+        color: #ccc;
         transition-duration: .2s;
     }
 
@@ -189,7 +189,7 @@ figcaption {
 }
 
 .tags .tag:first-child {
-    background-color: #eeeeee;
+    background-color: inherit;
     display: flex;
     flex-direction: column;
     justify-content: center;

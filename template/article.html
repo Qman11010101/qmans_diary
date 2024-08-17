@@ -6,11 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{.Title}} - Qman's Diary</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Open Graph (OGP) Meta Tags -->
+    <meta property="og:title" content="{{.Title}} - Qman's Diary">
+    <meta property="og:description" content="{{$bodyfirst := index .Body 0}}{{trimSample $bodyfirst.Body}}">
+    <meta property="og:url" content="https://blog.qmainconts.dev/articles/{{.ID}}.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Qman's Diary">
+    <meta property="og:image" content="https://blog.qmainconts.dev/assets/icon_large.png">
+    <meta property="og:locale" content="ja_JP">
+    
+    <!-- Twitter Cards Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{.Title}} - Qman's Diary">
+    <meta name="twitter:description" content="{{$bodyfirst := index .Body 0}}{{trimSample $bodyfirst.Body}}">
+    <meta name="twitter:url" content="https://blog.qmainconts.dev/articles/{{.ID}}.html">
+    <meta name="twitter:site" content="@QmanEnobikto">
+    
+    <!-- その他 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&family=Noto+Sans+JP:wght@400;700&family=Play:wght@700&family=Source+Code+Pro&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&family=Noto+Sans+JP:wght@400;700&family=Play:wght@700&family=Source+Code+Pro&display=swap" media="print" onload='this.media="all"' />
-    <!-- <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&family=Noto+Sans+JP:wght@400;700&family=Play:wght@700&family=Source+Code+Pro&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" href="/assets/css/reset.css">
     <link rel="stylesheet" href="/assets/css/common.css?b={{buildTime}}">
     <link rel="stylesheet" href="/assets/css/article.css?b={{buildTime}}">
@@ -23,13 +40,9 @@
     <script src="/assets/js/time_course.js?b={{buildTime}}"></script>
     <link rel="canonical" href="https://blog.qmainconts.dev/articles/{{.ID}}.html">
     <meta name="description" content="{{$bodyfirst := index .Body 0}}{{trimSample $bodyfirst.Body}}">
-    <meta property="og:title" content="{{.Title}} - Qman's Diary">
-    <meta property="og:description" content="{{$bodyfirst := index .Body 0}}{{trimSample $bodyfirst.Body}}">
-    <meta property="og:url" content="https://blog.qmainconts.dev/articles/{{.ID}}.html">
-    <meta property="og:type" content="article">
-    <meta property="og:site_name" content="Qman's Diary">
     <meta name="google-site-verification" content="u0BTjFYkL3nKuJ0DyWuKngSx29oQe4lkzcAgTFfP2bQ" />
 </head>
+
 
 <body>
     {{- template "header" . -}}

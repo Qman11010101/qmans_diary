@@ -1,37 +1,35 @@
 /* タイトル周り */
 
 #maincol h1 {
-    font-size: 2em;
+    font-size: 2rem;
     margin: 10px 0;
     line-height: 1.4;
 }
 
 @media screen and (max-width: 1100px) {
     #maincol h1 {
-        font-size: 1.6em;
+        font-size: 1.6rem;
     }
 }
 
-.tags {
+/* .tags {
     margin: 5px 0;
-}
+} */
 
 /* 記事本文 */
 
 #maincol article {
-    margin: 15px 0;
-
     p {
         margin: 15px 0;
     }
 
     h2 {
-        font-size: 1.5em;
+        font-size: 1.5rem;
         margin: 30px 0 10px;
     }
 
     h3 {
-        font-size: 1.2em;
+        font-size: 1.2rem;
         margin: 20px 0 5px;
     }
 

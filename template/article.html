@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{.Title}} - Qman's Diary</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <!-- Open Graph (OGP) Meta Tags -->
     <meta property="og:title" content="{{.Title}} - Qman's Diary">
     <meta property="og:description" content="{{$bodyfirst := index .Body 0}}{{trimSample $bodyfirst.Body}}">
@@ -15,14 +15,14 @@
     <meta property="og:site_name" content="Qman's Diary">
     <meta property="og:image" content="https://blog.qmainconts.dev/assets/icon_large.png">
     <meta property="og:locale" content="ja_JP">
-    
+
     <!-- Twitter Cards Meta Tags -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="{{.Title}} - Qman's Diary">
     <meta name="twitter:description" content="{{$bodyfirst := index .Body 0}}{{trimSample $bodyfirst.Body}}">
     <meta name="twitter:url" content="https://blog.qmainconts.dev/articles/{{.ID}}.html">
     <meta name="twitter:site" content="@QmanEnobikto">
-    
+
     <!-- その他 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,7 +51,7 @@
             <section class="box">
                 <div class="date">
                     {{- formatTime .PublishedAt -}}
-                    {{- if ne (formatTime .PublishedAt) (formatTime .UpdatedAt) -}} 
+                    {{- if ne (formatTime .PublishedAt) (formatTime .UpdatedAt) -}}
                     ({{formatTime .UpdatedAt}} 更新)
                     {{- end -}}</div>
                 <h1 id="articletitle">{{- .Title -}}</h1>
@@ -63,6 +63,11 @@
                     </div>
                     {{- end -}}
                 </div>
+                {{- if .Event.EventText -}}
+                <a href="{{.Event.EventLink}}" target="_blank">
+                    <div class="event-banner"><p>{{- .Event.EventText -}}</p></div>
+                </a>
+                {{- end -}}
                 <div id="time-course-warning"></div>
                 <article id="atcbody">
                     {{- range $bodies := .Body -}}
@@ -71,8 +76,7 @@
                 </article>
                 <div class="widget-wrapper">
                     <div class="widget-child-wrapper">
-                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
-                            data-size="large" data-lang="ja" data-show-count="false">Tweet</a>
+                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-lang="ja" data-show-count="false">Post</a>
                         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                     </div>
                 </div>

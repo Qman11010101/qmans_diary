@@ -16,33 +16,73 @@
     margin: 15px 0;
 }
 
+/* イベントバナー */
+
+.event-banner-link-wrapper {
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &:active {
+        text-decoration: none;
+    }
+}
+
+.event-banner {
+    background: #418d45;
+    padding: 5px 10px;
+    color: #eee;
+    border-radius: 10px;
+    width: fit-content;
+    transition-duration: .2s;
+
+    &:hover {
+        background-color: #3a7f3e;
+        transition-duration: .2s;
+    }
+
+    p {
+        display: flex;
+        align-items: center;
+        margin: 0;
+    }
+
+    ::before {
+        display: block;
+        content: url("/assets/event.svg");
+        margin-right: 10px;
+        width: 30px;
+        height: 30px;
+    }
+}
+
 /* 記事本文 */
 
 #maincol article {
-    p {
-        margin: 15px 0;
+    >* {
+        margin-top: 15px;
     }
 
     h2 {
         font-size: 1.5rem;
-        margin: 30px 0 10px;
     }
 
     h3 {
         font-size: 1.2rem;
-        margin: 20px 0 5px;
     }
 
     img {
         display: block;
-        margin: 20px auto;
+        margin: 0 auto;
         max-width: 100%;
         height: auto;
     }
 
     figure img {
         display: block;
-        margin: 20px auto 10px;
+        margin: 0 auto;
         max-width: 100%;
         height: auto;
     }
@@ -59,11 +99,10 @@
 }
 
 pre {
-    margin: 10px 0;
     overflow: auto;
 }
 
-div.code-filename + pre {
+div.code-filename+pre {
     margin-top: 0;
 }
 
@@ -89,7 +128,7 @@ pre code {
     word-break: break-all;
 }
 
-div.code-filename + pre code {
+div.code-filename+pre code {
     border-radius: 0 20px 20px;
 }
 
@@ -127,7 +166,8 @@ th {
     transition-duration: .2s;
     user-select: none;
 
-    &:hover, &:active {
+    &:hover,
+    &:active {
         color: #eee;
         transition-duration: .2s;
     }

@@ -61,9 +61,8 @@ hr {
 
 figcaption {
     text-align: center;
-    font-size: 90%;
+    font-size: 0.9rem;
     color: #666;
-    margin-bottom: 20px;
 }
 
 /* 共通利用ボックス */

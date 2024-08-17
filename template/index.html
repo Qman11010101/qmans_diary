@@ -46,6 +46,10 @@
     <main>
         <section id="maincol">
             <section class="box">
+                {{- if not .IsIndex -}}
+                <h1>{{- .ArchiveName -}}</h1>
+                <hr>
+                {{- end -}}
                 {{- range .Articles -}}
                 <div class="article">
                     <div class="date">{{- formatTime .PublishedAt -}}</div>

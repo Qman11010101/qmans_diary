@@ -50,11 +50,12 @@
     }
 
     ::before {
-        display: block;
+        display: inline-block;
         content: url("/assets/event.svg");
         margin-right: 10px;
         width: 30px;
         height: 30px;
+        vertical-align: middle;
     }
 }
 

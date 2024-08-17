@@ -31,6 +31,8 @@
 }
 
 .event-banner {
+    display: flex;
+    align-items: center;
     background: #418d45;
     padding: 5px 10px;
     color: #eee;
@@ -44,18 +46,14 @@
     }
 
     p {
-        display: flex;
-        align-items: center;
         margin: 0;
     }
 
-    ::before {
-        display: inline-block;
-        content: url("/assets/event.svg");
+    img {
+        display: block;
         margin-right: 10px;
-        width: 30px;
-        height: 30px;
-        vertical-align: middle;
+        width: 20px;
+        height: 20px;
     }
 }
 

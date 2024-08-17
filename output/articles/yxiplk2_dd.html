@@ -29,15 +29,15 @@
     <link rel="preload" as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&family=Noto+Sans+JP:wght@400;700&family=Play:wght@700&family=Source+Code+Pro&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&family=Noto+Sans+JP:wght@400;700&family=Play:wght@700&family=Source+Code+Pro&display=swap" media="print" onload='this.media="all"' />
     <link rel="stylesheet" href="/assets/css/reset.css">
-    <link rel="stylesheet" href="/assets/css/common.css?b=1723882976">
-    <link rel="stylesheet" href="/assets/css/article.css?b=1723882976">
+    <link rel="stylesheet" href="/assets/css/common.css?b=1723883899">
+    <link rel="stylesheet" href="/assets/css/article.css?b=1723883899">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/vs2015.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
-    <script src="/assets/js/latest_articles.js?b=1723882976"></script>
-    <script src="/assets/js/categories.js?b=1723882976"></script>
-    <script src="/assets/js/codeblock.js?b=1723882976"></script>
-    <script src="/assets/js/time_course.js?b=1723882976"></script>
+    <script src="/assets/js/latest_articles.js?b=1723883899"></script>
+    <script src="/assets/js/categories.js?b=1723883899"></script>
+    <script src="/assets/js/codeblock.js?b=1723883899"></script>
+    <script src="/assets/js/time_course.js?b=1723883899"></script>
     <link rel="canonical" href="https://blog.qmainconts.dev/articles/yxiplk2_dd.html">
     <meta name="description" content="本記事は、Qiita全国学生対抗戦 Advent Calendar 2023 (シリーズ3) 9日目の記事です。先日こんな記事を書いたのですが、よく考えたらあんまりちゃんと中身まで解説できてなかったな…">
     <meta name="google-site-verification" content="u0BTjFYkL3nKuJ0DyWuKngSx29oQe4lkzcAgTFfP2bQ" />
@@ -56,7 +56,10 @@
                 <h1 id="articletitle">【オセロ】ビットボードで石を置ける場所を計算して、ビットボードの凄さに触れよう</h1>
                 <div class="tags">
                     <div class="tag"><img src="/assets/tag.svg" alt="タグ" width="18" height="18" draggable="false"></div><div class="tag"><a href="category/tech"></a>技術</div><div class="tag"><a href="category/advent"></a>Advent Calendar</div></div><a href="https://qiita.com/advent-calendar/2023/student" target="_blank" class="event-banner-link-wrapper">
-                    <div class="event-banner"><p>Qiita全国学生対抗戦 Advent Calendar 2023 (シリーズ3)</p></div>
+                    <div class="event-banner">
+                        <img src="/assets/event.svg" alt="イベント" width="20" height="20" draggable="false">
+                        <p>Qiita全国学生対抗戦 Advent Calendar 2023 (シリーズ3)</p>
+                    </div>
                 </a><div id="time-course-warning"></div>
                 <article id="atcbody"><p><span class="info">本記事は、Qiita全国学生対抗戦 Advent Calendar 2023 (シリーズ3) 9日目の記事です。</span></p><p>先日<a href="https://qiita.com/KjumanEnobikto/items/31b2024f361987e26b5f" target="_blank" rel="noopener noreferrer nofollow">こんな記事</a>を書いたのですが、よく考えたらあんまりちゃんと中身まで解説できてなかったなと思ったのと、もっといい方法を思いついたのでもっと単純化して説明します。</p><h2 id="hef991f9040">前提: ビットボードとは？</h2><p><span class="info">ビットボードが何か分かっている方は次の節まで飛ばしていただいて構いません。</span></p><p>プログラム上で以下のオセロの盤面を表そうと思ったとき、どのようにすべきでしょうか？</p><figure><img src="https://images.microcms-assets.io/assets/0b0ca8a0456441b1913290d8b4a73344/9e25aa4589954da6ac41764ca43793f1/othello_1701424897173.png?fm=webp" alt="オセロの盤面" width="592" height="592"><figcaption>俺(黒番) vs AI(白番)。このあと1対63で負けた</figcaption></figure><p>パッと思いつくのは、二次元配列でしょうか。</p><div data-filename="二次元配列による盤面の表現"><pre><code class="language-python">board_othello = [
     [&quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;],

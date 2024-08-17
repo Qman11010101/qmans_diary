@@ -65,7 +65,10 @@
                 </div>
                 {{- if .Event.EventText -}}
                 <a href="{{.Event.EventLink}}" target="_blank" class="event-banner-link-wrapper">
-                    <div class="event-banner"><p>{{- .Event.EventText -}}</p></div>
+                    <div class="event-banner">
+                        <img src="/assets/event.svg" alt="イベント" width="20" height="20" draggable="false">
+                        <p>{{- .Event.EventText -}}</p>
+                    </div>
                 </a>
                 {{- end -}}
                 <div id="time-course-warning"></div>

@@ -184,17 +184,17 @@ th {
 }
 
 .warning {
-    background-color: #fbb;
+    background-color: #fdd;
     border: 2px solid rgb(223, 86, 86);
 }
 
 .caution {
-    background-color: rgb(255, 200, 138);
+    background-color: #fdb;
     border: 2px solid rgb(235, 140, 28);
 }
 
 .info {
-    background-color: rgb(130, 236, 156);
+    background-color: #dfd;
     border: 2px solid rgb(11, 177, 34);
 }
 

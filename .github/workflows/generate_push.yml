@@ -14,6 +14,8 @@ jobs:
         with:
           go-version: '>=1.19.3'
           cache: false
+      - name: Switch to Pages-Deploy branch
+        run: git checkout -b Pages-Deploy
       - name: Install microblogen
         run: GOBIN=$(pwd) GOPRIVATE="github.com/Qman11010101/microblogen" go install github.com/Qman11010101/microblogen@latest
       - name: run microblogen
@@ -31,4 +33,4 @@ jobs:
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add .
           git commit --author=. -m 'Automatically generated'
-          git push
+          git push origin Pages-Deploy --force

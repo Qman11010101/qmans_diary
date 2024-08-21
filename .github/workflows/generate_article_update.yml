@@ -19,6 +19,8 @@ jobs:
         run: |
           echo ${{github.event.client_payload.type}}
           echo ${{github.event.client_payload.id}}
+      - name: Switch to Pages-Deploy branch
+        run: git checkout -b Pages-Deploy
       - name: Install microblogen
         run: GOBIN=$(pwd) GOPRIVATE="github.com/Qman11010101/microblogen" go install github.com/Qman11010101/microblogen@latest
       - name: run microblogen
@@ -36,7 +38,7 @@ jobs:
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add .
           git commit --author=. -m 'Automatically generated'
-          git push
+          git push origin Pages-Deploy --force
       - name: Python environment
         if: github.event.client_payload.type == 'new' || github.event.client_payload.type == 'edit'
         uses: actions/setup-python@v4

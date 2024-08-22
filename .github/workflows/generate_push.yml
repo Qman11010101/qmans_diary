@@ -7,13 +7,17 @@ jobs:
     name: articles-generate-all
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
             ref: ${{ github.head_ref }}
-      - uses: actions/setup-go@v3
+      - uses: actions/setup-go@v5
         with:
           go-version: '>=1.23.0'
           cache: false
+      - name: Change branch to preview
+        run: |
+          git checkout preview
+          git pull origin preview
       - name: Install microblogen
         run: GOBIN=$(pwd) GOPRIVATE="github.com/Qman11010101/microblogen" go install github.com/Qman11010101/microblogen@latest
       - name: run microblogen
@@ -31,4 +35,4 @@ jobs:
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add .
           git commit --author=. -m 'Automatically generated'
-          git push
+          git push origin preview --force

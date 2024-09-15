@@ -249,3 +249,24 @@ th {
     display: flex;
     align-items: center;
 }
+
+#misc-share {
+    background-color: #cdc;
+    border: 2px solid #6a6;
+    border-radius: 10px;
+    padding: 3px 10px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #bcb;
+    }
+
+    img {
+        display: inline-block;
+        margin-right: 5px;
+    }
+
+    > span {
+        vertical-align: 2px;
+    }
+}

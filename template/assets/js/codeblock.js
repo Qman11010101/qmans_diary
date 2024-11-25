@@ -16,4 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
             codeBlock.classList.add("hljs");
         }
     }
+    
+    hljs.highlightAll();
 }, false);

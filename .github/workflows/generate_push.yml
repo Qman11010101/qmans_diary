@@ -9,10 +9,15 @@ jobs:
     name: articles-generate-all
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
             ref: ${{ github.head_ref }}
-      - uses: actions/setup-go@v3
+      - name: Change branch
+        run: |
+          set -x
+          git fetch origin pages-prod || git branch pages-prod
+          git checkout -B pages-prod origin/pages-prod || git checkout -B pages-prod
+      - uses: actions/setup-go@v5
         with:
           go-version: '>=1.23.0'
           cache: false
@@ -31,11 +36,6 @@ jobs:
           set -x
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git fetch origin pages-prod || git branch pages-prod
-          git checkout -B pages-prod origin/pages-prod || git checkout -B pages-prod
-          git rm -rf .
-          cp -r output/* .
-          rm -rf output
           git add .
           git commit -m "Deploy: $(date -u)"
           git push origin pages-prod --force

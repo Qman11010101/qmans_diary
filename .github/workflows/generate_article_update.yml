@@ -8,10 +8,15 @@ jobs:
     name: articles-generate-all
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref }}
-      - uses: actions/setup-go@v3
+      - name: Change branch
+        run: |
+          set -x
+          git fetch origin pages-prod || git branch pages-prod
+          git checkout -B pages-prod origin/pages-prod || git checkout -B pages-prod
+      - uses: actions/setup-go@v5
         with:
           go-version: ">=1.23.0"
           cache: false
@@ -35,11 +40,11 @@ jobs:
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add .
-          git commit --author=. -m 'Automatically generated'
-          git push
+          git commit -m "Deploy: $(date -u)"
+          git push origin pages-prod --force
       - name: Python environment
         if: github.event.client_payload.type == 'new' || github.event.client_payload.type == 'edit'
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
       - name: Tweet

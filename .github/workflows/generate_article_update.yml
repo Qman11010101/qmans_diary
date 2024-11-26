@@ -17,8 +17,8 @@ jobs:
       - name: Change branch
         run: |
           set -x
-          git fetch origin pages-prod || git branch pages-prod
-          git checkout -B pages-prod origin/pages-prod || git checkout -B pages-prod
+          git fetch origin pages-prev || git branch pages-prev
+          git checkout -B pages-prev origin/pages-prev || git checkout -B pages-prev
       - uses: actions/setup-go@v5
         with:
           go-version: ">=1.23.0"
@@ -46,23 +46,5 @@ jobs:
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add .
           git commit -m "Deploy: $(date -u)"
-          git push origin pages-prod --force
-      - name: Python environment
-        if: github.event.client_payload.type == 'new' || github.event.client_payload.type == 'edit'
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-      - name: Tweet
-        if: github.event.client_payload.type == 'new' || github.event.client_payload.type == 'edit'
-        run: |
-          pip install requests_oauthlib
-          python .github/workflows/tweet.py
-        env:
-          X_API_KEY: ${{ secrets.X_API_KEY }}
-          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
-          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
-          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
-          ID: ${{github.event.client_payload.id}}
-          MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
-          SERVICE_DOMAIN: ${{ secrets.SERVICE_DOMAIN }}
-          TIMEZONE: "Asia/Tokyo"
+          git push origin pages-prev --force
+# Previewではツイートなし

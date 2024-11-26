@@ -1,4 +1,4 @@
-name: Generate all articles when template is renewed
+name: Generate all articles when something pushed to main
 on:
   push:
     branches:

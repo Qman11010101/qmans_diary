@@ -253,6 +253,8 @@ th {
 #misc-share {
     background-color: #dfd;
     border: 2px solid rgb(11, 177, 34);
+    border-radius: 5px;
+    padding: 0 5px;
 
     img {
         display: inline-block;

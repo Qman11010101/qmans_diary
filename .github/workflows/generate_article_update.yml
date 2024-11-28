@@ -1,3 +1,6 @@
+# 記事アップデートによるRepository Dispatch
+# mainとpreviewどちらのブランチでも実行
+
 name: Generate all articles when article is updated
 on:
   repository_dispatch:
@@ -32,8 +35,10 @@ jobs:
           MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
           SERVICE_DOMAIN: ${{ secrets.SERVICE_DOMAIN }}
           TIMEZONE: "Asia/Tokyo"
-      - name: remove microblogen binary
-        run: rm microblogen
+      - name: remove microblogen binary & .github
+        run: |
+          rm microblogen
+          rm -rf .github
       - name: Commit & Push
         run: |
           set -x

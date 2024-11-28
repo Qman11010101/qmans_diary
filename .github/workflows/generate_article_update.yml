@@ -7,8 +7,8 @@ on:
     types: [update_post]
 
 jobs:
-  generate:
-    name: articles-generate-all
+  generate-prod:
+    name: articles-generate-all-prod
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -16,17 +16,13 @@ jobs:
           ref: ${{ github.head_ref }}
       - name: Change branch
         run: |
-          set -x
-          git fetch origin pages-prod || git branch pages-prod
-          git checkout -B pages-prod origin/pages-prod || git checkout -B pages-prod
+          git fetch origin pages-prod || { echo "Failed to fetch pages-prod"; exit 1; }
+          git checkout -B pages-prod origin/pages-prod || git checkout -B pages-prod || { echo "Failed to switch to pages-prod"; exit 1; }
+          git reset --hard origin/main || { echo "Failed to reset pages-prod to main"; exit 1; }
       - uses: actions/setup-go@v5
         with:
           go-version: ">=1.23.0"
-          cache: false
-      - name: Event display
-        run: |
-          echo ${{github.event.client_payload.type}}
-          echo ${{github.event.client_payload.id}}
+          cache: true
       - name: Install microblogen
         run: GOBIN=$(pwd) GOPRIVATE="github.com/Qman11010101/microblogen" go install github.com/Qman11010101/microblogen@latest
       - name: run microblogen
@@ -41,11 +37,10 @@ jobs:
           rm -rf .github
       - name: Commit & Push
         run: |
-          set -x
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add .
-          git commit -m "Deploy: $(date -u)"
+          git commit -m "[Prod] Deploy: $(date -u)"
           git push origin pages-prod --force
       - name: Python environment
         if: github.event.client_payload.type == 'new' || github.event.client_payload.type == 'edit'
@@ -66,3 +61,38 @@ jobs:
           MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
           SERVICE_DOMAIN: ${{ secrets.SERVICE_DOMAIN }}
           TIMEZONE: "Asia/Tokyo"
+  generate-prev:
+    name: articles-generate-all-prev
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      - name: Change branch
+        run: |
+          git fetch origin pages-prev || { echo "Failed to fetch pages-prev"; exit 1; }
+          git checkout -B pages-prev origin/pages-prev || git checkout -B pages-prev || { echo "Failed to switch to pages-prev"; exit 1; }
+          git reset --hard origin/preview || { echo "Failed to reset pages-prev to preview"; exit 1; }
+      - uses: actions/setup-go@v5
+        with:
+          go-version: ">=1.23.0"
+          cache: true
+      - name: Install microblogen
+        run: GOBIN=$(pwd) GOPRIVATE="github.com/Qman11010101/microblogen" go install github.com/Qman11010101/microblogen@latest
+      - name: run microblogen
+        run: $(pwd)/microblogen
+        env:
+          MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
+          SERVICE_DOMAIN: ${{ secrets.SERVICE_DOMAIN }}
+          TIMEZONE: "Asia/Tokyo"
+      - name: remove microblogen binary & .github
+        run: |
+          rm microblogen
+          rm -rf .github
+      - name: Commit & Push
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add .
+          git commit -m "[Prev] Deploy: $(date -u)"
+          git push origin pages-prev --force

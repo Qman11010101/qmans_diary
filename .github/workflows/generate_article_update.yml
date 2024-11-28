@@ -73,7 +73,8 @@ jobs:
           ref: ${{ github.head_ref }}
       - name: Change branch
         run: |
-          git checkout preview || git branch preview || { echo "Failed to switch to preview"; exit 1; }
+          git fetch origin preview || { echo "Failed to fetch preview"; exit 1; } 
+          git checkout -B preview origin/preview || git checkout -B preview || { echo "Failed to switch to preview"; exit 1; }
           git fetch origin pages-prev || { echo "Failed to fetch pages-prev"; exit 1; }
           git checkout -B pages-prev origin/pages-prev || git checkout -B pages-prev || { echo "Failed to switch to pages-prev"; exit 1; }
           git reset --hard origin/preview || { echo "Failed to reset pages-prev to preview"; exit 1; }

@@ -65,6 +65,10 @@ figcaption {
     color: #666;
 }
 
+button {
+    cursor: pointer;
+}
+
 /* 共通利用ボックス */
 
 .box {

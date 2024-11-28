@@ -250,12 +250,16 @@ th {
     align-items: center;
 }
 
-.misc-share {
+#misc-share {
     background-color: #dfd;
     border: 2px solid rgb(11, 177, 34);
 
     img {
         display: inline-block;
         margin-right: 5px;
+    }
+
+    &:hover {
+        background-color: #cfc;
     }
 }

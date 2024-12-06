@@ -86,9 +86,10 @@ button {
 @media screen and (max-width: 1100px) {
     .box {
         box-sizing: border-box;
-        padding: 20px 10px;
     }
 }
+
+/* @media screen and (max-width: ) */
 
 /* メイン部分 */
 
@@ -100,7 +101,7 @@ button {
 @media screen and (max-width: 1100px) {
     #maincol {
         margin: 10px 10px 5px;
-        width: min(calc(100% - 20px), 700px);
+        width: min(100%, 700px);
     }
 }
 

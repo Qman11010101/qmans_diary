@@ -1,6 +1,6 @@
-async function getLatestArticle() {
+document.addEventListener("DOMContentLoaded", async function () {
     const la_Pre = await fetch("/latest.json");
-    const latestArticle = await (la_Pre).json();
+    const latestArticle = await(la_Pre).json();
     const recent = document.getElementById("recent-articles");
     for (let i = 0; i < latestArticle.length; i++) {
         let ID = latestArticle[i].id;
@@ -17,6 +17,4 @@ async function getLatestArticle() {
         link.href = "/articles/" + ID + ".html";
         link.innerText = title;
     }
-}
-
-getLatestArticle();
+}, false);

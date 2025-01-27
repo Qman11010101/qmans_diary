@@ -20,6 +20,8 @@
 
 .event-banner-link-wrapper {
     text-decoration: none;
+    display: block;
+    width: fit-content;
 
     &:hover {
         text-decoration: none;
@@ -66,10 +68,16 @@
 
     h2 {
         font-size: 1.5rem;
+        margin-top: 40px;
     }
 
     h3 {
         font-size: 1.2rem;
+        margin-top: 30px;
+    }
+
+    h2+h3 {
+        margin-top: 15px;
     }
 
     img {
@@ -123,10 +131,11 @@ pre code {
     margin: 0;
     padding: 0;
     border-radius: 20px;
-    /* ファイル名があるなら 0 20px 20px; */
     word-break: break-all;
+    line-height: 1.5;
 }
 
+/* ファイル名があるなら 0 20px 20px; */
 div.code-filename+pre code {
     border-radius: 0 20px 20px;
 }
@@ -263,5 +272,48 @@ th {
 
     &:hover {
         background-color: #cfc;
+    }
+}
+
+/* 目次 */
+.toc {
+    position: sticky;
+    top: 20px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    a {
+        display: block;
+        width: 100%;
+        text-decoration: none;
+    
+        color: #666;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        padding: 5px;
+        border-radius: 5px;
+    
+        &:hover {
+            background-color: #ccc;
+        }
+    }
+}
+
+@media screen and (max-width: 1100px) {
+
+    /* 狭いときは目次を非表示 */
+    .toc {
+        display: none;
     }
 }

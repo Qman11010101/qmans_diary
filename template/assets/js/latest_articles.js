@@ -2,10 +2,10 @@ document.addEventListener("DOMContentLoaded", async function () {
     const la_Pre = await fetch("/latest.json");
     const latestArticle = await(la_Pre).json();
     const recent = document.getElementById("recent-articles");
-    for (let i = 0; i < latestArticle.length; i++) {
-        let ID = latestArticle[i].id;
-        let title = latestArticle[i].title;
-        let publishDate = latestArticle[i].publishedAt.slice(0, 10);
+    for (let latc of latestArticle) {
+        let ID = latc.id;
+        let title = latc.title;
+        let publishDate = latc.publishedAt.slice(0, 10);
         let recBlock = recent.appendChild(document.createElement("div"));
         recBlock.className = "recent";
         let pubDateBlock = recBlock.appendChild(document.createElement("div"));

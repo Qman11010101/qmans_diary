@@ -48,7 +48,6 @@ main {
     justify-content: center;
     gap: 20px;
     padding: 20px 0;
-    align-items: flex-start;
 }
 
 iframe {
@@ -112,6 +111,14 @@ button {
 
 #subcol {
     width: 360px;
+
+    .widgetindex {
+        margin: 10px 0;
+    }
+
+    .toc-head {
+        margin: 0;
+    }
 }
 
 @media screen and (max-width: 1100px) {
@@ -149,7 +156,6 @@ button {
 .widgetindex {
     font-size: 1.2rem;
     font-weight: bold;
-    margin: 10px 0;
 }
 
 #categorydisplay {

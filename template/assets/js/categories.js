@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", async function () {
     const categories = await (await fetch("/category.json")).json();
     const categoryDisplay = document.getElementById("categorydisplay");
-    for (let i = 0; i < categories.length; i++) {
-        let ID = categories[i].id;
-        let name = categories[i].name;
+    for (const category of categories) {
+        let ID = category.id;
+        let name = category.name;
         let tagBlock = categoryDisplay.appendChild(document.createElement("div"));
         tagBlock.className = "tag";
         let link = tagBlock.appendChild(document.createElement("a"));

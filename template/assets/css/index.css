@@ -86,6 +86,6 @@
 }
 
 /* 目次は表示しない */
-.toc {
+.toc-side {
     display: none;
 }

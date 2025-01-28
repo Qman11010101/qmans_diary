@@ -276,7 +276,7 @@ th {
 }
 
 /* 目次 */
-.toc {
+.toc-side {
     position: sticky;
     top: 20px;
     max-height: calc(100vh - 40px);
@@ -284,7 +284,6 @@ th {
 
     display: flex;
     flex-direction: column;
-    gap: 5px;
 
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -293,27 +292,62 @@ th {
         display: none;
     }
 
-    a {
-        display: block;
-        width: 100%;
-        text-decoration: none;
+    #toc-side-wrapper {
+        list-style-type: none;
+        margin: 0;
+        font-weight: bold;
+        
+        a {
+            display: block;
+            width: 100%;
+            text-decoration: none;
+        
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            padding: 3px 5px;
+            border-radius: 0 5px 5px 0;
+            /* border-left: 4px solid transparent; */
+            transition-duration: .1s;
+        
+            &:hover {
+                background-color: #ddd;
+                border-left: 4px solid #418d45;
+                transition-duration: .1s;
+            }
+        }
     
-        color: #666;
-        font-size: 0.95rem;
-        line-height: 1.5;
-        padding: 5px;
-        border-radius: 5px;
-    
-        &:hover {
-            background-color: #ccc;
+        .toc-side-item-h3 {
+            font-size: 0.85rem;
+            margin-left: 26px;
+            width: calc(100% - 26px);
+            font-weight: normal;
         }
     }
 }
 
-@media screen and (max-width: 1100px) {
+#toc-atcbody-wrapper {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #ddd;
 
-    /* 狭いときは目次を非表示 */
-    .toc {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    div {
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
+
+    a {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    /* 狭いときは横目次を非表示 */
+    .toc-side {
         display: none;
     }
 }

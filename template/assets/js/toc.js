@@ -8,10 +8,11 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    const tocAtcbodyWrapper = document.createElement("nav");
+    const tocAtcbodyWrapper = document.createElement("details");
     headings[0].before(tocAtcbodyWrapper);
     tocAtcbodyWrapper.id = "toc-atcbody-wrapper";
-    const tocAtcbodyTitle = tocAtcbodyWrapper.appendChild(document.createElement("div"));
+    tocAtcbodyWrapper.open = true;
+    const tocAtcbodyTitle = tocAtcbodyWrapper.appendChild(document.createElement("summary"));
     tocAtcbodyTitle.innerText = "Table of Contents";
     tocAtcbodyTitle.className = "toc-atcbody-title";
     const tocAtcbodyUl = tocAtcbodyWrapper.appendChild(document.createElement("ul"));

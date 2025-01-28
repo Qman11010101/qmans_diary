@@ -8,11 +8,13 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    const tocAtcbodyWrapper = document.createElement("div");
+    const tocAtcbodyWrapper = document.createElement("nav");
     headings[0].before(tocAtcbodyWrapper);
     tocAtcbodyWrapper.id = "toc-atcbody-wrapper";
-    const tocAtcbody = tocAtcbodyWrapper.appendChild(document.createElement("div"));
-    tocAtcbody.innerText = "Table of Contents";
+    const tocAtcbodyTitle = tocAtcbodyWrapper.appendChild(document.createElement("div"));
+    tocAtcbodyTitle.innerText = "Table of Contents";
+    tocAtcbodyTitle.className = "toc-atcbody-title";
+    const tocAtcbodyUl = tocAtcbodyWrapper.appendChild(document.createElement("ul"));
 
     let dynamicID = 0;
 
@@ -37,10 +39,16 @@ document.addEventListener("DOMContentLoaded", function () {
         const tocSideItemDiv = tocSideItem.appendChild(document.createElement("div"));
         tocSideItemDiv.innerText = heading.innerText;
 
-        // -------atcbody toc-------
-        const tocAtcbodyItem = tocAtcbodyWrapper.appendChild(document.createElement("a"));
+        // -------atcbody toc-------        
+        const tocAtcbodyItemWrapper = tocAtcbodyUl.appendChild(document.createElement("li"));
+        const tocAtcbodyItem = tocAtcbodyItemWrapper.appendChild(document.createElement("a"));
         tocAtcbodyItem.href = "#" + heading.id;
-        
+
+        // h3ならmargin-left20pxかつ幅が100%-20px
+        if (heading.tagName === "H3") {
+            tocAtcbodyItem.classList.add("toc-atcbody-item-h3");
+        }
+
         const tocAtcbodyItemDiv = tocAtcbodyItem.appendChild(document.createElement("div"));
         tocAtcbodyItemDiv.innerText = heading.innerText;
     }

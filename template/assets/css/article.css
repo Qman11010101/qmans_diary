@@ -275,7 +275,7 @@ th {
     }
 }
 
-/* 目次 */
+/* 目次（横） */
 .toc-side {
     position: sticky;
     top: 20px;
@@ -296,56 +296,86 @@ th {
         list-style-type: none;
         margin: 0;
         font-weight: bold;
-        
+
         a {
             display: block;
             width: 100%;
             text-decoration: none;
-        
+
             color: #666;
             font-size: 0.95rem;
             line-height: 1.5;
             padding: 3px 5px;
             border-radius: 0 5px 5px 0;
-            /* border-left: 4px solid transparent; */
-            transition-duration: .1s;
-        
+            transition-duration: .2s;
+
             &:hover {
                 background-color: #ddd;
-                border-left: 4px solid #418d45;
-                transition-duration: .1s;
+                box-shadow: -4px 0 #418d45;
+                transition-duration: .2s;
             }
         }
-    
+
         .toc-side-item-h3 {
             font-size: 0.85rem;
-            margin-left: 26px;
-            width: calc(100% - 26px);
+            margin-left: 20px;
+            width: calc(100% - 20px);
             font-weight: normal;
         }
     }
 }
 
+/* 目次（記事内トップ） */
 #toc-atcbody-wrapper {
-    padding: 10px;
-    border-radius: 10px;
+    padding: 20px;
+    border-radius: 20px;
     background-color: #ddd;
 
     display: flex;
     flex-direction: column;
     gap: 5px;
 
-    div {
+    .toc-atcbody-title {
         font-size: 1.1rem;
         font-weight: bold;
+        line-height: 1;
+        margin-bottom: 10px;
     }
 
-    a {
-        display: block;
+    ul {
+        line-height: 1.5;
+        list-style-type: none;
+        margin-left: 0;
+
+        a {
+            display: block;
+            width: 100%;
+            color: #555;
+            text-decoration: none;
+            padding: 3px 5px;
+            border-radius: 0 5px 5px 0;
+            transition-duration: .2s;
+            font-size: 0.95rem;
+            font-weight: bold;
+
+            &:hover {
+                background-color: #ccc;
+                box-shadow: -4px 0 #418d45;
+                transition-duration: .2s;
+            }
+        }
+
+        .toc-atcbody-item-h3 {
+            font-size: 0.85rem;
+            margin-left: 20px;
+            width: calc(100% - 20px);
+            font-weight: normal;
+        }
     }
 }
 
 @media screen and (max-width: 1100px) {
+
     /* 狭いときは横目次を非表示 */
     .toc-side {
         display: none;

@@ -39,6 +39,7 @@
     <script src="/assets/js/categories.js?b={{buildTime}}"></script>
     <script src="/assets/js/codeblock.js?b={{buildTime}}"></script>
     <script src="/assets/js/time_course.js?b={{buildTime}}"></script>
+    <script src="/assets/js/toc.js?b={{buildTime}}"></script>
     <link rel="canonical" href="https://blog.qmainconts.dev/articles/{{.ID}}.html">
     <meta name="description" content="{{$bodyfirst := index .Body 0}}{{trimSample $bodyfirst.Body}}">
     <meta name="google-site-verification" content="u0BTjFYkL3nKuJ0DyWuKngSx29oQe4lkzcAgTFfP2bQ" />
@@ -87,9 +88,9 @@
                         <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
                     </div>
                     <!-- 共有まわりのロジックとCSSが全部消えてしまったのでなんとかする -->
-                    <!-- <div class="widget-child-wrapper">
+                    <div class="widget-child-wrapper">
                         <button id="misc-share"><img src="/assets/share.svg" width="16" height="16">共有</button>
-                    </div> -->
+                    </div>
                 </div>
             </section>
             <section class="box">
@@ -101,10 +102,7 @@
         </section>
         {{- template "subcol" . -}}
     </main>
-    <footer>
-        <p>当ホームページに記載されている会社名・製品名・システム名などは、各社の登録商標、もしくは商標です。</p>
-        <p>© 2022 Kjuman Enobikto All rights reserved.</p>
-    </footer>
+    {{- template "footer" . -}}
 </body>
 
 </html>

@@ -84,3 +84,8 @@
     width: fit-content;
     font-size: 1.2rem;
 }
+
+/* 目次は表示しない */
+.toc-side {
+    display: none;
+}

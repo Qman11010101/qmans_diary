@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Play:wght@700&family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400700&family=Play:wght@700&family=Source+Code+Pro&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/reset.css">
     <link rel="stylesheet" href="/assets/css/common.css">
     <link rel="stylesheet" href="/assets/css/article.css">
@@ -18,45 +18,45 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/powershell.min.js" integrity="sha512-jWH48mwjihORkGHkvD8l0E/MtDgvY0C69eaYitXkI28ZneLUso2I3PgrN8lNnF3esiwHIFy0QODZy7ypmo9Flg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         async function getArticle() {
-            const article = await (await fetch("https://blog-wrap.qmc.workers.dev/" + location.search)).json();
-            document.getElementById("prev_date").innerText = article.createdAt.slice(0, 10);
-            document.getElementById("articletitle").innerText = article.title;
+            const article = await (await fetch("https://blog-wrap.qmc.workers.dev/" + location.search)).json()
+            document.getElementById("prev_date").innerText = article.createdAt.slice(0, 10)
+            document.getElementById("articletitle").innerText = article.title
             article.category.forEach(e => {
-                let tag = document.getElementById("prev_tags").appendChild(document.createElement("div"));
-                tag.className = "tag";
-                let link = tag.appendChild(document.createElement("a"));
-                link.href = "category/" + e.id;
-                let text = tag.appendChild(document.createElement("span"));
-                text.innerText = e.name;
-            });
-            article.body.forEach(e => document.getElementById("atcbody").innerHTML += e.body);
+                let tag = document.getElementById("prev_tags").appendChild(document.createElement("div"))
+                tag.className = "tag"
+                let link = tag.appendChild(document.createElement("a"))
+                link.href = "category/" + e.id
+                let text = tag.appendChild(document.createElement("span"))
+                text.innerText = e.name
+            })
+            article.body.forEach(e => document.getElementById("atcbody").innerHTML += e.body)
 
             setTimeout(() => {
                 // レンダリング完了後実行する部分
-                const articleBody = document.getElementById("atcbody").children;
-                for (let i = 0; i < articleBody.length; i++) {
+                const articleBody = document.getElementById("atcbody").children
+                for (const el of articleBody) {
                     // DIVかつdata-filename属性を持つ場合、中のPREの前(一番先頭)にファイル名ブロックを追加し、divにcodeblock-marginクラスを付与
                     // 中のCODEのborder-radiusを0 20px 20pxにする
-                    if (articleBody[i].tagName === "DIV" && articleBody[i].hasAttribute("data-filename")) {
+                    if (el.tagName === "DIV" && el.hasAttribute("data-filename")) {
                         console.log("find!")
-                        let filename = articleBody[i].getAttribute("data-filename");
-                        let filenameBlock = document.createElement("div");
-                        filenameBlock.className = "code-filename";
-                        filenameBlock.innerText = filename;
-                        articleBody[i].prepend(filenameBlock);
-                        articleBody[i].classList.add("codeblock-margin");
-                        articleBody[i].getElementsByTagName("code")[0].style.borderRadius = "0 20px 20px";
+                        let filename = el.getAttribute("data-filename")
+                        let filenameBlock = document.createElement("div")
+                        filenameBlock.className = "code-filename"
+                        filenameBlock.innerText = filename
+                        el.prepend(filenameBlock)
+                        el.classList.add("codeblock-margin")
+                        el.getElementsByTagName("code")[0].style.borderRadius = "0 20px 20px"
                     }
                     // PREの場合codeblock-marginを付与
-                    if (articleBody[i].tagName === "PRE") articleBody[i].classList.add("codeblock-margin");
+                    if (el.tagName === "PRE") el.classList.add("codeblock-margin")
                 }
-            }, 1000);
+            }, 1000)
 
 
-            hljs.highlightAll(); // highlight
+            hljs.highlightAll() // highlight
         }
 
-        getArticle();
+        getArticle()
     </script>
     <script src="/assets/js/latest_articles.js"></script>
     <script src="/assets/js/categories.js"></script>
@@ -79,8 +79,7 @@
                 <article id="atcbody"></article>
                 <div class="widget-wrapper">
                     <div class="widget-child-wrapper">
-                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
-                            data-size="large" data-lang="ja" data-show-count="false">Tweet</a>
+                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-lang="ja" data-show-count="false">Tweet</a>
                         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                     </div>
                 </div>
@@ -122,8 +121,7 @@
                 </section>
                 <section class="widgetgroup">
                     <div class="widgetindex">Tweets</div>
-                    <a class="twitter-timeline" data-height="1000"
-                        href="https://twitter.com/QmanEnobikto?ref_src=twsrc%5Etfw">Tweets by QmanEnobikto</a>
+                    <a class="twitter-timeline" data-height="1000" href="https://twitter.com/QmanEnobikto?ref_src=twsrc%5Etfw">Tweets by QmanEnobikto</a>
                     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </section>
             </section>

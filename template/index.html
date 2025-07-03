@@ -68,7 +68,7 @@
                 {{- if totalGreater .Totalcount .Limit -}}
                 <!-- ページネーション -->
                 <div class="pagination">
-                    {{- if not eq .CurrentPage 1 -}}
+                    {{- if ne .CurrentPage 1 -}}
                     <a class="pn-element pn-return-first" href="{{.Root}}">«</a>
                     {{- end -}}
                     {{- $ctx := . -}}

@@ -89,7 +89,7 @@ jobs:
           go-version: ">=1.23.0"
           cache: true
       - name: Install microblogen
-        run: GOBIN=$(pwd) GOPRIVATE="github.com/Qman11010101/microblogen" go install github.com/Qman11010101/microblogen@latest
+        run: GOBIN=$(pwd) GOPRIVATE="github.com/Qman11010101/microblogen" go install github.com/Qman11010101/microblogen/v2@latest
       - name: run microblogen
         run: $(pwd)/microblogen
         env:

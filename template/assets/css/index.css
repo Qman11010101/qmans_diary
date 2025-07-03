@@ -37,44 +37,40 @@
     margin-top: 7px;
 }
 
-/* prev/nextボタン */
+/* ページネーション */
+.pagination {
+    display: flex;
+    justify-content: center;
 
-.prev_next_index {
-    position: relative;
-    height: 30px;
-}
-
-.prev_next_btn {
-    position: absolute;
-    bottom: 0;
-    padding: 5px;
-    background-color: #bbbbbb;
-    color: #333;
-    border-radius: 8px;
-    width: fit-content;
-
-    &:hover {
-        background-color: #555555;
-        color: #bbbbbb;
-        transition-duration: .2s;
-    }
-
-    a {
-        position: absolute;
+    .pn-element {
         display: block;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        background-color: #ccc;
+        width: 40px;
+        text-align: center;
+        color: #333;
+        font-size: 1.1rem;
+        text-decoration: none;
+        user-select: none;
+
+        &.pn-return-first {
+            border-radius: 10px 0 0 10px;
+        }
+
+        &.pn-return-last {
+            border-radius: 0 10px 10px 0;
+        }
+
+        &:hover {
+            background-color: var(--theme-color);
+            color: #eee;
+        }
     }
-}
 
-#prev {
-    left: 0;
-}
-
-#next {
-    right: 0;
+    .active {
+        background-color: var(--theme-color);
+        color: #eee;
+        pointer-events: none;
+    }
 }
 
 /* ページ数表示 */

@@ -1,10 +1,12 @@
 :root {
     --toggle-display-width: 1100px;
     --main-width: 700px;
+
+    --theme-color: #418d45;
 }
 
 body {
-    background-color: #418d45;
+    background-color: var(--theme-color);
     font-family: "Noto Sans JP", sans-serif;
 }
 
@@ -93,7 +95,8 @@ button {
     }
 }
 
-#maincol, #subcol {
+#maincol,
+#subcol {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -262,7 +265,8 @@ footer {
 
 /* その他 */
 
-ul, ol {
+ul,
+ol {
     margin-left: 20px;
 }
 
@@ -274,16 +278,20 @@ ul {
     list-style-type: disc;
 }
 
-ul ol, ol ol {
+ul ol,
+ol ol {
     list-style-type: decimal;
 }
 
 
-ul ul, ol ul {
+ul ul,
+ol ul {
     list-style-type: circle;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-weight: bold;
 }
 

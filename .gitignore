@@ -3,3 +3,4 @@ template/design.html
 microblogen.exe
 config.json
 output-temporal/
+.env

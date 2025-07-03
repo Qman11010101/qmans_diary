@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Qman's Diary</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <!-- Open Graph (OGP) Meta Tags -->
     <meta property="og:title" content="Qman's Diary">
     <meta property="og:description" content="キューマン・エノビクトによるブログです。">
@@ -15,14 +15,14 @@
     <meta property="og:site_name" content="Qman's Diary">
     <meta property="og:image" content="https://blog.qmainconts.dev/assets/icon_large.png">
     <meta property="og:locale" content="ja_JP">
-    
+
     <!-- Twitter Cards Meta Tags -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Qman's Diary">
     <meta name="twitter:description" content="キューマン・エノビクトによるブログです。">
     <meta name="twitter:url" content="https://blog.qmainconts.dev{{if eq .PrevPage 0}}{{.Root}}{{else}}{{.Root}}page/{{sub .NextPage 1}}{{end}}">
     <meta name="twitter:site" content="@QmanEnobikto">
-    
+
     <!-- その他 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,19 +66,14 @@
                 </div>
                 {{- end -}}
                 {{- if totalGreater .Totalcount .Limit -}}
-                <div class="prev_next_index">
-                    {{- if isNotFirst .Offset -}}
-                    <div id="prev" class="prev_next_btn">
-                        <a href="{{if eq .PrevPage 1}}{{.Root}}{{else}}{{.Root}}page/{{.PrevPage}}{{end}}"></a>← Previous
-                    </div>
+                <!-- ページネーション -->
+                <div class="pagination">
+                    <a class="pn-element pn-return-first" href="{{.Root}}">«</a>
+                    {{- $ctx := . -}}
+                    {{- range getPagination .CurrentPage .AllPage 5 -}}
+                    <a class="pn-element {{if eq . $.CurrentPage}}active{{end}}" href="{{$ctx.Root}}{{if gt . 1}}page/{{.}}{{end}}">{{.}}</a>
                     {{- end -}}
-                    <div class="page_view">
-                        Page {{sub .NextPage 1}} / {{.AllPage}}
-                    </div>{{- if isNotLast .Limit .Offset .Totalcount -}}
-                    <div id="next" class="prev_next_btn">
-                        <a href="{{.Root}}page/{{.NextPage}}"></a>Next →
-                    </div>
-                    {{- end -}}
+                    <a class="pn-element pn-return-last" href="{{.Root}}page/{{.AllPage}}">»</a>
                 </div>
                 {{- end -}}
             </section>

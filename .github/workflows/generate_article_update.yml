@@ -24,13 +24,19 @@ jobs:
           go-version: ">=1.23.0"
           cache: true
       - name: Install microblogen
-        run: GOBIN=$(pwd) GOPRIVATE="github.com/Qman11010101/microblogen" go install github.com/Qman11010101/microblogen@latest
+        run: GOBIN=$(pwd) GOPRIVATE="github.com/Qman11010101/microblogen" go install github.com/Qman11010101/microblogen/v2@latest
       - name: run microblogen
         run: $(pwd)/microblogen
         env:
           MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
           SERVICE_DOMAIN: ${{ secrets.SERVICE_DOMAIN }}
+          EXPORT_PATH: "./output"
+          RESOURCES_PATH: "./resources"
+          LATEST_ARTICLES: 5
+          ARTICLES_PER_PAGE: 10
           TIMEZONE: "Asia/Tokyo"
+          CATEGORY_TAG_NAME: "Category"
+          TIME_ARCHIVE_NAME: "Archive"
       - name: remove microblogen binary & .github
         run: |
           rm microblogen

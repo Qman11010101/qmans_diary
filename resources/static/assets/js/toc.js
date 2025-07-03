@@ -22,11 +22,13 @@ document.addEventListener("DOMContentLoaded", function () {
     for (const heading of headings) {
         // -------side toc-------
 
-        // IDがない場合は付与する
+        // IDがない場合は付与する。IDがある場合は後ろにdynamicIDを付与する（同じIDが存在する場合の対策）
         if (heading.id === "") {
             heading.id = "toc-dynamic-" + dynamicID;
-            dynamicID++;
+        } else {
+            heading.id = heading.id + String(dynamicID);
         }
+        dynamicID++;
 
         const tocSideItemWrapper = tocSideWrapper.appendChild(document.createElement("li"));
         const tocSideItem = tocSideItemWrapper.appendChild(document.createElement("a"));

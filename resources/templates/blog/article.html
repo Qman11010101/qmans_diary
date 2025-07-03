@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head prefix="og:http://ogp.me/ns#">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{.Title}} - Qman's Diary</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Open Graph (OGP) Meta Tags -->
+    <meta property="og:title" content="{{.Title}} - Qman's Diary">
+    <meta property="og:description" content="{{$bodyfirst := index .Body 0}}{{trimSample $bodyfirst.Body}}">
+    <meta property="og:url" content="https://blog.qmainconts.dev/articles/{{.ID}}.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Qman's Diary">
+    <meta property="og:image" content="https://blog.qmainconts.dev/assets/icon_large.png">
+    <meta property="og:locale" content="ja_JP">
+
+    <!-- Twitter Cards Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{.Title}} - Qman's Diary">
+    <meta name="twitter:description" content="{{$bodyfirst := index .Body 0}}{{trimSample $bodyfirst.Body}}">
+    <meta name="twitter:url" content="https://blog.qmainconts.dev/articles/{{.ID}}.html">
+    <meta name="twitter:site" content="@QmanEnobikto">
+
+    <!-- その他 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&family=Noto+Sans+JP:wght@400;700&family=Play:wght@700&family=Source+Code+Pro&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&family=Noto+Sans+JP:wght@400;700&family=Play:wght@700&family=Source+Code+Pro&display=swap" media="print" onload='this.media="all"' />
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/common.css?b={{buildTime}}">
+    <link rel="stylesheet" href="/assets/css/article.css?b={{buildTime}}">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/cmake.min.js" integrity="sha512-dB3yY382soXMlcOc71s6oU9RyP+KRgMLrDBh2EOpBBbWcpNeOoHHEldKuIhrVBCjdSlD6ugRkKkDA039sWipbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/powershell.min.js" integrity="sha512-jWH48mwjihORkGHkvD8l0E/MtDgvY0C69eaYitXkI28ZneLUso2I3PgrN8lNnF3esiwHIFy0QODZy7ypmo9Flg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/assets/js/latest_articles.js?b={{buildTime}}"></script>
+    <script src="/assets/js/categories.js?b={{buildTime}}"></script>
+    <script src="/assets/js/codeblock.js?b={{buildTime}}"></script>
+    <script src="/assets/js/time_course.js?b={{buildTime}}"></script>
+    <script src="/assets/js/toc.js?b={{buildTime}}"></script>
+    <link rel="canonical" href="https://blog.qmainconts.dev/articles/{{.ID}}.html">
+    <meta name="description" content="{{$bodyfirst := index .Body 0}}{{trimSample $bodyfirst.Body}}">
+    <meta name="google-site-verification" content="u0BTjFYkL3nKuJ0DyWuKngSx29oQe4lkzcAgTFfP2bQ" />
+</head>
+
+
+<body>
+    {{- template "header" . -}}
+    <main>
+        <section id="maincol">
+            <section class="box">
+                <div class="date">
+                    {{- formatTime .PublishedAt -}}
+                    {{- if ne (formatTime .PublishedAt) (formatTime .UpdatedAt) }} ({{formatTime .UpdatedAt}} 更新)
+                    {{- end -}}</div>
+                <h1 id="articletitle">{{- .Title -}}</h1>
+                <div class="tags">
+                    <div class="tag"><img src="/assets/tag.svg" alt="タグ" width="18" height="18" draggable="false"></div>
+                    {{- range .Category -}}
+                    <div class="tag"><a href="category/{{.ID}}"></a>
+                        {{- .Name -}}
+                    </div>
+                    {{- end -}}
+                </div>
+                {{- if .Event.EventText -}}
+                <a href="{{.Event.EventLink}}" target="_blank" class="event-banner-link-wrapper">
+                    <div class="event-banner">
+                        <img src="/assets/event.svg" alt="イベント" width="20" height="20" draggable="false">
+                        <p>{{- .Event.EventText -}}</p>
+                    </div>
+                </a>
+                {{- end -}}
+                <div id="time-course-warning"></div>
+                <article id="atcbody">
+                    {{- range $bodies := .Body -}}
+                    {{- replaceWebp $bodies.Body -}}
+                    {{- end -}}
+                </article>
+                <div class="widget-wrapper">
+                    <div class="widget-child-wrapper">
+                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-lang="ja" data-show-count="false">Post</a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div class="widget-child-wrapper">
+                        <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="touch-counter" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
+                        <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+                    </div>
+                    <!-- 共有まわりのロジックとCSSが全部消えてしまったのでなんとかする -->
+                    <!-- <div class="widget-child-wrapper">
+                        <button id="misc-share"><img src="/assets/share.svg" width="16" height="16">共有</button>
+                    </div> -->
+                </div>
+            </section>
+            <section class="box">
+                <section class="widgetgroup" id="recent">
+                    <div class="widgetindex">Recent Articles</div>
+                    <div id="recent-articles"></div>
+                </section>
+            </section>
+        </section>
+        {{- template "subcol" . -}}
+    </main>
+    {{- template "footer" . -}}
+</body>
+
+</html>

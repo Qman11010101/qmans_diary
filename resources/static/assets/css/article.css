@@ -103,7 +103,6 @@
     padding: 0 10px;
     border-radius: 10px 10px 0 0;
     color: #eee;
-    font-size: 0.9rem;
 }
 
 pre {
@@ -340,7 +339,7 @@ th {
         font-size: 1.1rem;
         font-weight: bold;
         line-height: 1;
-
+        
         &:before {
             content: "▶";
             margin-right: 5px;

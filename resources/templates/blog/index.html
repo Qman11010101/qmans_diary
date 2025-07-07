@@ -68,12 +68,16 @@
                 {{- if totalGreater .Totalcount .Limit -}}
                 <!-- ページネーション -->
                 <div class="pagination">
+                    {{- if ne .CurrentPage 1 -}}
                     <a class="pn-element pn-return-first" href="{{.Root}}">«</a>
+                    {{- end -}}
                     {{- $ctx := . -}}
                     {{- range getPagination .CurrentPage .AllPage 5 -}}
                     <a class="pn-element {{if eq . $.CurrentPage}}active{{end}}" href="{{$ctx.Root}}{{if gt . 1}}page/{{.}}{{end}}">{{.}}</a>
                     {{- end -}}
+                    {{- if ne .CurrentPage .AllPage -}}
                     <a class="pn-element pn-return-last" href="{{.Root}}page/{{.AllPage}}">»</a>
+                    {{- end -}}
                 </div>
                 {{- end -}}
             </section>

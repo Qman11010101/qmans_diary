@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<head prefix="og:http://ogp.me/ns#">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Raspberry Pi Picoのビルド環境をポータブル化してみた - Qman's Diary</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Open Graph (OGP) Meta Tags -->
+    <meta property="og:title" content="Raspberry Pi Picoのビルド環境をポータブル化してみた - Qman's Diary">
+    <meta property="og:description" content="Raspberry Pi Picoの開発環境の一つとして、公式が提供するC/C++ SDKがある。開発環境の構築も、Windowsならインストーラが用意されているので、そこまで苦労することではない（特…">
+    <meta property="og:url" content="https://blog.qmainconts.dev/articles/84bp57kw-m.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Qman's Diary">
+    <meta property="og:image" content="https://blog.qmainconts.dev/assets/icon_large.png">
+    <meta property="og:locale" content="ja_JP">
+
+    <!-- Twitter Cards Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Raspberry Pi Picoのビルド環境をポータブル化してみた - Qman's Diary">
+    <meta name="twitter:description" content="Raspberry Pi Picoの開発環境の一つとして、公式が提供するC/C++ SDKがある。開発環境の構築も、Windowsならインストーラが用意されているので、そこまで苦労することではない（特…">
+    <meta name="twitter:url" content="https://blog.qmainconts.dev/articles/84bp57kw-m.html">
+    <meta name="twitter:site" content="@QmanEnobikto">
+
+    <!-- その他 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&family=Noto+Sans+JP:wght@400;700&family=Play:wght@700&family=Source+Code+Pro&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&family=Noto+Sans+JP:wght@400;700&family=Play:wght@700&family=Source+Code+Pro&display=swap" media="print" onload='this.media="all"' />
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/common.css?b=1752911438">
+    <link rel="stylesheet" href="/assets/css/article.css?b=1752911438">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/cmake.min.js" integrity="sha512-dB3yY382soXMlcOc71s6oU9RyP+KRgMLrDBh2EOpBBbWcpNeOoHHEldKuIhrVBCjdSlD6ugRkKkDA039sWipbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/powershell.min.js" integrity="sha512-jWH48mwjihORkGHkvD8l0E/MtDgvY0C69eaYitXkI28ZneLUso2I3PgrN8lNnF3esiwHIFy0QODZy7ypmo9Flg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/assets/js/latest_articles.js?b=1752911438"></script>
+    <script src="/assets/js/categories.js?b=1752911438"></script>
+    <script src="/assets/js/codeblock.js?b=1752911438"></script>
+    <script src="/assets/js/time_course.js?b=1752911438"></script>
+    <script src="/assets/js/toc.js?b=1752911438"></script>
+    <link rel="canonical" href="https://blog.qmainconts.dev/articles/84bp57kw-m.html">
+    <meta name="description" content="Raspberry Pi Picoの開発環境の一つとして、公式が提供するC/C++ SDKがある。開発環境の構築も、Windowsならインストーラが用意されているので、そこまで苦労することではない（特…">
+    <meta name="google-site-verification" content="u0BTjFYkL3nKuJ0DyWuKngSx29oQe4lkzcAgTFfP2bQ" />
+</head>
+
+
+<body>
+<header>
+    <div id="blogtitle"><a href="/">Qman's Diary</a></div>
+    <p>多趣味人間の備忘録</p>
+</header>
+<main>
+        <section id="maincol">
+            <section class="box">
+                <div class="date">2024-12-01</div>
+                <h1 id="articletitle">Raspberry Pi Picoのビルド環境をポータブル化してみた</h1>
+                <div class="tags">
+                    <div class="tag"><img src="/assets/tag.svg" alt="タグ" width="18" height="18" draggable="false"></div><div class="tag"><a href="category/tech"></a>技術</div><div class="tag"><a href="category/advent"></a>Advent Calendar</div></div><a href="https://qiita.com/advent-calendar/2024/student" target="_blank" class="event-banner-link-wrapper">
+                    <div class="event-banner">
+                        <img src="/assets/event.svg" alt="イベント" width="20" height="20" draggable="false">
+                        <p>Qiita全国学生対抗戦</p>
+                    </div>
+                </a><div id="time-course-warning"></div>
+                <article id="atcbody"><p>Raspberry Pi Picoの開発環境の一つとして、公式が提供するC/C++ SDKがある。開発環境の構築も、Windowsならインストーラが用意されているので、そこまで苦労することではない（特別なショートカットを介してVSCodeを起動しないといけないのはちょっとどうかと思うが）。</p><p>しかし、<strong>インストーラでできる開発環境はポータブルではない。</strong>当然といえば当然かもしれないが、今回、開発環境（より正確に言えばビルドできる環境）をポータブル化するニーズが生じてしまった。それは即ち、インストーラがやってくれていたことを自分でやる必要があるということになる。</p><p>プロジェクトの詳細については言及しないが、せっかくなので開発環境をポータブル化する方法について備忘録を残そうと思う。最終的には、完全にまっさらなWindows Sandbox上で<code>.uf2</code>ファイルのビルドに成功したので、ポータブル化に成功したと言っても過言ではないと思う。</p><p>OSはWindows 10/11、Pico SDKのバージョンは1.5.1とする。なお、CPUはx86_64を前提としており、ArmのWindowsについてはツールチェーンが存在するかどうか保証できない。</p><h2 id="h04806b1487">依存関係をかき集める</h2><p>ビルドにはいくつものソフトが必要になる。具体的には以下の通り。やるだけならGitは必要なかった。</p><ul><li>gcc（arm-none-eabi)</li><li>CMake</li><li>Ninja</li><li>Python3</li><li>（ソフトではないが）pico-sdk、pico-example</li></ul><p>それぞれ、ダウンロードする手順を示す。前述の通り、ここでダウンロードしているのはx86_64向けのツールであり、Armの場合は別に用意されたツールがあればそれを利用する必要がある。</p><h3 id="hbd527db824">gcc（arm-none-eabi）</h3><p><strong>バージョン: </strong>13.3.Rel1（執筆時最新版）</p><p>クロスコンパイラ。名前の通りArm向けのバイナリを吐き出す。</p><p><a href="https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads" target="_blank" rel="noopener noreferrer nofollow">ここ</a>から適当に最新版（arm-gnu-toolchain-[バージョン名]-mingw-w64-i686-arm-none-eabi.zip）をダウンロードする。普通に検索するとDeprecatedになったサイトが出てくるので注意。展開したディレクトリを利用する。</p><p>ちなみに総容量1.3GB中1.2GBがコイツ。なんとかならんか……</p><h3 id="h2ada1dfc2d">CMake</h3><p><strong>バージョン: </strong>3.31.0（執筆時最新版）</p><p>ビルドツール。SDKが採用している。</p><p><a href="https://cmake.org/download/" target="_blank" rel="noopener noreferrer nofollow">ここ</a>から「Windows x64 zip（cmake-[バージョン名]-windows-x86_64.zip）」をダウンロードして展開する。</p><h3 id="hea5dfdbdc7">Ninja</h3><p><strong>バージョン: </strong>1.12.1（執筆時最新版）</p><p>CMakeなどのビルドツールから使われることを意識した軽量ビルドツール。ガチで軽量なので本体はexe1個。</p><p><a href="https://github.com/ninja-build/ninja/releases" target="_blank" rel="noopener noreferrer nofollow">ここ</a>から「ninja-win.zip」をダウンロードして展開する。</p><h3 id="heab7e93812">Python3</h3><p><strong>バージョン: </strong>3.13.0（執筆時最新版）</p><p>なんかビルドプロセスで必要とされていた。正直よくわかっていないが必要みたいなのでダウンロードする。</p><p><a href="https://www.python.org/downloads/" target="_blank" rel="noopener noreferrer nofollow">ここ</a>から必要なバージョンの詳細ページに移動して、「Windows embeddable package (64-bit)」をダウンロードして展開する。</p><h3 id="hdacbb58294">pico-sdk、pico-example</h3><p><strong>バージョン: </strong>1.5.1</p><p>GitHubからダウンロードする。</p><p>pico-sdkは<a href="https://github.com/raspberrypi/pico-sdk" target="_blank" rel="noopener noreferrer nofollow">ここ</a>、pico-exampleは<a href="https://github.com/raspberrypi/pico-examples" target="_blank" rel="noopener noreferrer nofollow">ここ</a>。デフォルトではmasterブランチが表示されているので、Tagsから欲しいバージョン（今回は1.5.1）に移動して、右上のCodeボタンから「Download ZIP」を選ぶ。</p><p>pico-sdkに関しては、libディレクトリの中にサブモジュールが存在している。TinyUSBなどが必要になる場合は、そのサブモジュールとなっているリポジトリについても同様にダウンロードし、該当ディレクトリ内に展開しておくこと。</p><h2 id="he42ca8de7e">ディレクトリを配置する</h2><p>ここまでで用意したディレクトリ群はバージョン名やアーキテクチャ名などがくっついているやたら長い名前になっている。削ってしまっても問題はないので、ディレクトリをツール名だけにしてしまうことにする。</p><p>そして、それらをプロジェクトディレクトリに配置する。プロジェクトディレクトリは（多分）どこに置いても良い。このディレクトリの名前がそのまま最後に吐き出されるuf2ファイルの名前になる。</p><div data-filename="ディレクトリ構造"><pre><code class="language-plaintext">project-name/
+  cmake/
+  gcc-arm-none-eabi/
+  ninja/
+  pico-examples/
+  pico-sdk/
+  python/</code></pre></div><h2 id="ha4fd49a87f">必要なファイルを用意する</h2><h3 id="h1cb5ef5706">CMakeLists.txtを書く</h3><p>元々どこかからコピペしてきたものを改変したものだった気がするが、出どころを忘れたので以下に記載する。</p><div data-filename="CMakeLists.txt"><pre><code class="language-cmake">cmake_minimum_required(VERSION 3.30)
+set(FAMILY rp2040)
+include(${CMAKE_CURRENT_SOURCE_DIR}/pico_sdk_import.cmake)
+
+# TinyUSBを使う場合の記述
+include(${PICO_SDK_PATH}/lib/tinyusb/hw/bsp/family_support.cmake)
+
+family_get_project_name(PROJECT ${CMAKE_CURRENT_LIST_DIR})
+project(${PROJECT})
+family_initialize_project(${PROJECT} ${CMAKE_CURRENT_LIST_DIR})
+
+add_executable(${PROJECT})
+
+# ./srcをSRC_DIRとして指定
+set(SRC_DIR &quot;${CMAKE_CURRENT_SOURCE_DIR}/src&quot;)
+
+# SRC_FILESにSRC_DIRの中にある.cをすべて指定
+file(GLOB SRC_FILES &quot;${SRC_DIR}/*.c&quot;)
+
+target_sources(${PROJECT} PUBLIC
+        ${SRC_FILES}
+        )
+
+# ./src/libもincludeする（弊プロジェクトでは./src/libにヘッダファイルを置いていたため）
+target_include_directories(${PROJECT} PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/lib
+        )
+
+family_configure_target(${PROJECT})
+
+# Pico SDKの標準ライブラリはここに追加していく。TinyUSBなども&quot;tinyusb_device&quot;のような形で追加できる。
+target_link_libraries(${PROJECT} PUBLIC hardware_adc pico_stdlib) 
+
+pico_enable_stdio_usb(${PROJECT} 0)</code></pre></div><p>コメントが付加されている部分は任意に改変して良い。特にsrc周りは今後のディレクトリの構造を決定してしまうので注意。この<code>src</code>の中に肝心のソースコードを入れる。</p><h3 id="h50f5cdec50">pico_sdk_import.cmakeをコピーしてくる</h3><p><code>pico-sdk/external</code>ディレクトリの中に<code>pico_sdk_import.cmake</code>がある。これをコピーして、プロジェクトディレクトリ直下に置く。</p><div data-filename="ディレクトリ構造"><pre><code class="language-diff">project-name/
+  cmake/
+  gcc-arm-none-eabi/
+  ninja/
+  pico-examples/
+  pico-sdk/
+  python/
++ src/
++   〇〇.c
++   lib/
++     〇〇.h
++ CMakeLists.txt
++ pico_sdk_import.cmake</code></pre></div><h2 id="hf8035a73ec">ビルド用のPowershellスクリプトを書く</h2><p>ビルドプロセスはいくつかのコマンドの集合体である。さらにはファイルコピーのような過程も入るし、環境変数も用意しなければいけない。今回はPowershellでスクリプトを記述した。</p><div data-filename="pico-project-builder.ps1"><pre><code class="language-powershell">Function LoggerOrig($message) {
+    Write-Output &quot;[PICO PROJECT BUILDER] $message&quot;
+}
+
+$currentDir = (Get-Location).Path
+$Env:PICO_SDK_PATH = &quot;${currentDir}/pico-sdk&quot;
+$Env:PICO_EXAMPLES_PATH = &quot;${currentDir}/pico-examples&quot;
+$Env:CC = &quot;${currentDir}/gcc-arm-none-eabi/bin/arm-none-eabi-gcc.exe&quot;
+$Env:CXX = &quot;${currentDir}/gcc-arm-none-eabi/bin/arm-none-eabi-g++.exe&quot;
+$originalPath = $Env:PATH
+$Env:PATH = &quot;${currentDir}/gcc-arm-none-eabi/bin/;${currentDir}/ninja;${currentDir}/python;${currentDir}/cmake/bin;&quot;
+
+
+# remove build directory if exists
+if (Test-Path &quot;${currentDir}/build&quot;) {
+    LoggerOrig &quot;Removing build directory...&quot;
+    Remove-Item -Recurse -Force -Path &quot;${currentDir}/build&quot;
+}
+
+# make build directory
+LoggerOrig &quot;Creating build directory...&quot;
+mkdir &quot;${currentDir}/build&quot; &gt; $null
+
+# copy pico-sdk to build
+LoggerOrig &quot;Copying pico-sdk to build directory...&quot;
+Copy-Item -Recurse -Path &quot;${currentDir}/pico-sdk&quot; -Destination &quot;${currentDir}/build/pico-sdk&quot;
+
+LoggerOrig &quot;Executing cmake and ninja...&quot;
+cmake -B &quot;build&quot; -G Ninja
+Set-Location &quot;${currentDir}/build&quot;
+ninja
+LoggerOrig &quot;Done!&quot;
+Set-Location $currentDir
+$Env:PATH = $originalPath</code></pre></div><p><span class="warning">【未検証】どうもps1ファイルに日本語を含めると文字化けした気がする。そのためここではコメントやログなどもすべて英語で記述している。</span></p><p>このスクリプトが実行しているのは、以下の処理である。</p><ol><li>環境変数<code>PICO_SDK_PATH</code>、<code>PICO_EXAMPLES_PATH</code>、<code>CC</code>、<code>CXX</code>を設定する。前者二つはRaspberry Pi Pico SDK関連のものであり、後者はCおよびC++コンパイラを指定している。これによりCMakeの引数でコンパイラを渡さずとも済むので、スクリプトの見やすさが向上する（気がする）。</li></ol><p>元の環境変数PATHを書き換え、プロジェクトディレクトリ内に入れたツールだけを参照するようにする。</p><ol><li><code>build</code>ディレクトリがあったら一旦中身ごと消去する。キャッシュのせいで設定が変更されないことがあるため。</li><li><code>build</code>ディレクトリを再度作り直す。</li><li><code>pico-sdk</code>ディレクトリをbuildディレクトリ直下にコピーする。</li><li>CMakeとNinjaでビルドを行う。</li><li><code>PATH</code>を元に戻す。このスクリプトを単体で一度実行するだけなら不要だが、VSCodeのターミナル上でこれを実行すると書き換わってしまって面倒なのでこの手順を踏んでいる。</li></ol><h2 id="hde0849d2c0">elf2uf2をあらかじめ用意する</h2><h3 id="h70db7a96ea">ビルドする</h3><p>前節までの状態でビルドを試みても失敗してしまう。これは、elf2uf2（文字通り、elfファイルをuf2ファイルに変換するツール）をビルドしようとして失敗しているからだ。elf2uf2自体はRP2040上ではなくホストのPCで実行するものであり、そしてelf2uf2が見つからなかった場合はその場でビルドしようとするようになっている。あらかじめ用意したツールチェーン（gccなど）はRP2040のためのものなので、ホストPC向けビルドは当然失敗して停止してしまう。</p><p>ということで、あらかじめelf2uf2の実行バイナリを用意する。これ自体は今回用意したプロジェクトの外側で行うこと。ここでは、たまたまPCにあったMinGW-w64のg++を使ってビルドする。他の環境でのやり方は各自で調べてほしい。</p><p>ファイル自体は<a href="https://github.com/rej696/elf2uf2" target="_blank" rel="noopener noreferrer nofollow">GitHubのリポジトリ</a>から引っ張ってくる。pico-sdkにも含まれているが必要なファイルが少し離れた場所にあって面倒。とりあえず、<code>main.cpp</code>に加え<code>elf.h</code>と<code>uf2.h</code>があれば良い。揃ったら、以下のコマンドでビルドする。</p><pre><code class="language-plaintext">g++ -o elf2uf2 main.cpp -static -lstdc++ -lgcc</code></pre><p>MinGWに依存しないように、内部で利用しているDLLを静的にリンクしている（<a href="https://github.com/lucasg/Dependencies" target="_blank" rel="noopener noreferrer nofollow">Dependencies</a>を使って確認すると、ちゃんとWindowsに元から入ってそうなDLLにだけ依存していることがわかる）。</p><p>バイナリができたら、<code>pico-sdk/tools/elf2uf2/</code>直下にビルドされた<code>elf2uf2.exe</code>を配置する。実際のところどこに置いても良いのだが、後述の処理でそう指定しているため今回は場所を指定した。</p><h3 id="h2e31e4738c">elf2uf2を探す処理を書き換える</h3><p>今のままではまだelf2uf2をうまく探してくれないので、そもそもelf2uf2を探そうとする処理を無効化してしまうことにする。</p><p><code>pico-sdk/tools/FindELF2UF2.cmake</code>を開き、以下のように全て書き換える。</p><div data-filename="FindELF2UF2.cmake"><pre><code class="language-cmake">if (NOT ELF2UF2_FOUND)
+    add_executable(ELF2UF2 IMPORTED)   
+    set_property(TARGET ELF2UF2 PROPERTY IMPORTED_LOCATION ${PICO_SDK_PATH}/tools/elf2uf2/elf2uf2)
+    set(ELF2UF2_FOUND 1)
+endif()</code></pre></div><p>元々、このcmakeファイルは、ビルドなどをして最終的にelf2uf2のバイナリを用意した後、<code>ELF2UF2_FOUND</code>変数を<code>0</code>から<code>1</code>に書き換える。そこで、その探したりビルドしたりするプロセスを丸ごと消し飛ばして、必要なプロパティだけ設定して変数を書き換えてしまえば、意図したように動作するという仕組み……だと思う。</p><p>この手順はほぼすべて<a href="https://forums.raspberrypi.com/viewtopic.php?t=350982#p2103990" target="_blank" rel="noopener noreferrer nofollow">Raspberry Pi Forums</a>からのコピペである。いくら探してもこのフォーラム以外には記事がなく、しかもこのフォーラム自体はLinuxを想定したものだったようなので、マジで一歩間違えてたら一生彷徨ってたかもしれない。</p><p>なお、元のフォーラムにおいてはpioasmも同様にビルドしたいというニーズがあったようだ。今回は触っていないが、<code>pico-sdk/tools/</code>にはpioasmのコードと<code>FindPioasm.cmake</code>ファイルもあるので、似たような手法であらかじめビルドしておくと良いかもしれない。</p><h2 id="ha214098e44">まとめ</h2><p>これで、環境は完成した。実際にPowershellスクリプトを動作させてみると、<code>build</code>ディレクトリ内にuf2ファイルが生成されているのがわかる。少なくともビルドだけであれば、Windows Sandbox上でさえ動作するはずだ。</p><p>今回はビルド環境をポータブル化したが、うまく応用すれば開発環境も同様にポータブル化できそうな雰囲気がある。現状VSCodeを特殊なショートカットを経由して起動しないといけないのは環境変数周りの問題が大きそうな気がするので、なんとかならないだろうか？</p><p><span class="info">ちなみに、このショートカットはとあるPowershellスクリプトを介して様々な設定を行った上でVSCodeを起動するという仕組みになっている。見た感じレジストリにもなにか触っているようなので、簡単になんとかするわけにはいかなそうな雰囲気がある。</span></p><p>今回は、卒業制作のなかで得られた知見を記事に起こした。来年からは学生としてこのアドベントカレンダーに参加することがなくなると考えると少々寂しい気持ちにもなる。それでもやはり、知見をアウトプットするという作業にはかけがえのない価値があると思うので、これからも何らかの形でアドベントカレンダーに参加したい。</p></article>
+                <div class="widget-wrapper">
+                    <div class="widget-child-wrapper">
+                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-lang="ja" data-show-count="false">Post</a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div class="widget-child-wrapper">
+                        <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="touch-counter" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
+                        <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+                    </div>
+                    <!-- 共有まわりのロジックとCSSが全部消えてしまったのでなんとかする -->
+                    <!-- <div class="widget-child-wrapper">
+                        <button id="misc-share"><img src="/assets/share.svg" width="16" height="16">共有</button>
+                    </div> -->
+                </div>
+            </section>
+            <section class="box">
+                <section class="widgetgroup" id="recent">
+                    <div class="widgetindex">Recent Articles</div>
+                    <div id="recent-articles"></div>
+                </section>
+            </section>
+        </section>
+<section id="subcol">
+    <div class="box">
+        <div class="subcolbtn">
+            <a href="https://qmainconts.dev/"></a>
+            >> キューマンのコンテンツ置き場
+        </div>
+        <section class="widgetgroup">
+            <h3 class="widgetindex">Profile</h3>
+            <p>オタクコンテンツで命を繋いでいる人間</p>
+        </section>
+        <section class="widgetgroup">
+            <h3 class="widgetindex">Accounts</h3>
+            <ul>
+                <li>X: <a href="https://x.com/QmanEnobikto" target="_blank">@QmanEnobikto</a>
+                </li>
+                <li>GitHub: <a href="https://github.com/Qman11010101" target="_blank">Qman11010101</a></li>
+                <li>Qiita: <a href="https://qiita.com/KjumanEnobikto" target="_blank">@KjumanEnobikto</a>
+                </li>
+                <li>Zenn: <a href="https://zenn.dev/kjumanenobikto" target="_blank">@kjumanenobikto</a></li>
+                <li>カクヨム: <a href="https://kakuyomu.jp/users/QmanEnobikto" target="_blank">QmanEnobikto</a>
+                </li>
+            </ul>
+        </section>
+        <section class="widgetgroup">
+            <h3 class="widgetindex">Category</h3>
+            <div id="categorydisplay"></div>
+        </section>
+    </div>
+    <nav class="box toc-side">
+        <ul id="toc-side-wrapper"></ul>
+    </nav>
+</section>
+</main>
+<footer>
+    <p>当ホームページに記載されている会社名・製品名・システム名などは、各社の登録商標、もしくは商標です。</p>
+    <p>© 2022 Kjuman Enobikto All rights reserved.</p>
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+
+<head prefix="og:http://ogp.me/ns#">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>【備忘録】SEGA音ゲー3機種の公式サイトの裏で流れてる楽曲リストJSON+αの解説 - Qman's Diary</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Open Graph (OGP) Meta Tags -->
+    <meta property="og:title" content="【備忘録】SEGA音ゲー3機種の公式サイトの裏で流れてる楽曲リストJSON+αの解説 - Qman's Diary">
+    <meta property="og:description" content="SEGA音ゲー3機種の公式サイトの裏には、楽曲リスト等のためのJSONが流れています。エンドポイントさえ知っていれば、それらを取得して活用することも可能です。ただ、正規で公開されているものではありませ…">
+    <meta property="og:url" content="https://blog.qmainconts.dev/articles/hj6ydkdm1j.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Qman's Diary">
+    <meta property="og:image" content="https://blog.qmainconts.dev/assets/icon_large.png">
+    <meta property="og:locale" content="ja_JP">
+
+    <!-- Twitter Cards Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="【備忘録】SEGA音ゲー3機種の公式サイトの裏で流れてる楽曲リストJSON+αの解説 - Qman's Diary">
+    <meta name="twitter:description" content="SEGA音ゲー3機種の公式サイトの裏には、楽曲リスト等のためのJSONが流れています。エンドポイントさえ知っていれば、それらを取得して活用することも可能です。ただ、正規で公開されているものではありませ…">
+    <meta name="twitter:url" content="https://blog.qmainconts.dev/articles/hj6ydkdm1j.html">
+    <meta name="twitter:site" content="@QmanEnobikto">
+
+    <!-- その他 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&family=Noto+Sans+JP:wght@400;700&family=Play:wght@700&family=Source+Code+Pro&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&family=Noto+Sans+JP:wght@400;700&family=Play:wght@700&family=Source+Code+Pro&display=swap" media="print" onload='this.media="all"' />
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/common.css?b=1752911440">
+    <link rel="stylesheet" href="/assets/css/article.css?b=1752911440">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/cmake.min.js" integrity="sha512-dB3yY382soXMlcOc71s6oU9RyP+KRgMLrDBh2EOpBBbWcpNeOoHHEldKuIhrVBCjdSlD6ugRkKkDA039sWipbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/powershell.min.js" integrity="sha512-jWH48mwjihORkGHkvD8l0E/MtDgvY0C69eaYitXkI28ZneLUso2I3PgrN8lNnF3esiwHIFy0QODZy7ypmo9Flg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/assets/js/latest_articles.js?b=1752911440"></script>
+    <script src="/assets/js/categories.js?b=1752911440"></script>
+    <script src="/assets/js/codeblock.js?b=1752911440"></script>
+    <script src="/assets/js/time_course.js?b=1752911440"></script>
+    <script src="/assets/js/toc.js?b=1752911440"></script>
+    <link rel="canonical" href="https://blog.qmainconts.dev/articles/hj6ydkdm1j.html">
+    <meta name="description" content="SEGA音ゲー3機種の公式サイトの裏には、楽曲リスト等のためのJSONが流れています。エンドポイントさえ知っていれば、それらを取得して活用することも可能です。ただ、正規で公開されているものではありませ…">
+    <meta name="google-site-verification" content="u0BTjFYkL3nKuJ0DyWuKngSx29oQe4lkzcAgTFfP2bQ" />
+</head>
+
+
+<body>
+<header>
+    <div id="blogtitle"><a href="/">Qman's Diary</a></div>
+    <p>多趣味人間の備忘録</p>
+</header>
+<main>
+        <section id="maincol">
+            <section class="box">
+                <div class="date">2022-11-21 (2025-07-19 更新)</div>
+                <h1 id="articletitle">【備忘録】SEGA音ゲー3機種の公式サイトの裏で流れてる楽曲リストJSON+αの解説</h1>
+                <div class="tags">
+                    <div class="tag"><img src="/assets/tag.svg" alt="タグ" width="18" height="18" draggable="false"></div><div class="tag"><a href="category/musicgame"></a>音楽ゲーム</div><div class="tag"><a href="category/tech"></a>技術</div><div class="tag"><a href="category/ongeki"></a>オンゲキ</div><div class="tag"><a href="category/chunithm"></a>CHUNITHM</div><div class="tag"><a href="category/maimai"></a>maimai</div></div><div id="time-course-warning"></div>
+                <article id="atcbody"><p>SEGA音ゲー3機種の公式サイトの裏には、楽曲リスト等のためのJSONが流れています。</p><p>エンドポイントさえ知っていれば、それらを取得して活用することも可能です。</p><p>ただ、正規で公開されているものではありませんし、いつ仕様が変更されたり使えなくなったりしても一切文句は言えません。</p><p>この情報を利用する際は、何があっても自己責任でお願いします。</p><h2 id="h252f0b88c1">CHUNITHM</h2><h3 id="h40fe001faa">楽曲リスト</h3><p><strong>▶エンドポイント: </strong><code>https://chunithm.sega.jp/storage/json/music.json</code></p><p>以前は著作権情報もこのJSONファイル内にあったが、現在は<code>https://chunithm.sega.jp/storage/json/rightsInfo.json</code>にまとめて全て入っている。</p><p><strong>▼レスポンス例</strong></p><pre><code class="language-json">[
+    {
+        &quot;id&quot;: &quot;2065&quot;,
+        &quot;catname&quot;: &quot;ORIGINAL&quot;,
+        &quot;newflag&quot;: &quot;0&quot;,
+        &quot;title&quot;: &quot;創世のコンツェルティーナ&quot;,
+        &quot;reading&quot;: &quot;ソウセイノコンツエルテイウナ&quot;,
+        &quot;artist&quot;: &quot;大嶋啓之&quot;,
+        &quot;lev_bas&quot;: &quot;3&quot;,
+        &quot;lev_adv&quot;: &quot;7&quot;,
+        &quot;lev_exp&quot;: &quot;10+&quot;,
+        &quot;lev_mas&quot;: &quot;13&quot;,
+        &quot;lev_ult&quot;: &quot;&quot;,
+        &quot;we_kanji&quot;: &quot;&quot;,
+        &quot;we_star&quot;: &quot;&quot;,
+        &quot;image&quot;: &quot;ec89f55fcf6e1c66.jpg&quot;
+    },
+    {
+        &quot;id&quot;: &quot;107&quot;,
+        &quot;catname&quot;: &quot;ORIGINAL&quot;,
+        &quot;newflag&quot;: &quot;0&quot;,
+        &quot;title&quot;: &quot;We Gonna Journey&quot;,
+        &quot;reading&quot;: &quot;WEGONNAJOURNEY&quot;,
+        &quot;artist&quot;: &quot;Queen P.A.L.&quot;,
+        &quot;lev_bas&quot;: &quot;3&quot;,
+        &quot;lev_adv&quot;: &quot;6&quot;,
+        &quot;lev_exp&quot;: &quot;11&quot;,
+        &quot;lev_mas&quot;: &quot;14&quot;,
+        &quot;lev_ult&quot;: &quot;14+&quot;,
+        &quot;we_kanji&quot;: &quot;&quot;,
+        &quot;we_star&quot;: &quot;&quot;,
+        &quot;image&quot;: &quot;b43fef626f5b88cd.jpg&quot;
+    },
+    {
+        &quot;id&quot;: &quot;8081&quot;,
+        &quot;catname&quot;: &quot;VARIETY&quot;,
+        &quot;newflag&quot;: &quot;0&quot;,
+        &quot;title&quot;: &quot;檄!帝国華撃団&quot;,
+        &quot;reading&quot;: &quot;ケキテイコクカケキタン&quot;,
+        &quot;artist&quot;: &quot;真宮寺さくら（横山智佐）＆帝国歌劇団「サクラ大戦」&quot;,
+        &quot;lev_bas&quot;: &quot;&quot;,
+        &quot;lev_adv&quot;: &quot;&quot;,
+        &quot;lev_exp&quot;: &quot;&quot;,
+        &quot;lev_mas&quot;: &quot;&quot;,
+        &quot;lev_ult&quot;: &quot;&quot;,
+        &quot;we_kanji&quot;: &quot;歌&quot;,
+        &quot;we_star&quot;: &quot;3&quot;,
+        &quot;image&quot;: &quot;b5570c700e7bbf75.jpg&quot;
+    }
+]
+</code></pre><p>実際は1つのリストの中にすべての楽曲が入っている。ここでは通常の楽曲とULTIMAの存在する楽曲、WORLD&apos;S END楽曲1つずつを例として挙げた。</p><p>同一楽曲であっても、通常譜面とWORLD&apos;S END譜面は別々でオブジェクトが存在する。さらに、同じ楽曲のWORLD&apos;S END譜面が複数ある場合、その譜面の数だけオブジェクトがある。</p><p>ちなみに、<strong>クラス認定(旧コースモード)限定楽曲/譜面はここに含まれない。</strong>そもそも公式サイト上にクラス認定に関する項目がないので、情報を取りようがない。</p><p><strong>▼各key/valueの説明</strong></p><ul><li><code>id</code>: 楽曲ID</li><li><code>catname</code>: カテゴリ名</li><li><code>newflag</code>: 新曲か否かのフラグ。新曲なら<code>1</code>が、そうでなければ<code>0</code>が文字列として入っている</li><li><code>title</code>: 楽曲タイトル</li><li><code>reading</code>: 検索用の曲名。元のタイトルを一定のルールに従って変換したもので、濁点や小文字のないカタカナとアルファベット大文字のみで構成される</li><li><code>artist</code>: 楽曲アーティスト</li><li><code>lev_bas</code> ～ <code>lev_mas</code>: それぞれBASIC～MASTERの譜面レベル。WORLD&apos;S END譜面の場合は空欄になる</li><li><code>lev_ult</code>: ULTIMAの譜面レベル。ULTIMAが存在しないか、WORLD&apos;S END譜面の場合は空欄になる</li><li><code>we_kanji</code>: WORLD&apos;S ENDの譜面属性。漢字1文字もしくは『！』『？』が入る。通常譜面の場合は空欄になる</li><li><code>we_star</code>: WORLD&apos;S ENDの譜面難易度。数字「1」「3」「5」「7」「9」が文字列として入り、それぞれ☆～☆☆☆☆☆に対応する。通常譜面の場合は空欄になる</li><li><code>image</code>: ジャケット画像のファイル名。URL<code>https://new.chunithm-net.com/chuni-mobile/html/mobile/img/</code>に付け足すと画像を取得できる。</li></ul><h3 id="hb0c170bbd0">再生ランキング</h3><p><strong>▶エンドポイント: </strong><code>https://chunithm.sega.jp/data/topChart/c3_ranking.json</code></p><p>オブジェクト内には<code>ranking</code>と<code>update</code>の2つのキーが存在する。</p><p><code>ranking</code>は配列で、中のオブジェクトは楽曲リストのものと同じ（ランキングでは使っていない譜面ごとのレベルも載っている）。</p><p><code>update</code>は文字列で、ランキングの最終更新日時が<code>YYYY-MM-DD hh:mm:ss</code>の形式で表記されている。</p><h2 id="hecbf548053">CHUNITHM海外版</h2><h3 id="h40fe001faa">楽曲リスト</h3><p><strong>▶エンドポイント: </strong><code>https://chunithm.sega.com/assets/data/music.json</code></p><p>CHUNITHM NEWまでは日本版の古いJSONフォーマットと同一だったが、おそらくNEW PLUSになってからは現行日本版と完全に同一のフォーマットになった。ただし、データが最新のものに追従していないように見える。</p><p>その他の差異は以下の通り。</p><ul><li>著作権表示のJSONファイルは<code>https://chunithm.sega.com/assets/data/rightsInfo.json</code>にある。</li><li>ジャケット画像のファイル名の前に付け足すURLは<code>https://chunithm-net-eng.com/mobile/img/</code>である。</li></ul><p>なお、中国大陸版については、そもそもこれらのような公式サイトが存在しないものと思われる。</p><blockquote>
+<details>
+<summary>WORLD'S ENDの譜面難易度に関する余談(クリック/タップして展開)</summary>
+<p>上記ファイル内において、WORLD'S ENDの難易度は5段階にもかかわらず何故か飛び飛びの奇数が設定されている。この理由については推測だが、<b>WORLD'S END実装前はさらに細かい難易度分けをしようとしていた</b>のではないかと推察できる。</p>
+<p>CHUNITHM-NET上でWORLD'S ENDの楽曲が表示される画面では、譜面属性アイコンの横に難易度を表す星の画像があるが、この画像のURLにも上記と同様の数字が存在する。</p>
+<p>例えば、「5」の画像は<code>https://new.chunithm-net.com/chuni-mobile/html/mobile/images/icon_we_star5.png</code>である。</p>
+<br>
+<p>結論から言うと、<b>この星の画像は全部で20枚ある。</b>URLの番号部分を0～19に入れ替えて見てみると、その画像が姿を現す。</p>
+<p>0・2・4・6・8には星が半分だけある画像が、10～19には黄色く塗りつぶされた星の画像がある。いずれも未使用である。</p>
+</details>
+</blockquote><h2 id="h130d660a93">maimaiでらっくす</h2><h3 id="h40fe001faa">楽曲リスト</h3><p><strong>▶エンドポイント: </strong><code>https://maimai.sega.jp/data/maimai_songs.json</code></p><p>CHUNITHMと同じく、著作権情報は<code>https://maimai.sega.jp/data/RightsInfoText.json</code>に分けられている。</p><p><strong>▼レスポンス例</strong></p><pre><code class="language-json">[
+    {
+        &quot;artist&quot;: &quot;ツミキ　feat.音楽的同位体　可不（KAFU）&quot;,
+        &quot;catcode&quot;: &quot;niconico＆ボーカロイド&quot;,
+        &quot;dx_lev_bas&quot;: &quot;2&quot;,
+        &quot;dx_lev_adv&quot;: &quot;6&quot;,
+        &quot;dx_lev_exp&quot;: &quot;9+&quot;,
+        &quot;dx_lev_mas&quot;: &quot;11&quot;,
+        &quot;dx_lev_remas&quot;: &quot;13&quot;,
+        &quot;image_url&quot;: &quot;e6f1a560ee4c29d9.png&quot;,
+        &quot;release&quot;: &quot;220915&quot;,
+        &quot;sort&quot;: &quot;110&quot;,
+        &quot;title&quot;: &quot;フォニイ&quot;,
+        &quot;title_kana&quot;: &quot;フオニイ&quot;,
+        &quot;version&quot;: &quot;23000&quot;
+    },
+    {
+        &quot;artist&quot;: &quot;ナユタン星人&quot;,
+        &quot;catcode&quot;: &quot;niconico＆ボーカロイド&quot;,
+        &quot;dx_lev_bas&quot;: &quot;3&quot;,
+        &quot;dx_lev_adv&quot;: &quot;7&quot;,
+        &quot;dx_lev_exp&quot;: &quot;9&quot;,
+        &quot;dx_lev_mas&quot;: &quot;12+&quot;,
+        &quot;image_url&quot;: &quot;dfd85cc1f0611a87.png&quot;,
+        &quot;release&quot;: &quot;000000&quot;,
+        &quot;lev_bas&quot;: &quot;6&quot;,
+        &quot;lev_adv&quot;: &quot;8&quot;,
+        &quot;lev_exp&quot;: &quot;11&quot;,
+        &quot;lev_mas&quot;: &quot;13&quot;,
+        &quot;sort&quot;: &quot;213&quot;,
+        &quot;title&quot;: &quot;ダンスロボットダンス&quot;,
+        &quot;title_kana&quot;: &quot;タンスロホツトタンス&quot;,
+        &quot;version&quot;: &quot;19007&quot;
+    },
+    {
+        &quot;artist&quot;: &quot;HiTECH NINJA&quot;,
+        &quot;catcode&quot;: &quot;オンゲキ＆CHUNITHM&quot;,
+        &quot;date&quot;: &quot;NEW&quot;,
+        &quot;dx_lev_bas&quot;: &quot;5&quot;,
+        &quot;dx_lev_adv&quot;: &quot;8&quot;,
+        &quot;dx_lev_exp&quot;: &quot;12+&quot;,
+        &quot;dx_lev_mas&quot;: &quot;14&quot;,
+        &quot;image_url&quot;: &quot;74c92bac1b51a9c3.png&quot;,
+        &quot;key&quot;: &quot;○&quot;,
+        &quot;release&quot;: &quot;230120&quot;,
+        &quot;sort&quot;: &quot;996&quot;,
+        &quot;title&quot;: &quot;電光石火&quot;,
+        &quot;title_kana&quot;: &quot;テンコウセツカ&quot;,
+        &quot;version&quot;: &quot;23011&quot;
+    },
+    {
+        &quot;artist&quot;: &quot;結束バンド&quot;,
+        &quot;catcode&quot;: &quot;宴会場&quot;,
+        &quot;lev_utage&quot;: &quot;13?&quot;,
+        &quot;kanji&quot;: &quot;協&quot;,
+        &quot;comment&quot;: &quot;バンドメンバーを集めて楽しもう！（入門編）&quot;,
+        &quot;buddy&quot;: &quot;○&quot;,
+        &quot;image_url&quot;: &quot;b3c2cfe1e41c7ee9.png&quot;,
+        &quot;release&quot;: &quot;230914&quot;,
+        &quot;sort&quot;: &quot;1370&quot;,
+        &quot;title&quot;: &quot;[協]青春コンプレックス&quot;,
+        &quot;title_kana&quot;: &quot;セイシユンコンフレツクス&quot;,
+        &quot;version&quot;: &quot;24000&quot;
+    },
+]
+</code></pre><p>実際は1つのリストの中にすべての楽曲が入っている。</p><p>オブジェクトの中で譜面レベル部分以外のkeyが辞書順にソートされている（宴譜面を除く）。</p><p>また、CHUNITHMと違ってそのデータに該当するものが存在しない場合は空欄ではなくkeyそのものが存在しないようになっている。でらっくす/スタンダード/宴譜面の3種があり、空欄をつくる方式を採用するとファイルの文字数が増えてしまうからだろうか？</p><p><strong>▼各key/valueの説明</strong></p><ul><li><code>artist</code>: 楽曲アーティスト</li><li><code>catname</code>: カテゴリ名</li><li><code>date</code>: 新曲か否か。このkeyが存在する場合は<code>NEW</code>という文字列のvalueが入る。そうでなければkeyそのものが存在しない</li><li><code>dx_lev_bas</code> ～ <code>dx_lev_mas</code>: それぞれでらっくす譜面のBASIC～MASTERの譜面レベル。でらっくす譜面がなければkeyそのものが存在しない</li><li><code>dx_lev_remas</code>: でらっくす譜面のRe:MASTERの譜面レベル。譜面がなければkeyそのものが存在しない</li><li><code>image_url</code>: ジャケット画像のファイル名。URL<code>https://maimaidx.jp/maimai-mobile/img/Music/</code>に付け足すと画像を取得できる。</li><li><code>key</code>: 解禁が必要か否かのフラグ。このkeyが存在する場合は<code>○</code>(U+25CB)という文字列のvalueが入る。そうでなければkeyそのものが存在しない</li><li><code>release</code>: 楽曲リリース日。<code>YYMMDD</code>形式の文字列。現在稼働しているバージョン以外で登場した楽曲のリリース日情報は全て<code>000000</code>にされている(maimai でらっくす FESTiVAL稼働時点では稼働開始日である2022/9/15以前の数字が存在しない)。さらには、後から譜面が追加された場合、その譜面の一般解禁日がこの値になることから、楽曲自体のリリース日にはならないこともある。</li><li><code>lev_bas</code> ～ <code>lev_mas</code>: それぞれスタンダード譜面のBASIC～MASTERの譜面レベル。スタンダード譜面がなければ存在しない</li><li><code>lev_remas</code>: スタンダード譜面のRe:MASTERの譜面レベル。譜面がなければkeyそのものが存在しない</li><li><code>sort</code>: 楽曲ソート用の番号(文字列)だと思われる。JavaScriptソースコード上では後述の<code>version</code>が同一値だった際のソート用の値として使用されている</li><li><code>title</code>: 楽曲タイトル。宴譜面においては文字列の先頭に譜面を表す1文字が大かっこ<code>[]</code>に囲まれた状態で付与されている。</li><li><code>title_kana</code>: 検索用の曲名。元のタイトルを一定のルールに従って変換したもので、濁点や小文字のないカタカナとアルファベット大文字のみで構成される</li><li><code>version</code>: バージョンを表す5桁の番号(文字列)。詳細は後述</li><li><code>lev_utage</code>: 宴譜面のみに存在するレベル。末尾に『?』がついている。</li><li><code>kanji</code>: 宴譜面のみに存在する譜面を表す1文字。kanjiと銘打たれているが、漢字であるとは限らず、『r』『は』のようなものも存在する。<code>title</code>の先頭についているそれと同じ……と思いきや、なんと『人マニア』のみ<code>title</code>は『宴』、<code>kanji</code>は『X』と異なっているため注意が必要（2025/01/04現在）。</li><li><code>comment</code>: 宴譜面のみに存在する、譜面に対する一言コメント</li><li><code>buddy</code>: 宴譜面のみに存在する。このkeyが存在する場合は<code>○</code>(U+25CB)という文字列のvalueが入る。そうでなければkeyそのものが存在しない</li></ul><h3 id="h9b6a845b96">versionについて</h3><p>maimaiの楽曲リストJSONに存在する<code>version</code>は、楽曲の追加されたゲームのバージョンを表す文字列である。ここで言うバージョンとは、2週間ごとにある楽曲追加ごとに変更される(内部的な)バージョンであり、名前のついたバージョンを意味しない。</p><p>この番号は上3桁・下2桁に分けることができ、それぞれ以下のような意味合いがある。</p><ul><li>上3桁: その楽曲が収録された名前付きバージョン(「maimai GreeN」「‍maimai でらっくす Splash PLUS」など)の識別番号。</li><li>下2桁: その名前付きバージョンにおける更新の何回目で収録されたかを表す値。当該バージョン稼働日の<code>00</code>から始まり、1ずつ数字が増えていく。</li></ul><p>これに従うと、例えば<code>18015</code>は「maimai MURASAKiの16回目の更新」であることがわかる。</p><p>以下は上3桁とどのバージョンが紐づいているかのリストである。</p><ul><li><code>100xx</code>: maimai</li><li><code>110xx</code>: maimai PLUS</li><li><code>120xx</code>: maimai GreeN</li><li><code>130xx</code>: maimai GreeN PLUS</li><li><code>140xx</code>: maimai ORANGE</li><li><code>150xx</code>: maimai ORANGE PLUS</li><li><code>160xx</code>: maimai PiNK</li><li><code>170xx</code>: maimai PiNK PLUS</li><li><code>180xx</code>: maimai MURASAKi</li><li><code>185xx</code>: maimai MURASAKi PLUS</li><li><code>190xx</code>: maimai MiLK</li><li><code>195xx</code>: maimai MiLK PLUS</li><li><code>200xx</code>: maimai でらっくす</li><li><code>205xx</code>: maimai でらっくす PLUS</li><li><code>210xx</code>: maimai でらっくす Splash</li><li><code>215xx</code>: maimai でらっくす Splash PLUS</li><li><code>220xx</code>: maimai でらっくす UNiVERSE</li><li><code>225xx</code>: maimai でらっくす UNiVERSE PLUS</li><li><code>230xx</code>: maimai でらっくす FESTiVAL</li><li><code>235xx</code>: maimai でらっくす FESTiVAL PLUS</li><li><code>240xx</code>: maimai でらっくす BUDDiES</li><li><code>245xx</code>: maimai でらっくす BUDDiES PLUS</li><li><code>250xx</code>: maimai でらっくす PRiSM</li></ul><p>今後もこの法則に従うと仮定するなら、バージョンごとに数値は5ずつ増えていくものと思われる。</p><p>なお、ゲーム自体が2週間毎に更新されるからといって、この値からリリース日を算出することはできない。エイプリルフールの更新や新型コロナウイルスによる2020年の更新のブランクなどが存在するためである。</p><h3 id="hb0c170bbd0">再生ランキング</h3><p><strong>▶エンドポイント: </strong><code>https://maimai.sega.jp/data/topChart/maimai_ranking.json</code></p><p><strong>▼レスポンス例</strong></p><pre><code class="language-json">{
+  &quot;update&quot;: &quot;2025/01/04 07:00:00&quot;,
+  &quot;ranking&quot;: [
+    {
+      &quot;rank&quot;: 1,
+      &quot;artist&quot;: &quot;YOASOBI&quot;,
+      &quot;catcode&quot;: &quot;POPS＆アニメ&quot;,
+      &quot;image_url&quot;: &quot;c7c5029b33c09561.png&quot;,
+      &quot;title&quot;: &quot;アイドル&quot;,
+      &quot;title_kana&quot;: &quot;アイトル&quot;
+    },
+    {
+      &quot;rank&quot;: 2,
+      &quot;artist&quot;: &quot;吉田夜世&quot;,
+      &quot;catcode&quot;: &quot;niconico＆ボーカロイド&quot;,
+      &quot;image_url&quot;: &quot;7fc9d2db1826507b.png&quot;,
+      &quot;title&quot;: &quot;オーバーライド&quot;,
+      &quot;title_kana&quot;: &quot;オオハアライト&quot;
+    },
+    {
+      &quot;rank&quot;: 3,
+      &quot;artist&quot;: &quot;YOASOBI&quot;,
+      &quot;catcode&quot;: &quot;POPS＆アニメ&quot;,
+      &quot;image_url&quot;: &quot;b36820c1c9f7f7e3.png&quot;,
+      &quot;title&quot;: &quot;勇者&quot;,
+      &quot;title_kana&quot;: &quot;ユウシヤ&quot;
+    }
+  ]
+}</code></pre><p><a href="https://maimai.sega.jp/song/chart/" target="_blank" rel="noopener noreferrer nofollow">再生ランキングのページ</a>で利用されているデータ。ページ上では50位まで表示されているが、なんと<strong>内部的には100位までデータが存在する</strong>。</p><h2 id="hbf62d886e0">maimai海外版</h2><h3 id="h40fe001faa">楽曲リスト</h3><p><strong>▶エンドポイント: </strong><code>https://maimai.sega.com/assets/data/maimai_songs.json</code></p><p>フォーマットは現行日本版と同一。ただし、情報が最新でない可能性がある旨が表示されている。</p><p>おそらく、大型アップデートの際のみ更新されるものと思われる。</p><figure><img src="https://images.microcms-assets.io/assets/0b0ca8a0456441b1913290d8b4a73344/f618f78206004bca82304c7d2ae08835/maimai-intl-noupdate.png?fm=webp" alt="" width="462" height="185"></figure><p>その他の差異は以下の通り。</p><ul><li>著作権表示のJSONファイルは<code>https://maimai.sega.com/assets/data/RightsInfoText.json</code>にある。</li><li>ジャケット画像のファイル名の前に付け足すURLは<code>https://maimaidx-eng.com/maimai-mobile/img/Music/</code>である。</li></ul><p>なお、中国大陸版については、CHUNITHM同様そもそも公式サイトが存在しないものと思われる。</p><h2 id="h3fcdf31843">オンゲキ</h2><h3 id="h40fe001faa">楽曲リスト</h3><p><strong>▶エンドポイント: </strong><code>https://ongeki.sega.jp/assets/json/music/music.json</code></p><p>著作権の情報は楽曲ごとに存在している。ページ下部にすべてを表示するCHUNITHMやmaimaiと違い、オンゲキは1曲ごとに著作権情報を表示している。</p><p><strong>▼レスポンス例</strong></p><pre><code>[
+    {
+        &quot;new&quot;: &quot;&quot;,
+        &quot;date&quot;: &quot;20200930&quot;,
+        &quot;title&quot;: &quot;STARTLINER -星咲 あかりソロver.-&quot;,
+        &quot;title_sort&quot;: &quot;STARTLINERホシサキアカリソロVER&quot;,
+        &quot;artist&quot;: &quot;曲：kz(livetune)／歌：星咲 あかり(CV：赤尾 ひかる)&quot;,
+        &quot;id&quot;: &quot;709200&quot;,
+        &quot;chap_id&quot;: &quot;01001&quot;,
+        &quot;chapter&quot;: &quot;目指せ！　いっぱいのエール！&quot;,
+        &quot;character&quot;: &quot;星咲 あかり&quot;,
+        &quot;chara_id&quot;: &quot;1010&quot;,
+        &quot;category&quot;: &quot;オンゲキ&quot;,
+        &quot;category_id&quot;: &quot;06&quot;,
+        &quot;lunatic&quot;: &quot;&quot;,
+        &quot;bonus&quot;: &quot;1&quot;,
+        &quot;copyright1&quot;: &quot;-&quot;,
+        &quot;lev_bas&quot;: &quot;2&quot;,
+        &quot;lev_adv&quot;: &quot;5&quot;,
+        &quot;lev_exc&quot;: &quot;8+&quot;,
+        &quot;lev_mas&quot;: &quot;11&quot;,
+        &quot;lev_lnt&quot;: &quot;&quot;,
+        &quot;image_url&quot;: &quot;92bac6746c5cd534.png&quot;
+    },
+    {
+        &quot;new&quot;: &quot;&quot;,
+        &quot;date&quot;: &quot;20201008&quot;,
+        &quot;title&quot;: &quot;ロボットプラネットユートピア&quot;,
+        &quot;title_sort&quot;: &quot;ロホツトフラネツトユトヒア&quot;,
+        &quot;artist&quot;: &quot;lumo&quot;,
+        &quot;id&quot;: &quot;913900&quot;,
+        &quot;chap_id&quot;: &quot;04099&quot;,
+        &quot;chapter&quot;: &quot;END CHAPTER（第4章）&quot;,
+        &quot;character&quot;: &quot;みどニャン&quot;,
+        &quot;chara_id&quot;: &quot;9030&quot;,
+        &quot;category&quot;: &quot;チュウマイ&quot;,
+        &quot;category_id&quot;: &quot;05&quot;,
+        &quot;lunatic&quot;: &quot;1&quot;,
+        &quot;bonus&quot;: &quot;&quot;,
+        &quot;copyright1&quot;: &quot;-&quot;,
+        &quot;lev_bas&quot;: &quot;&quot;,
+        &quot;lev_adv&quot;: &quot;&quot;,
+        &quot;lev_exc&quot;: &quot;&quot;,
+        &quot;lev_mas&quot;: &quot;&quot;,
+        &quot;lev_lnt&quot;: &quot;0&quot;,
+        &quot;image_url&quot;: &quot;59fb1dc1b106d17f.png&quot;
+    }
+]
+</code></pre><p>実際は1つのリストの中にすべての楽曲が入っている。</p><p>ここでは通常楽曲とLUNATIC楽曲1つずつを例として挙げた。</p><p>同一楽曲であっても通常譜面とLUNATIC譜面で1つずつオブジェクトが存在する。</p><p><strong>▼各key/valueの説明</strong></p><ul><li><code>new</code>: 新曲か否か。新曲なら<code>NEW</code>が、そうでなければ空文字列がvalueとなる</li><li><code>date</code>: 楽曲リリース日(<code>YYYYMMDD</code>形式)</li><li><code>title</code>: 楽曲タイトル</li><li><code>title_sort</code>: ソート用の曲名。元のタイトルを一定のルールに従って変換したもので、濁点や小文字のないカタカナとアルファベット大文字のみで構成される。<strong>形式自体はCHUNITHMやmaimaiと同一だが、こちらは検索には使用されていない</strong></li><li><code>artist</code>: 楽曲アーティスト</li><li><code>id</code>: 楽曲ID</li><li><code>chap_id</code>: 楽曲が属するチャプターのID</li><li><code>chapter</code>: 楽曲が属するチャプター名</li><li><code>character</code>: 楽曲での対戦相手の名前</li><li><code>chara_id</code>: 楽曲での対戦相手のID</li><li><code>category</code>: 楽曲カテゴリ名</li><li><code>category_id</code>: 楽曲カテゴリのID。名前との紐付きは<code>https://ongeki.sega.jp/assets/json/music/categories.json</code>でも確認できる</li><li><code>lunatic</code>: LUNATICか否か。LUNATIC楽曲なら<code>1</code>が、そうでなければ空文字列がvalueとなる</li><li><code>bonus</code>: ボーナストラックか否か。ボーナストラックなら<code>1</code>が、そうでなければ空文字列がvalueとなる</li><li><code>copyright1</code>: 著作権表示。内容が無い場合は<code>-</code>がvalueとなる</li><li><code>lev_bas</code> ～ <code>lev_mas</code>: それぞれBASIC～MASTERの譜面レベル。LUNATIC楽曲の場合はいずれも空欄。<strong>『EXP』が『EXC』となっていることに注意</strong></li><li><code>lev_lnt</code>: LUNATICの譜面レベル。通常楽曲の場合は空欄となる</li><li><code>image_url</code>: ジャケット画像のファイル名。URL<code>https://ongeki-net.com/ongeki-mobile/img/music/</code>に付け足すとジャケット画像を取得できる。</li></ul><h3 id="h6078368ea9">ランキング</h3><p>もはや楽曲リストとは関係ないが、妙に充実していたのでついでに解説する。</p><p>公式サイトの<a href="https://ongeki.sega.jp/ranking/" target="_blank" rel="noopener noreferrer nofollow">ランキングページ</a>からは3種類のランキングを確認することができる。それぞれJSON形式でデータが用意されている。</p><p><strong>バトルポイントランキング一覧</strong></p><p><strong>▶エンドポイント: </strong><code>https://ongeki.sega.jp/assets/data/ranking_json/battlepoint/list.json</code></p><p><strong>▼レスポンス例</strong></p><pre><code class="language-json">[
+  {
+    &quot;month&quot;: &quot;9&quot;,
+    &quot;year&quot;: &quot;2018&quot;
+  },
+  {
+    &quot;month&quot;: &quot;10&quot;,
+    &quot;year&quot;: &quot;2018&quot;
+  },
+  {
+    &quot;month&quot;: &quot;11&quot;,
+    &quot;year&quot;: &quot;2018&quot;
+  }
+]</code></pre><p>バトルポイントのランキングが集計された年月のペア。稼働開始2ヶ月後の2018年9月から毎月集計されていて、今のところ抜けはない。</p><p><strong>バトルポイントランキング</strong></p><p><strong>▶エンドポイント: </strong><code>https://ongeki.sega.jp/assets/data/ranking_json/battlepoint/data/{YEAR}/{MONTH}/{REGION}.json</code></p><p>URLの<code>{YEAR}</code>、<code>{MONTH}</code>はそれぞれ年月に置き換える。</p><p>ファイル名の<code>{REGION}</code>は集計エリアを表しており、全国および各都道府県の48パターンがある。全国の場合は<code>zenkoku</code>、都道府県別の場合は文字列<code>regionId</code>に都道府県ごとに割り振られた2桁のID（01～47）を結合したものである。以下に例を示す。</p><ul><li>2020年12月の全国ランキング: <code>.../data/2020/12/zenkoku.json</code></li><li>2019年1月の福井県のランキング: <code>.../data/2019/1/regionId37.json</code></li></ul><p>この都道府県IDは、単に<strong>50音順に都道府県名を並べたもの</strong>であり、JISコードのような既存のコードではない。</p><p><strong>▼レスポンス例</strong></p><p>実際のプレイヤー名はここでは記載していない。</p><pre><code>{
+  &quot;aggregateDate&quot;: &quot;2025-01-01 04:00:00&quot;,
+  &quot;rankingList&quot;: [
+    {
+      &quot;rank&quot;: 1,
+      &quot;userName&quot;: &quot;＊＊＊＊＊＊&quot;,
+      &quot;point&quot;: 22247,
+      &quot;imgURL&quot;: &quot;https://ongeki-net.com/ongeki-mobile/img/ranking/f88a0523da42c5c4910fcfa08c467ab9.png&quot;,
+      &quot;updateDate&quot;: &quot;&quot;
+    },
+    {
+      &quot;rank&quot;: 2,
+      &quot;userName&quot;: &quot;＊＊＊＊＊＊&quot;,
+      &quot;point&quot;: 22193,
+      &quot;imgURL&quot;: &quot;https://ongeki-net.com/ongeki-mobile/img/ranking/f88a0523da42c5c4910fcfa08c467ab9.png&quot;,
+      &quot;updateDate&quot;: &quot;&quot;
+    },
+    {
+      &quot;rank&quot;: 3,
+      &quot;userName&quot;: &quot;＊＊＊＊＊＊&quot;,
+      &quot;point&quot;: 22186,
+      &quot;imgURL&quot;: &quot;https://ongeki-net.com/ongeki-mobile/img/ranking/f88a0523da42c5c4910fcfa08c467ab9.png&quot;,
+      &quot;updateDate&quot;: &quot;&quot;
+    }
+  ]
+}</code></pre><p><strong>▼各key/valueの説明</strong></p><ul><li><code>aggregateDate</code>: ランキングの集計日時</li><li><code>rankingList</code>: 実際のランキングデータ。全国では1000位までが、都道府県別では100位までが記録されている<ul><li><code>rank</code>: 順位。獲得ポイントが同一の場合、数値は重複する</li><li><code>userName</code>: プレイヤー名</li><li><code>point</code>: 獲得ポイント</li><li><code>imgURL</code>: バトルランクを表すエンブレムの画像のURL</li><li><code>updateDate</code>: 不明。確認できる範囲ではすべて空文字列であり、使用されていない可能性がある</li></ul></li></ul><p><strong>イベントランキング一覧</strong></p><p><strong>▶エンドポイント: </strong><code>https://ongeki.sega.jp/assets/data/ranking_json/eventpoint/list.json</code></p><p><strong>▼レスポンス例</strong></p><pre><code class="language-json">[
+  {
+    &quot;startDate&quot;: &quot;2024-12-12 06:00:00&quot;,
+    &quot;endDate&quot;: &quot;2024-12-25 23:59:59&quot;,
+    &quot;id&quot;: &quot;1451220601&quot;,
+    &quot;name&quot;: &quot;Link！Like！ラブライブ！&quot;
+  },
+  {
+    &quot;startDate&quot;: &quot;2024-10-31 06:00:00&quot;,
+    &quot;endDate&quot;: &quot;2024-11-13 23:59:59&quot;,
+    &quot;id&quot;: &quot;1451050601&quot;,
+    &quot;name&quot;: &quot;Primera Fes. ～maimai Stage～&quot;
+  },
+  {
+    &quot;startDate&quot;: &quot;2024-10-03 06:00:00&quot;,
+    &quot;endDate&quot;: &quot;2024-10-16 23:59:59&quot;,
+    &quot;id&quot;: &quot;1451010601&quot;,
+    &quot;name&quot;: &quot;ワールドダイスター 夢のステラリウム【第2弾】&quot;
+  }
+]</code></pre><p>実際のデータには、これまでに開催されたイベントがすべて記載されている。</p><p><strong>▼各key/valueの説明</strong></p><ul><li><code>startDate</code>: イベント開始日時</li><li><code>endDate</code>: イベント終了日時</li><li><code>id</code>: イベントID。後述のランキングデータ取得に使う</li><li><code>name</code>: イベント名</li></ul><p><strong>イベントランキング</strong></p><p><strong>▶エンドポイント: </strong><code>https://ongeki.sega.jp/assets/data/ranking_json/eventpoint/data/eventId{ID}.json</code></p><p><code>{ID}</code>には先述のイベントIDを入れる。イベント『ワールドダイスター 夢のステラリウム【第2弾】』なら<code>.../data/eventId1451010601.json</code>となる。</p><p><strong>▼レスポンス例</strong></p><p>実際のプレイヤー名はここでは記載していない。</p><pre><code>{
+  &quot;aggregateDate&quot;: &quot;2024-12-26 04:00:00&quot;,
+  &quot;rankingList&quot;: [
+    {
+      &quot;rank&quot;: 1,
+      &quot;userName&quot;: &quot;＊＊＊＊＊＊&quot;,
+      &quot;point&quot;: 1700000,
+      &quot;imgURL&quot;: null,
+      &quot;updateDate&quot;: &quot;&quot;
+    },
+    {
+      &quot;rank&quot;: 2,
+      &quot;userName&quot;: &quot;＊＊＊＊＊＊&quot;,
+      &quot;point&quot;: 1255666,
+      &quot;imgURL&quot;: null,
+      &quot;updateDate&quot;: &quot;&quot;
+    },
+    {
+      &quot;rank&quot;: 3,
+      &quot;userName&quot;: &quot;＊＊＊＊＊＊&quot;,
+      &quot;point&quot;: 1212345,
+      &quot;imgURL&quot;: null,
+      &quot;updateDate&quot;: &quot;&quot;
+    }
+  ]
+}</code></pre><p><strong>▼各key/valueの説明</strong></p><ul><li><code>aggregateDate</code>: ランキングの集計日時</li><li><code>rankingList</code>: 実際のランキングデータ。100位までが記録されている<ul><li><code>rank</code>: 順位。獲得ポイントが同一の場合、数値は重複する（※）</li><li><code>userName</code>: プレイヤー名</li><li><code>point</code>: 獲得ポイント</li><li><code>imgURL</code>: 不明。確認できる範囲ではすべてnull</li><li><code>updateDate</code>: 不明。確認できる範囲ではすべて空文字列</li></ul></li></ul><p>（※そもそもかなり重複しづらい値ではあるが、イベント『バンドリ！ ガールズバンドパーティ！』にて3名が377,777点で同率32位だったことが確認できた）</p><p><strong>テクニカルチャレンジ一覧</strong></p><p><strong>▶エンドポイント: </strong><code>https://ongeki.sega.jp/assets/data/ranking_json/techchallenge/list.json</code></p><p><strong>▼レスポンス例</strong></p><pre><code class="language-json">[
+  {
+    &quot;startDate&quot;: &quot;2024-10-31 06:00:00&quot;,
+    &quot;endDate&quot;: &quot;2024-11-27 23:59:59&quot;,
+    &quot;id&quot;: &quot;1451051702&quot;,
+    &quot;name&quot;: &quot;KING of Performai The 6th 予選ラウンド&quot;
+  },
+  {
+    &quot;startDate&quot;: &quot;2024-10-31 06:00:00&quot;,
+    &quot;endDate&quot;: &quot;2024-11-20 23:59:59&quot;,
+    &quot;id&quot;: &quot;1451051701&quot;,
+    &quot;name&quot;: &quot;Primera Fes. ～maimai Stage～&quot;
+  },
+  {
+    &quot;startDate&quot;: &quot;2024-10-03 06:00:00&quot;,
+    &quot;endDate&quot;: &quot;2024-12-11 23:59:59&quot;,
+    &quot;id&quot;: &quot;1451011701&quot;,
+    &quot;name&quot;: &quot;ワールドダイスター 夢のステラリウム【第2弾】&quot;
+  }
+]</code></pre><p>構造はイベントランキング一覧と同一であるため割愛する。</p><p><strong>イベントランキング</strong></p><p><strong>▶エンドポイント: </strong><code>https://ongeki.sega.jp/assets/data/ranking_json/techchallenge/data/eventId{ID}.json</code></p><p><strong>▼レスポンス例</strong></p><p>実際のプレイヤー名はここでは記載していない。</p><pre><code class="language-json">{
+  &quot;aggregateDate&quot;: &quot;2024-11-28 04:00:00&quot;,
+  &quot;rankingList&quot;: [
+    {
+      &quot;userName&quot;: &quot;＊＊＊＊＊＊&quot;,
+      &quot;point&quot;: 3030000,
+      &quot;rank&quot;: 1,
+      &quot;subPoint&quot;: 12974,
+      &quot;updateDate&quot;: &quot;&quot;,
+      &quot;imgURL&quot;: null
+    },
+    {
+      &quot;userName&quot;: &quot;＊＊＊＊＊＊&quot;,
+      &quot;point&quot;: 3030000,
+      &quot;rank&quot;: 2,
+      &quot;subPoint&quot;: 12960,
+      &quot;updateDate&quot;: &quot;&quot;,
+      &quot;imgURL&quot;: null
+    },
+    {
+      &quot;userName&quot;: &quot;＊＊＊＊＊＊&quot;,
+      &quot;point&quot;: 3030000,
+      &quot;rank&quot;: 3,
+      &quot;subPoint&quot;: 12943,
+      &quot;updateDate&quot;: &quot;&quot;,
+      &quot;imgURL&quot;: null
+    }
+  ]
+}</code></pre><p><strong>▼各key/valueの説明</strong></p><ul><li><code>aggregateDate</code>: ランキングの集計日時</li><li><code>rankingList</code>: 実際のランキングデータ。100位までが記録されている<ul><li><code>userName</code>: プレイヤー名</li><li><code>point</code>: 獲得ポイント（課題曲のテクニカルスコアの合計。曲数によって上限が変動する）</li><li><code>rank</code>: 順位。<strong>獲得ポイントが同一の場合でも、数値は重複しない（※）</strong></li><li><code>subPoint</code>: 獲得ポイント（PLATINUM HIGH SCORE。いわゆる内部精度であり、<code>point</code>が同じ場合はこちらで順位がつく）</li><li><code>updateDate</code>: 不明。確認できる範囲ではすべて空文字列</li><li><code>imgURL</code>: 不明。確認できる範囲ではすべてnull</li></ul></li></ul><p>（※イベント『Primera Fes. ～maimai Stage～』の5位と6位がそれぞれ3,030,000点かつ内部10,753点であるにもかかわらず順位がついている。もしかしたら、内部的には達成日時なども参照して順位を決めているのかもしれない）</p><h2 id="ha214098e44">まとめ</h2><p>仕様は定期的に変化するので確認を怠ることができない。ただ、昔はバラバラだったフォーマットが徐々に統一されてきているようにも感じる。</p></article>
+                <div class="widget-wrapper">
+                    <div class="widget-child-wrapper">
+                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-lang="ja" data-show-count="false">Post</a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div class="widget-child-wrapper">
+                        <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="touch-counter" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
+                        <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+                    </div>
+                    <!-- 共有まわりのロジックとCSSが全部消えてしまったのでなんとかする -->
+                    <!-- <div class="widget-child-wrapper">
+                        <button id="misc-share"><img src="/assets/share.svg" width="16" height="16">共有</button>
+                    </div> -->
+                </div>
+            </section>
+            <section class="box">
+                <section class="widgetgroup" id="recent">
+                    <div class="widgetindex">Recent Articles</div>
+                    <div id="recent-articles"></div>
+                </section>
+            </section>
+        </section>
+<section id="subcol">
+    <div class="box">
+        <div class="subcolbtn">
+            <a href="https://qmainconts.dev/"></a>
+            >> キューマンのコンテンツ置き場
+        </div>
+        <section class="widgetgroup">
+            <h3 class="widgetindex">Profile</h3>
+            <p>オタクコンテンツで命を繋いでいる人間</p>
+        </section>
+        <section class="widgetgroup">
+            <h3 class="widgetindex">Accounts</h3>
+            <ul>
+                <li>X: <a href="https://x.com/QmanEnobikto" target="_blank">@QmanEnobikto</a>
+                </li>
+                <li>GitHub: <a href="https://github.com/Qman11010101" target="_blank">Qman11010101</a></li>
+                <li>Qiita: <a href="https://qiita.com/KjumanEnobikto" target="_blank">@KjumanEnobikto</a>
+                </li>
+                <li>Zenn: <a href="https://zenn.dev/kjumanenobikto" target="_blank">@kjumanenobikto</a></li>
+                <li>カクヨム: <a href="https://kakuyomu.jp/users/QmanEnobikto" target="_blank">QmanEnobikto</a>
+                </li>
+            </ul>
+        </section>
+        <section class="widgetgroup">
+            <h3 class="widgetindex">Category</h3>
+            <div id="categorydisplay"></div>
+        </section>
+    </div>
+    <nav class="box toc-side">
+        <ul id="toc-side-wrapper"></ul>
+    </nav>
+</section>
+</main>
+<footer>
+    <p>当ホームページに記載されている会社名・製品名・システム名などは、各社の登録商標、もしくは商標です。</p>
+    <p>© 2022 Kjuman Enobikto All rights reserved.</p>
+</footer>
+</body>
+
+</html>

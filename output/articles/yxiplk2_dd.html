@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head prefix="og:http://ogp.me/ns#">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>【オセロ】ビットボードで石を置ける場所を計算して、ビットボードの凄さに触れよう - Qman's Diary</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Open Graph (OGP) Meta Tags -->
+    <meta property="og:title" content="【オセロ】ビットボードで石を置ける場所を計算して、ビットボードの凄さに触れよう - Qman's Diary">
+    <meta property="og:description" content="先日こんな記事を書いたのですが、よく考えたらあんまりちゃんと中身まで解説できてなかったなと思ったのと、もっといい方法を思いついたのでもっと単純化して説明します。前提: ビットボードとは？ビットボードが…">
+    <meta property="og:url" content="https://blog.qmainconts.dev/articles/yxiplk2_dd.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Qman's Diary">
+    <meta property="og:image" content="https://blog.qmainconts.dev/assets/icon_large.png">
+    <meta property="og:locale" content="ja_JP">
+
+    <!-- Twitter Cards Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="【オセロ】ビットボードで石を置ける場所を計算して、ビットボードの凄さに触れよう - Qman's Diary">
+    <meta name="twitter:description" content="先日こんな記事を書いたのですが、よく考えたらあんまりちゃんと中身まで解説できてなかったなと思ったのと、もっといい方法を思いついたのでもっと単純化して説明します。前提: ビットボードとは？ビットボードが…">
+    <meta name="twitter:url" content="https://blog.qmainconts.dev/articles/yxiplk2_dd.html">
+    <meta name="twitter:site" content="@QmanEnobikto">
+
+    <!-- その他 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&family=Noto+Sans+JP:wght@400;700&family=Play:wght@700&family=Source+Code+Pro&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&family=Noto+Sans+JP:wght@400;700&family=Play:wght@700&family=Source+Code+Pro&display=swap" media="print" onload='this.media="all"' />
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/common.css?b=1753334095">
+    <link rel="stylesheet" href="/assets/css/article.css?b=1753334095">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/cmake.min.js" integrity="sha512-dB3yY382soXMlcOc71s6oU9RyP+KRgMLrDBh2EOpBBbWcpNeOoHHEldKuIhrVBCjdSlD6ugRkKkDA039sWipbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/powershell.min.js" integrity="sha512-jWH48mwjihORkGHkvD8l0E/MtDgvY0C69eaYitXkI28ZneLUso2I3PgrN8lNnF3esiwHIFy0QODZy7ypmo9Flg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/assets/js/latest_articles.js?b=1753334095"></script>
+    <script src="/assets/js/categories.js?b=1753334095"></script>
+    <script src="/assets/js/codeblock.js?b=1753334095"></script>
+    <script src="/assets/js/time_course.js?b=1753334095"></script>
+    <script src="/assets/js/toc.js?b=1753334095"></script>
+    <link rel="canonical" href="https://blog.qmainconts.dev/articles/yxiplk2_dd.html">
+    <meta name="description" content="先日こんな記事を書いたのですが、よく考えたらあんまりちゃんと中身まで解説できてなかったなと思ったのと、もっといい方法を思いついたのでもっと単純化して説明します。前提: ビットボードとは？ビットボードが…">
+    <meta name="google-site-verification" content="u0BTjFYkL3nKuJ0DyWuKngSx29oQe4lkzcAgTFfP2bQ" />
+</head>
+
+
+<body>
+<header>
+    <div id="blogtitle"><a href="/">Qman's Diary</a></div>
+    <p>多趣味人間の備忘録</p>
+</header>
+<main>
+        <section id="maincol">
+            <section class="box">
+                <div class="date">2023-12-09 (2024-08-17 更新)</div>
+                <h1 id="articletitle">【オセロ】ビットボードで石を置ける場所を計算して、ビットボードの凄さに触れよう</h1>
+                <div class="tags">
+                    <div class="tag"><img src="/assets/tag.svg" alt="タグ" width="18" height="18" draggable="false"></div><div class="tag"><a href="category/tech"></a>技術</div><div class="tag"><a href="category/advent"></a>Advent Calendar</div></div><a href="https://qiita.com/advent-calendar/2023/student" target="_blank" class="event-banner-link-wrapper">
+                    <div class="event-banner">
+                        <img src="/assets/event.svg" alt="イベント" width="20" height="20" draggable="false">
+                        <p>Qiita全国学生対抗戦 Advent Calendar 2023 (シリーズ3)</p>
+                    </div>
+                </a><div id="time-course-warning"></div>
+                <article id="atcbody"><p>先日<a href="https://qiita.com/KjumanEnobikto/items/31b2024f361987e26b5f" target="_blank" rel="noopener noreferrer nofollow">こんな記事</a>を書いたのですが、よく考えたらあんまりちゃんと中身まで解説できてなかったなと思ったのと、もっといい方法を思いついたのでもっと単純化して説明します。</p><h2 id="hef991f9040">前提: ビットボードとは？</h2><p><span class="info">ビットボードが何か分かっている方は次の節まで飛ばしていただいて構いません。</span></p><p>プログラム上で以下のオセロの盤面を表そうと思ったとき、どのようにすべきでしょうか？</p><figure><img src="https://images.microcms-assets.io/assets/0b0ca8a0456441b1913290d8b4a73344/9e25aa4589954da6ac41764ca43793f1/othello_1701424897173.png?fm=webp" alt="オセロの盤面" width="592" height="592"><figcaption>俺(黒番) vs AI(白番)。このあと1対63で負けた</figcaption></figure><p>パッと思いつくのは、二次元配列でしょうか。</p><div data-filename="二次元配列による盤面の表現"><pre><code class="language-python">board_othello = [
+    [&quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;],
+    [&quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;],
+    [&quot;-&quot;, &quot;-&quot;, &quot;B&quot;, &quot;W&quot;, &quot;W&quot;, &quot;W&quot;, &quot;B&quot;, &quot;-&quot;],
+    [&quot;-&quot;, &quot;B&quot;, &quot;B&quot;, &quot;W&quot;, &quot;B&quot;, &quot;B&quot;, &quot;-&quot;, &quot;-&quot;],
+    [&quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;W&quot;, &quot;B&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;],
+    [&quot;-&quot;, &quot;-&quot;, &quot;W&quot;, &quot;-&quot;, &quot;B&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;],
+    [&quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;],
+    [&quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;]
+]</code></pre></div><p>ビットボードの場合、こうなります。</p><div data-filename="ビットボードによる盤面の表現"><pre><code class="language-python">black = 0x226c08080000
+white = 0x1c1010200000</code></pre></div><p>一見すると何をやっているのかわかりませんが、これはオセロのボードを<strong>64bit整数に見立てています</strong>。ボードの各マスは空きマス/黒/白の3つの状態を取るので、黒と白の石を別々の64bit整数で表すことによって表現しています。</p><p>2進数にして、8×8に並べ替えてみるとなんとなく分かると思います。</p><div data-filename="黒のボード"><pre><code>00000000
+00000000
+00100010
+01101100
+00001000
+00001000
+00000000
+00000000</code></pre></div><div data-filename="白のボード"><pre><code class="language-plaintext">00000000
+00000000
+00011100
+00010000
+00010000
+00100000
+00000000
+00000000</code></pre></div><p>ビットの並び順は以下の画像のようになっています。</p><figure><img src="https://images.microcms-assets.io/assets/0b0ca8a0456441b1913290d8b4a73344/b767afaf766743349695463af362d5dc/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e61702d6e6f727468656173742d312e616d617a6f6e6177732e636f6d2f302f3331303535362f63333638623931632d386566652d303734362d316463312d3735616333373662613331322e706e67.png?fm=webp" alt="" width="960" height="540"></figure><p>ビットボードは<strong>計算が高速</strong>、<strong>メモリ使用量が少ない</strong>(ただの64bitの数字なので)などのメリットがありますが、その分何をやっているのか分かりづらくなってしまいます。</p><p>せっかくなので、ビットボードがどう動いているのか完全理解してみましょう。以下にビットボードでオセロの合法手(石を置ける位置)を計算する手順を示します。</p><h2 id="h4f3cd500f0">できるだけ単純化する</h2><p>8×8=64マスで考えると複雑すぎるので、<strong>2×4=8マスで考えます</strong>。現在は黒の手番です。</p><figure><img src="https://images.microcms-assets.io/assets/0b0ca8a0456441b1913290d8b4a73344/b914bf11db3f4779a26b9b1232883178/othello_1701421278813.png?fm=webp" alt="" width="850" height="430"></figure><p>もはやオセロと呼べるかどうか怪しいですが、ひとまずここから黒の石を置ける場所を探していきます。</p><p>説明の簡略化のため、ここでは右側だけ調べることにします。</p><h3 id="he34c401dce">隣が相手の石かどうか確認する</h3><p>まず、<strong>自分の石を全部1個ずらします</strong>。移動前の石を半透明にして示しています。</p><figure><img src="https://images.microcms-assets.io/assets/0b0ca8a0456441b1913290d8b4a73344/f4ffa240e1c94358b39b35bfb1dfb86e/othello_1701421338340.png?fm=webp" alt="" width="850" height="430"></figure><p>おや、自分の石と相手の石が同じマスにありますね。</p><p>当たり前ではありますが、自分の石の隣にある相手の石は<strong>ひっくり返せるかもしれない石</strong>です。</p><p>別のボードを用意して、重なった部分をマークしておきましょう。</p><figure><img src="https://images.microcms-assets.io/assets/0b0ca8a0456441b1913290d8b4a73344/0c78a843c8114e82bf1e9825ba3d5450/othello_1701421647196.png?fm=webp" alt="" width="850" height="430"></figure><h3 id="h7d9ef5241b">ひっくり返せない石のマークを消す</h3><p>さて、ボードの一番右にある相手の石にもマークをつけてしまいましたが、よく考えたらこれ以上右は盤外なので、<strong>この石はひっくり返せません</strong>ね。</p><p>これは右だけでなく、ボードの端はどちらもひっくり返せないことになります。というわけで、残念ですがさっきつけたマークのうちボードの両端にあるものには消えてもらうことにしましょう。</p><figure><img src="https://images.microcms-assets.io/assets/0b0ca8a0456441b1913290d8b4a73344/12719b8b429548e9a01ac4f8648f9b49/othello_1701421667582.png?fm=webp" alt="" width="850" height="430"></figure><p>これで、<strong>『ひっくり返せるかもしれない相手の石』</strong>の位置がマークとして残りました。</p><h3 id="h61bd8e8fdb">さらに隣を確認する</h3><p>このボードの幅は4マスです。2つの石で相手の石を挟むので、最大で2個相手の石をひっくり返せる可能性があります。しかし、まだ石1つ分しか確認していません。</p><p>というわけで、さっきマークしたところの隣を確認してみましょう。つまり、今度は自分の石ではなく<strong>マークの方を全部1個ずらします</strong>。移動前のマークを半透明にして示しています。</p><figure><img src="https://images.microcms-assets.io/assets/0b0ca8a0456441b1913290d8b4a73344/48aa43f0e7d14f2ab893a8e5bec51508/othello_1701421878571.png?fm=webp" alt="" width="850" height="430"></figure><p>ずらしたマークがまた相手の石と重なっていれば、<strong>ひっくり返せるかもしれない石が連続で置いてある</strong>ということになります。マーク用ボードに追記しましょう。今回は両端にマークはないようですが、あったら先程と同様マークを消してしまいます。</p><figure><img src="https://images.microcms-assets.io/assets/0b0ca8a0456441b1913290d8b4a73344/badbc1ace87042b0b99339e1fc33fb92/othello_1701422934237.png?fm=webp" alt="" width="850" height="430"></figure><p>この『1つずらして重なりを確認してマークを追記する』という作業は、ひっくり返せる可能性のある石の数だけ行う必要があります。</p><p>自分の石2個で相手の石を挟むわけですから、この作業を行う回数は<strong>ボードの幅-2回</strong>となります。普通のオセロは8×8なので、8-2=6回作業を繰り返す必要があります。</p><p>この作業を終えると、<strong>ひっくり返せるかもしれない石を全部マークしたボード</strong>が手に入ります。</p><h3 id="h6ef7bdfca6">合法手を計算する</h3><p>ひっくり返せるかもしれない石を全部マークすることはできました。</p><p>そこから本当にひっくり返せる石を選別したくなるところですが、置ける場所を計算するだけなら<strong>その区別は必要ありません</strong>。</p><p>肝心のその手法ですが、まずは<strong>空きマスをマークしたボード</strong>を用意します。</p><figure><img src="https://images.microcms-assets.io/assets/0b0ca8a0456441b1913290d8b4a73344/a193755fa629404d8b0bcb35b63c08f2/othello_1701423721981.png?fm=webp" alt="" width="850" height="430"></figure><p>そして、先程入手したひっくり返せるかもしれない石ボードを<strong>1つ右にずらして重ねます</strong>。移動前のマークを半透明にして示しています。</p><figure><img src="https://images.microcms-assets.io/assets/0b0ca8a0456441b1913290d8b4a73344/19b22b0d414f48519288620abcde0ab1/othello_1701423997199.png?fm=webp" alt="" width="850" height="430"></figure><p>すると、<strong>空きマスとずらしたマークが重なっている場所</strong>があります。今回の場合は右上の1マスですね。</p><p>この重なった場所が合法手、すなわち自分が石を置ける場所になります。</p><h3 id="h77033c486e">要するに……</h3><p>この方法では、『自分の石から連続して存在する相手の石の先に空きマスが存在するかどうか』を確認しているということです。</p><p>ぶっちゃけ、<strong>何も特別なことはやっていません</strong>。全く同じアルゴリズムは、ボードを二次元配列などで用意しても実装できます。</p><p>しかし、ビットボードには演算が高速だったりメモリ使用量が少なかったりといったメリットが存在します。ビットボードの何が優れているのか、擬似コードを見ながら理解していきましょう。</p><h2 id="h4f4f2d5557">擬似コードから考えるビットボードの効率性</h2><p>以下に、合法手ボードを生成する擬似コードを示します。コードは<a href="https://qiita.com/sensuikan1973/items/459b3e11d91f3cb37e43#%E7%9D%80%E6%89%8B%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%8B%E3%82%92%E5%88%A4%E5%AE%9A" target="_blank" rel="noopener noreferrer nofollow">こちら</a>の記事を参考にしつつ、自分で改変しています。</p><p>ここでは上記と同様、自分(黒)の石の右のみを見るものとします。また、ボードサイズは8×8です。</p><p><span class="caution">シンタックスハイライトの都合が良かったのでRustのものを利用していますが、文法は正しくないのでご注意ください。</span></p><pre><code class="language-rust">// white_board: u64 (符号なし64bit整数)
+// black_board: u64 (符号なし64bit整数)
+
+// ひっくり返せるかもしれない石のボード(最初は空っぽ)
+tmp_board: u64 = 0
+
+// 空きマスだけ1になった(ビットが立っている)ボード
+blank_board: u64 = ~(white_board | black_board)
+
+// 左右の端だけ0になっているボード(説明は後述)
+side_guard: u64 = 0x7e7e7e7e7e7e7e7e
+
+// 自分の石・マークをずらしながら計算
+tmp_board = ((black_board &gt;&gt; 1) &amp; white_board) &amp; side_guard
+tmp_board |= ((tmp_board &gt;&gt; 1) &amp; white_board) &amp; side_guard
+tmp_board |= ((tmp_board &gt;&gt; 1) &amp; white_board) &amp; side_guard
+tmp_board |= ((tmp_board &gt;&gt; 1) &amp; white_board) &amp; side_guard
+tmp_board |= ((tmp_board &gt;&gt; 1) &amp; white_board) &amp; side_guard
+tmp_board |= ((tmp_board &gt;&gt; 1) &amp; white_board) &amp; side_guard
+
+// 合法手ボードを生成
+legal_board: u64 = (tmp_board &gt;&gt; 1) &amp; blank_board</code></pre><p>基本的には先程の解説をなぞっているのみです。</p><p>ビット演算が分かる方はひとまずなんとなく分かるかとは思います。</p><p>ビット演算が分からない方は大まかに以下のような理解をしてください。</p><ul><li><strong>&gt;&gt;: </strong>右シフト演算。指定した数字の数だけ全ての1を右にずらす。一番下の桁から溢れた1は消える。<ul><li>今回の場合、石やマークを右にずらすと考えて良い。右端にたどり着いたものは本来下の行の左端にワープしてしまうが、下記の<code>side_guard</code>が端の石やマークを消し飛ばすのでその心配はない</li></ul></li><li><strong>&amp;: </strong>AND演算。2つの数字を2進数として考えて、どちらの数字でも1の桁だけ1になった数字を作る。(例: 10<strong>1</strong>0 &amp; 01<strong>1</strong>0 = 00<strong>1</strong>0)</li><li><strong>|: </strong>OR演算。2つの数字を2進数として考えて、どちらかの数字が1の桁だけ1になった数字を作る。(例: <strong>1</strong>0<strong>1</strong>0 | 0<strong>11</strong>0 = <strong>111</strong>0)<ul><li><code>A |= B</code>は<code>A = A | B</code>を短く書いたもの</li></ul></li><li><strong>~: </strong>NOT演算。1つの数字を2進数として考えたときに、0と1を全て反転させる。(例: ~0010 = 1101)</li></ul><h3 id="h2a8191e2b7">補足説明: blank_board</h3><p>空きマスの部分だけ1になった(ビットが立った)ボードは、以下の手順で作れます。</p><ol><li>白の石と黒の石のORを取り、全ての石が区別なく1になっているボードを作る</li><li>1で作ったボードを反転させる</li></ol><h3 id="h935ed0b5aa">補足説明: side_guard</h3><p>先に挙げた記事では「番人」とも表現されているこの数値<code>0x7e7e7e7e7e7e7e7e</code>は、2進数にして8×8に並べ直すと以下のようになります。</p><div data-filename="0x7e7e7e7e7e7e7e7e"><pre><code>01111110
+01111110
+01111110
+01111110
+01111110
+01111110
+01111110
+01111110</code></pre></div><p>先程の説明の中で、以下のように述べました。</p><blockquote><p>さて、ボードの一番右にある相手の石にもマークをつけてしまいましたが、よく考えたらこれ以上右は盤外なので、<strong>この石はひっくり返せません</strong>ね。</p><p>これは右だけでなく、ボードの端はどちらもひっくり返せないことになります。というわけで、残念ですがさっきつけたマークのうちボードの両端にあるものには消えてもらうことにしましょう。</p></blockquote><p>端が0になっているこのボードとAND演算を行うことで、端にマークがあっても消滅するようになります。</p><h3 id="h88ac02e34b">メリット: メモリ効率が良い</h3><p>本記事の最初で示した二次元配列を思い出してみます。</p><pre><code class="language-python">board_othello = [
+    [&quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;],
+    [&quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;],
+    [&quot;-&quot;, &quot;-&quot;, &quot;B&quot;, &quot;W&quot;, &quot;W&quot;, &quot;W&quot;, &quot;B&quot;, &quot;-&quot;],
+    [&quot;-&quot;, &quot;B&quot;, &quot;B&quot;, &quot;W&quot;, &quot;B&quot;, &quot;B&quot;, &quot;-&quot;, &quot;-&quot;],
+    [&quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;W&quot;, &quot;B&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;],
+    [&quot;-&quot;, &quot;-&quot;, &quot;W&quot;, &quot;-&quot;, &quot;B&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;],
+    [&quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;],
+    [&quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;]
+]</code></pre><p>1文字を8bitとした場合、この盤面は512bit=64Byteで表現されています。</p><p>一方で、ビットボードの場合は白と黒のボードがそれぞれ64bit整数なので、128bit=16Byteで表現可能です。</p><p>現代のコンピューターの性能を考えればたかが48Byte程度の差など微々たるものではありますが、オセロAIなどを作る場合は探索した盤面をいくつも覚えておく必要が生じてくるので、意外とバカにできないです。</p><h3 id="h973412143f">メリット: 演算が高速</h3><p>二次元配列の場合、石を探す際に64個ある配列の要素をいちいちforループで探索する必要があります。加えて、1要素ごとに条件分岐を行う必要もあります。自分の石が見つかったらそこから周囲の石も探索しなければいけません。</p><p>一方、ビットボードの場合、擬似コードを見る限りではビット演算を27回行っています。基本的に、ビット演算というのはCPUの1クロックで行えるものなので、これは明らかに高速です。8方向調べる場合でも27×8=216回の演算で済みますし、条件分岐も生じません。さらに言えば、予め相手のボードと番人ボードをAND演算したボードを用意しておけば、もう少し計算回数が減少します。</p><p>これほど演算回数を少なくできるのは、<strong>石を複数個同時に扱えているから</strong>です。コンピュータが行っているのは結局のところ簡単な数字同士の計算ですが、数字をオセロのボードに見立てることでこのような計算を可能にしています。考えた人は頭が良すぎて恐ろしいですね。</p><h2 id="ha214098e44">まとめ</h2><p>ビットボードがなんかすごいことはなんとなく伝わったかと思います。やっていること自体は暴いてしまえばそこまで難しくはないものの、それをビット演算でいかに実現するかどうかというのは天才の所業ですね。</p><p>オセロは64bit整数でちょうど表せるので都合が良かったですが、やろうと思えば将棋なんかもビットボードにできるそうです。(まあそれはそう)</p><p>間違っていたら優しくマサカリを𝕏あたりに投げに来てください……修正しますので……</p></article>
+                <div class="widget-wrapper">
+                    <div class="widget-child-wrapper">
+                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-lang="ja" data-show-count="false">Post</a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div class="widget-child-wrapper">
+                        <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="touch-counter" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
+                        <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+                    </div>
+                    <!-- 共有まわりのロジックとCSSが全部消えてしまったのでなんとかする -->
+                    <!-- <div class="widget-child-wrapper">
+                        <button id="misc-share"><img src="/assets/share.svg" width="16" height="16">共有</button>
+                    </div> -->
+                </div>
+            </section>
+            <section class="box">
+                <section class="widgetgroup" id="recent">
+                    <div class="widgetindex">Recent Articles</div>
+                    <div id="recent-articles"></div>
+                </section>
+            </section>
+        </section>
+<section id="subcol">
+    <div class="box">
+        <div class="subcolbtn">
+            <a href="https://qmainconts.dev/"></a>
+            >> キューマンのコンテンツ置き場
+        </div>
+        <section class="widgetgroup">
+            <h3 class="widgetindex">Profile</h3>
+            <p>オタクコンテンツで命を繋いでいる人間</p>
+        </section>
+        <section class="widgetgroup">
+            <h3 class="widgetindex">Accounts</h3>
+            <ul>
+                <li>X: <a href="https://x.com/QmanEnobikto" target="_blank">@QmanEnobikto</a>
+                </li>
+                <li>GitHub: <a href="https://github.com/Qman11010101" target="_blank">Qman11010101</a></li>
+                <li>Qiita: <a href="https://qiita.com/KjumanEnobikto" target="_blank">@KjumanEnobikto</a>
+                </li>
+                <li>Zenn: <a href="https://zenn.dev/kjumanenobikto" target="_blank">@kjumanenobikto</a></li>
+                <li>カクヨム: <a href="https://kakuyomu.jp/users/QmanEnobikto" target="_blank">QmanEnobikto</a>
+                </li>
+            </ul>
+        </section>
+        <section class="widgetgroup">
+            <h3 class="widgetindex">Category</h3>
+            <div id="categorydisplay"></div>
+        </section>
+    </div>
+    <nav class="box toc-side">
+        <ul id="toc-side-wrapper"></ul>
+    </nav>
+</section>
+</main>
+<footer>
+    <p>当ホームページに記載されている会社名・製品名・システム名などは、各社の登録商標、もしくは商標です。</p>
+    <p>© 2022 Kjuman Enobikto All rights reserved.</p>
+</footer>
+</body>
+
+</html>

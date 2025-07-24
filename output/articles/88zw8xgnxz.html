@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head prefix="og:http://ogp.me/ns#">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Goでmicrocmsと連携する静的サイトジェネレータを作ってブログを作ってみた - Qman's Diary</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Open Graph (OGP) Meta Tags -->
+    <meta property="og:title" content="Goでmicrocmsと連携する静的サイトジェネレータを作ってブログを作ってみた - Qman's Diary">
+    <meta property="og:description" content="自分のブログが欲しいものの、既存のブログはデザインを自分で変更しづらそうに思えるし、静的サイトジェネレータもよく分からないし、できれば出先から記事を書けるようにしたい……そう思っていた矢先に、micr…">
+    <meta property="og:url" content="https://blog.qmainconts.dev/articles/88zw8xgnxz.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Qman's Diary">
+    <meta property="og:image" content="https://blog.qmainconts.dev/assets/icon_large.png">
+    <meta property="og:locale" content="ja_JP">
+
+    <!-- Twitter Cards Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Goでmicrocmsと連携する静的サイトジェネレータを作ってブログを作ってみた - Qman's Diary">
+    <meta name="twitter:description" content="自分のブログが欲しいものの、既存のブログはデザインを自分で変更しづらそうに思えるし、静的サイトジェネレータもよく分からないし、できれば出先から記事を書けるようにしたい……そう思っていた矢先に、micr…">
+    <meta name="twitter:url" content="https://blog.qmainconts.dev/articles/88zw8xgnxz.html">
+    <meta name="twitter:site" content="@QmanEnobikto">
+
+    <!-- その他 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&family=Noto+Sans+JP:wght@400;700&family=Play:wght@700&family=Source+Code+Pro&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&family=Noto+Sans+JP:wght@400;700&family=Play:wght@700&family=Source+Code+Pro&display=swap" media="print" onload='this.media="all"' />
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/common.css?b=1753334095">
+    <link rel="stylesheet" href="/assets/css/article.css?b=1753334095">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/cmake.min.js" integrity="sha512-dB3yY382soXMlcOc71s6oU9RyP+KRgMLrDBh2EOpBBbWcpNeOoHHEldKuIhrVBCjdSlD6ugRkKkDA039sWipbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/powershell.min.js" integrity="sha512-jWH48mwjihORkGHkvD8l0E/MtDgvY0C69eaYitXkI28ZneLUso2I3PgrN8lNnF3esiwHIFy0QODZy7ypmo9Flg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/assets/js/latest_articles.js?b=1753334095"></script>
+    <script src="/assets/js/categories.js?b=1753334095"></script>
+    <script src="/assets/js/codeblock.js?b=1753334095"></script>
+    <script src="/assets/js/time_course.js?b=1753334095"></script>
+    <script src="/assets/js/toc.js?b=1753334095"></script>
+    <link rel="canonical" href="https://blog.qmainconts.dev/articles/88zw8xgnxz.html">
+    <meta name="description" content="自分のブログが欲しいものの、既存のブログはデザインを自分で変更しづらそうに思えるし、静的サイトジェネレータもよく分からないし、できれば出先から記事を書けるようにしたい……そう思っていた矢先に、micr…">
+    <meta name="google-site-verification" content="u0BTjFYkL3nKuJ0DyWuKngSx29oQe4lkzcAgTFfP2bQ" />
+</head>
+
+
+<body>
+<header>
+    <div id="blogtitle"><a href="/">Qman's Diary</a></div>
+    <p>多趣味人間の備忘録</p>
+</header>
+<main>
+        <section id="maincol">
+            <section class="box">
+                <div class="date">2022-12-13 (2024-08-17 更新)</div>
+                <h1 id="articletitle">Goでmicrocmsと連携する静的サイトジェネレータを作ってブログを作ってみた</h1>
+                <div class="tags">
+                    <div class="tag"><img src="/assets/tag.svg" alt="タグ" width="18" height="18" draggable="false"></div><div class="tag"><a href="category/tech"></a>技術</div><div class="tag"><a href="category/golang"></a>Go</div><div class="tag"><a href="category/advent"></a>Advent Calendar</div><div class="tag"><a href="category/microcms"></a>microCMS</div></div><a href="https://qiita.com/advent-calendar/2022/go" target="_blank" class="event-banner-link-wrapper">
+                    <div class="event-banner">
+                        <img src="/assets/event.svg" alt="イベント" width="20" height="20" draggable="false">
+                        <p>Go Advent Calendar 2022</p>
+                    </div>
+                </a><div id="time-course-warning"></div>
+                <article id="atcbody"><p>自分のブログが欲しいものの、既存のブログはデザインを自分で変更しづらそうに思えるし、静的サイトジェネレータもよく分からないし、できれば出先から記事を書けるようにしたい……そう思っていた矢先に、<a href="https://microcms.io/" target="_blank" rel="noopener noreferrer">microcms</a>というヘッドレスCMSの存在を知りました。</p><p>これがあれば記事を書く部分については心配する必要がなくなり、記事の生成に専念できるのではと考え、ならば静的サイトジェネレータも作ってしまおうと思い立ち、勉強も兼ねてGoで書くことにしました。</p><p>本記事では特に、ポイントや反省点などについて書こうと思います。Go初心者の書いたものですので、いろいろと良くない点があるかとは思いますが、どうか大目に見ていただければ助かります。</p><p>今回作ったプログラム"microblogen"は <a href="https://github.com/Qman11010101/microblogen" target="_blank" rel="noopener noreferrer">Qman11010101/microblogen</a> に置いてあります。</p><p>また、これで生成したブログのリポジトリは <a href="https://github.com/Qman11010101/qmans_diary" target="_blank" rel="noopener noreferrer">Qman11010101/qmans_diary</a> 、サイトはこのサイト(<a href="https://blog.qmainconts.dev/" target="_blank" rel="noopener noreferrer">https://blog.qmainconts.dev/</a>)です。</p><h2 id="h3dffbfcfad">ブログ全体の構成について</h2><h3 id="hc953739b3f">全体の流れ</h3><p>記事の公開から生成までの流れは以下のようになっています。</p><p style="text-align:center"><img src="https://images.microcms-assets.io/assets/0b0ca8a0456441b1913290d8b4a73344/9f33fdf32f5749f297165660fd09a9a1/microblogen_diagram.svg?w=761&amp;h=301" alt="記事の公開から生成までの流れ" width="761" height="301"></p><p>microcmsで記事が公開されると、Webhookで <a href="https://github.com/Qman11010101/qmans_diary" target="_blank" rel="noopener noreferrer">Qman11010101/qmans_diary</a> に通知が飛び、GitHub Actionsが動作してmicroblogenで記事が生成され、Cloudflare Pagesにデプロイされます。</p><h3 id="hdf1450b1a3">microblogenによる記事生成の流れ</h3><ol><li>設定ファイルの存在を確認し、ファイルがなければ環境変数から設定値を取得する。APIキーなど必須のものがなければエラーで終了する。</li><li>記事一覧ページ・記事のためのテンプレートの存在を確認し、なければエラーで終了する。</li><li>古い出力ディレクトリを削除し、再度生成する。</li><li>テンプレートディレクトリ内にアセットがあればそれをコピーする。</li><li>microcmsから公開順に5件の記事データを取得し、JSONにして出力ディレクトリに保存する。</li><li>何回かに分けて公開順にすべての記事データをダウンロードする。記事一覧ページと同時に記事を生成する。</li><li>microcmsからカテゴリ一覧を取得し、JSONにして出力ディレクトリに保存する。</li><li>microcmsからカテゴリごとに何回かに分けて記事データを取得し、カテゴリごとの記事一覧ページを生成する。</li></ol><h2 id="h598587f39e">ポイント</h2><p>ここでは、Goを書く上で得た気づきをはじめとしたポイントを記します。</p><h3 id="h12d506d3e2">JSONの扱い</h3><p>GoでJSONを扱う上では事前に構造体を定義しておくことがほとんどかと思いますが、これに関してはJSONを食わせると自動で構造体のコードを生成してくれる <a href="https://mholt.github.io/json-to-go/" target="_blank" rel="noopener noreferrer">JSON-to-Go</a> が大変便利です。</p><p>なおmicrocmsのAPIを扱うに当たっては <a href="https://github.com/microcmsio/microcms-go-sdk" target="_blank" rel="noopener noreferrer">microcms-go-sdk</a> を使用したので、こちらのReadmeに記載されている構造体を参考に記述しました。</p><p>なお、前述のReadmeに倣って<code>omitempty</code>を書いていますが、これはMarshal時(=構造体をJSONにする時)のみ考慮されるものというのを後で知りました。microblogenの用途では不要な気がするので、いずれ消しておこうと思います。</p><h3 id="hc88be96650">ディレクトリのコピー</h3><p>Goの標準ライブラリにはディレクトリをまるごと(再帰的に)コピーする関数が存在しないというのを知って、驚きました。代替として、<a href="https://github.com/otiai10/copy" target="_blank" rel="noopener noreferrer">otiai10/copy</a> を利用させていただくことで解決しました。Goがシンプルな仕様を指向していることは良いと思うのですが、これくらいは標準で用意しておいてほしかったと思います。</p><h3 id="h2fa4b8325a">deferが便利</h3><p>遅延評価の概念はまだしっかり理解したとは言えませんが、途中に書いてもスコープの最後で実行されるというのはcloseしなければいけないリソースに便利だと思います。openとcloseが近くに書けるというのはソースコードを読む上でも負担が減ります。</p><p>個人的にはcloseを書く必要のないPythonのwith構文が一番好きなのですが、deferしてcloseする構文はそれに次いで好きです。</p><h3 id="h9ad3fd53ea">環境変数のデフォルト値の設定</h3><pre><code>workingDir, ok := os.LookupEnv("WORKDIR")
+if !ok {
+ &nbsp; &nbsp;workingDir = "default"
+}</code></pre><p>極めてシンプルな普通の書き方ですが、個人的にはRubyなどのように<code>workingDir := os.LookupEnv("WORKDIR") || "default"</code>のように書きたかったです。</p><h3 id="h4f29f9965e">変数の再宣言？</h3><p>Goを書いていると、多値返却の形でエラーを返してくるコードによく会います。<code>value, err := function()</code>みたいなやつです。</p><p>一方で、<a href="https://github.com/microcmsio/microcms-go-sdk" target="_blank" rel="noopener noreferrer">microcms-go-sdk </a> にも記載されているように、趣旨が副作用で返り値は<code>err</code>だけ、というような例もあります。</p><pre><code>err := client.List(
+&nbsp; &nbsp; microcms.ListParams{
+&nbsp; &nbsp; &nbsp; &nbsp; Endpoint: "article",
+&nbsp; &nbsp; &nbsp; &nbsp; Fields: &nbsp; []string{"id", "title", "publishedAt", "updatedAt", "category.id", "category.name"},
+&nbsp; &nbsp; &nbsp; &nbsp; Limit: &nbsp; &nbsp;5,
+&nbsp; &nbsp; &nbsp; &nbsp; Orders: &nbsp; []string{"-publishedAt"},
+&nbsp; &nbsp; }, &amp;articlesLatest)</code></pre><p>もしこれが現れるより前に何かで<code>err</code>を使ってしまっていた場合、<code>no new variables on left side of :=</code>と怒られてしまいます。</p><p>どうも<a href="https://go.dev/ref/spec#Short_variable_declarations" target="_blank" rel="noopener noreferrer">多値返却だとこれが起こらない</a>っぽいのですが、多値返却でない場合は<code>:=</code>を<code>=</code>にするしかないように思えます。</p><p>統一されておらず気持ち悪い気がするのですが、もっと何か良い方法があるのでしょうか……？</p><p>（追記）if節で<code>if err = function(); err != nil {}</code>と書けばいいみたいです。若干変にも見えますが作法は作法と納得すべきなのでしょうか。今回みたいに関数がそれなりに大きい面積を取る場合、if節の見通しが悪くなってしまう気がするのですが……</p><h2 id="h723f1d6479">反省点</h2><p>プログラムを書く上で失敗したと思う点を記します。Go言語に限らない点が多いです。</p><h3 id="h83c1383a10">書く前に設計をする</h3><p>まずは動くところまで持っていこうと思い、雑に考えながらプログラムを書いていたところ、構造が定まらなかったせいであとになって書き直す羽目になった部分がいくつもあります。</p><p>スパゲッティコードの原因にもなるので、途中で変更するとしても事前に設計しておいたほうが楽に開発できたと思います。</p><h3 id="hdc8880fce1">用語を統一する</h3><p>記事に紐づけるカテゴリについて、「カテゴリ」「タグ」の二種類の呼び方を混在させてしまっていました。混乱の原因になっていたので、少なくともmicroblogen上では「カテゴリ」に統一しました。</p><h3 id="h54c21e5d1a">自分のためにコメントを書く</h3><p>要所要所にメモ程度に書いておけばいいだろうと思っていましたが、関数に分けられていない似た処理が混在していることもありわかりづらくなってしまいました。その場しのぎではありますがコメントを書くことである程度見通しが良くなりました。</p><h2 id="ha6c8410437">Goを書いてみて</h2><p>小さいプログラムとはいえ、Goをこれくらい書いたのは多分初めてなのですが、それなりに良い印象を受けました。</p><p>PythonやJavaScriptといった型のない言語から入った自分でもすんなり書けますし、型推論も助かります。エディタの機能のおかげで型のメリットも享受できました。</p><p>公式ドキュメントでなくとも、日本語の情報がたくさんあります。動的型の言語からプログラミングを始めて静的型の言語も触ってみたいという人がいたら、Goを勧めると思います。</p><p><br></p><p>言語仕様のシンプルさについても、本当に必要なものを選んでいることは伝わってきました。最小セットで始めて必要な人がいたらアップデートで追加するというのも悪くないスタイルです。しかし、それでも痒いところに手が届かないなと思うことがいくつかありました。</p><p>Goへの批判とそれに対する反論の記事はたまに見かけては読んでいたので、Goの思想については理解しているつもりです。ただ、Battery includedを思想とするPythonから移ってきた身としては「それもできないんだ」と思ってしまうこともあります。</p><p>とはいえ、今回利用させていただいた <a href="https://github.com/otiai10/copy" target="_blank" rel="noopener noreferrer">otiai10/copy</a> のように、有志がライブラリを作ってその不便さを打ち消そうとしていたり、公式側も必要なものは入れていくという思想だったり(現にGenericsは手のひらを返して1.18で入っていますし)、そういうところを見ているとこれからもGoという言語の利便性は上がっていくように思えました。</p></article>
+                <div class="widget-wrapper">
+                    <div class="widget-child-wrapper">
+                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-lang="ja" data-show-count="false">Post</a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div class="widget-child-wrapper">
+                        <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="touch-counter" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
+                        <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+                    </div>
+                    <!-- 共有まわりのロジックとCSSが全部消えてしまったのでなんとかする -->
+                    <!-- <div class="widget-child-wrapper">
+                        <button id="misc-share"><img src="/assets/share.svg" width="16" height="16">共有</button>
+                    </div> -->
+                </div>
+            </section>
+            <section class="box">
+                <section class="widgetgroup" id="recent">
+                    <div class="widgetindex">Recent Articles</div>
+                    <div id="recent-articles"></div>
+                </section>
+            </section>
+        </section>
+<section id="subcol">
+    <div class="box">
+        <div class="subcolbtn">
+            <a href="https://qmainconts.dev/"></a>
+            >> キューマンのコンテンツ置き場
+        </div>
+        <section class="widgetgroup">
+            <h3 class="widgetindex">Profile</h3>
+            <p>オタクコンテンツで命を繋いでいる人間</p>
+        </section>
+        <section class="widgetgroup">
+            <h3 class="widgetindex">Accounts</h3>
+            <ul>
+                <li>X: <a href="https://x.com/QmanEnobikto" target="_blank">@QmanEnobikto</a>
+                </li>
+                <li>GitHub: <a href="https://github.com/Qman11010101" target="_blank">Qman11010101</a></li>
+                <li>Qiita: <a href="https://qiita.com/KjumanEnobikto" target="_blank">@KjumanEnobikto</a>
+                </li>
+                <li>Zenn: <a href="https://zenn.dev/kjumanenobikto" target="_blank">@kjumanenobikto</a></li>
+                <li>カクヨム: <a href="https://kakuyomu.jp/users/QmanEnobikto" target="_blank">QmanEnobikto</a>
+                </li>
+            </ul>
+        </section>
+        <section class="widgetgroup">
+            <h3 class="widgetindex">Category</h3>
+            <div id="categorydisplay"></div>
+        </section>
+    </div>
+    <nav class="box toc-side">
+        <ul id="toc-side-wrapper"></ul>
+    </nav>
+</section>
+</main>
+<footer>
+    <p>当ホームページに記載されている会社名・製品名・システム名などは、各社の登録商標、もしくは商標です。</p>
+    <p>© 2022 Kjuman Enobikto All rights reserved.</p>
+</footer>
+</body>
+
+</html>

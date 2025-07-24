@@ -1,8 +1,8 @@
-name: Generate all articles when something pushed to prodiew
+name: Generate all articles when something pushed to main
 on:
   push:
     branches:
-      - prodiew
+      - main
 
 jobs:
   generate:
@@ -17,7 +17,7 @@ jobs:
           set -x
           git fetch origin pages-prod || git branch pages-prod
           git checkout -B pages-prod origin/pages-prod || git checkout -B pages-prod
-          git reset --hard origin/prodiew
+          git reset --hard origin/main
       - uses: actions/setup-go@v5
         with:
           go-version: '>=1.23.0'

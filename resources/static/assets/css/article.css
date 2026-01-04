@@ -69,11 +69,15 @@
     h2 {
         font-size: 1.5rem;
         margin-top: 40px;
+        border-left: 4px solid #418d45;
+        padding-left: 10px;
     }
 
     h3 {
         font-size: 1.2rem;
         margin-top: 30px;
+        border-left: 3px solid #418d45;
+        padding-left: 10px;
     }
 
     h2+h3 {
@@ -339,7 +343,7 @@ th {
         font-size: 1.1rem;
         font-weight: bold;
         line-height: 1;
-        
+
         &:before {
             content: "▶";
             margin-right: 5px;

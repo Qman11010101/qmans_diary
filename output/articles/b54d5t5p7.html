@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head prefix="og:http://ogp.me/ns#">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>【備忘録】Mp3tagで、アルバムが複数枚のCDで構成されているやつに、メタデータを付与するときに、2枚目以降のディスクのメタデータがズレてしまう問題の解決方法 - Qman's Diary</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Open Graph (OGP) Meta Tags -->
+    <meta property="og:title" content="【備忘録】Mp3tagで、アルバムが複数枚のCDで構成されているやつに、メタデータを付与するときに、2枚目以降のディスクのメタデータがズレてしまう問題の解決方法 - Qman's Diary">
+    <meta property="og:description" content="誰の参考にもならないが本気で困ったのでメモ。タイトル付けが下手すぎる。やろうとしていたこと音楽ゲーム「CHUNITHM」のサントラとして、「CHUNITHM ALL JUSTICE COLLECTIO…">
+    <meta property="og:url" content="https://blog.qmainconts.dev/articles/b54d5t5p7.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Qman's Diary">
+    <meta property="og:image" content="https://blog.qmainconts.dev/assets/icon_large.png">
+    <meta property="og:locale" content="ja_JP">
+
+    <!-- Twitter Cards Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="【備忘録】Mp3tagで、アルバムが複数枚のCDで構成されているやつに、メタデータを付与するときに、2枚目以降のディスクのメタデータがズレてしまう問題の解決方法 - Qman's Diary">
+    <meta name="twitter:description" content="誰の参考にもならないが本気で困ったのでメモ。タイトル付けが下手すぎる。やろうとしていたこと音楽ゲーム「CHUNITHM」のサントラとして、「CHUNITHM ALL JUSTICE COLLECTIO…">
+    <meta name="twitter:url" content="https://blog.qmainconts.dev/articles/b54d5t5p7.html">
+    <meta name="twitter:site" content="@QmanEnobikto">
+
+    <!-- その他 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&family=Noto+Sans+JP:wght@400;700&family=Play:wght@700&family=Source+Code+Pro&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&family=Noto+Sans+JP:wght@400;700&family=Play:wght@700&family=Source+Code+Pro&display=swap" media="print" onload='this.media="all"' />
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/common.css?b=1770359128">
+    <link rel="stylesheet" href="/assets/css/article.css?b=1770359128">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/cmake.min.js" integrity="sha512-dB3yY382soXMlcOc71s6oU9RyP+KRgMLrDBh2EOpBBbWcpNeOoHHEldKuIhrVBCjdSlD6ugRkKkDA039sWipbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/powershell.min.js" integrity="sha512-jWH48mwjihORkGHkvD8l0E/MtDgvY0C69eaYitXkI28ZneLUso2I3PgrN8lNnF3esiwHIFy0QODZy7ypmo9Flg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/assets/js/latest_articles.js?b=1770359128"></script>
+    <script src="/assets/js/categories.js?b=1770359128"></script>
+    <script src="/assets/js/codeblock.js?b=1770359128"></script>
+    <script src="/assets/js/time_course.js?b=1770359128"></script>
+    <script src="/assets/js/toc.js?b=1770359128"></script>
+    <link rel="canonical" href="https://blog.qmainconts.dev/articles/b54d5t5p7.html">
+    <meta name="description" content="誰の参考にもならないが本気で困ったのでメモ。タイトル付けが下手すぎる。やろうとしていたこと音楽ゲーム「CHUNITHM」のサントラとして、「CHUNITHM ALL JUSTICE COLLECTIO…">
+    <meta name="google-site-verification" content="u0BTjFYkL3nKuJ0DyWuKngSx29oQe4lkzcAgTFfP2bQ" />
+</head>
+
+
+<body>
+<header>
+    <div id="blogtitle"><a href="/">Qman's Diary</a></div>
+    <p>多趣味人間の備忘録</p>
+</header>
+<main>
+        <section id="maincol">
+            <section class="box">
+                <div class="date">2026-02-06</div>
+                <h1 id="articletitle">【備忘録】Mp3tagで、アルバムが複数枚のCDで構成されているやつに、メタデータを付与するときに、2枚目以降のディスクのメタデータがズレてしまう問題の解決方法</h1>
+                <div class="tags">
+                    <div class="tag"><img src="/assets/tag.svg" alt="タグ" width="18" height="18" draggable="false"></div><div class="tag"><a href="category/misc"></a>その他</div></div><div id="time-course-warning"></div>
+                <article id="atcbody"><p>誰の参考にもならないが本気で困ったのでメモ。タイトル付けが下手すぎる。</p><h2 id="h3b45c22ba8">やろうとしていたこと</h2><p>音楽ゲーム「CHUNITHM」のサントラとして、「CHUNITHM ALL JUSTICE COLLECTION」というものがかつてあった。最近のバージョンでは配信のみになってしまったが、2バージョン分の曲を4枚のCDにまとめたサウンドトラックが存在した。</p><p>Windows11に付属するメディアプレーヤーでこれを取り込もうとすると、メタデータが付与されず、曲名やアーティスト名がわからない状態になってしまう。そこで、<strong>Mp3tag</strong>（ダウンロードは<a href="https://www.mp3tag.de/en/download.html" target="_blank" rel="noopener noreferrer">ここ</a>から）というツールを使ってデータを付与しようと思った。</p><p>Mp3tagは優秀なもので、普通にメタデータの編集をする以外にも、複数のDBからアルバムや楽曲の情報を引っ張ってくることができる。データソースはfreedb（現gnudb）やDiscog、MusicBrainzの3つ。正直よくわからないがまあ正確なデータがあるならそれでいいか……</p><p>Discogはなんかアカウントを作らされそうになったので一旦freedbとMusicBrainzだけを使ってやろうとした。その際に直面した問題を以下に記す。</p><h2 id="h2220f0ef7d">やったこと</h2><h3 id="h0e7d4d7943">freedb（gnudb）からデータを取得する</h3><figure><img src="https://images.microcms-assets.io/assets/0b0ca8a0456441b1913290d8b4a73344/c3a56b0b7fbf4b0ebc6b2f97bd14bdd2/image.png?fm=webp" alt="" width="603" height="484"><figcaption>「タグを取得」→一番上のfreedbを選ぶ</figcaption></figure><p>別に最初からMusicBrainzを使っても良いのだが、MusicBrainzは検索条件を指定する必要がある。アルバム名やアーティスト名を入力する必要があるのだ。</p><p>しかし、freedbを使うとアルバム名と楽曲名だけ先に入ってくれる。データソースは「挿入されているCD」「選択したファイル」などいろいろあるが、どちらでもいい。自分は取り込みついでにやったのでCDソースでやった。</p><h3 id="h8b1426c348">MusicBrainzからデータを取得する（ここで困った）</h3><p>freedbのやつをやっておくと、MusicBrainzで検索するときに<strong>勝手にアルバム名を補完してくれる</strong>。</p><figure><img src="https://images.microcms-assets.io/assets/0b0ca8a0456441b1913290d8b4a73344/faf02b05e6d34a8abe4dd01f6a93c27f/image.png?fm=webp" alt="" width="442" height="174"></figure><p>検索すると、それっぽいのが出てくるので、それを選ぶ。</p><figure><img src="https://images.microcms-assets.io/assets/0b0ca8a0456441b1913290d8b4a73344/944658b64c1f46cea2b0030a3d52f651/image.png?fm=webp" alt="" width="837" height="463"></figure><p>ここで困ったのがなにかというと、上の画像を見てもらえれば分かる通り、<strong>アルバムにTracksが101個含まれている</strong>。これは、CD4枚分すべてがここに入っていることを示す。</p><figure><img src="https://images.microcms-assets.io/assets/0b0ca8a0456441b1913290d8b4a73344/aa5f990ad13f4538babdae1ab53cf336/image.png?fm=webp" alt="" width="1010" height="848"></figure><p>CD別に分けて取り込んでいるとここで罠にかかる。今取り込んでいるのはDISC 3なのだが、このままOKを押して進んでしまうとDISC 1の情報が上書きされてしまう。メタデータはDISC1-4の順で上から並んでいて、アルバム単位で紐付けようとしてくるためだ。</p><h3 id="he02c5e2b90">メタデータをずらす</h3><p>解決方法は、右ペインの「＜関連無し＞」を上にひたすら持ってきて、左右位置を合わせることである。</p><figure><img src="https://images.microcms-assets.io/assets/0b0ca8a0456441b1913290d8b4a73344/3e5fadc13edf42b380827e8c0530f2e2/image.png?fm=webp" alt="" width="802" height="517"></figure><p>DISC 1に30曲、DISC 2に26曲が入っていたので、今回は計56個の＜関連無し＞を上に持ってきた。</p><p>右側のペインのファイル名をクリックすると対応する曲名が左でもハイライトされるので、1曲目のファイルとディスクの1曲目が対応しているかどうかを確認してOKを押す。すると正しく書き込まれる。</p><p></p><p>おわり。なんとか対応できたが、うっかりメタデータの順番がぐちゃぐちゃになっていたりしたらかなり厳しそう。</p></article>
+                <div class="widget-wrapper">
+                    <div class="widget-child-wrapper">
+                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-lang="ja" data-show-count="false">Post</a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div class="widget-child-wrapper">
+                        <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="touch-counter" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
+                        <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+                    </div>
+                    <!-- 共有まわりのロジックとCSSが全部消えてしまったのでなんとかする -->
+                    <!-- <div class="widget-child-wrapper">
+                        <button id="misc-share"><img src="/assets/share.svg" width="16" height="16">共有</button>
+                    </div> -->
+                </div>
+            </section>
+            <section class="box">
+                <section class="widgetgroup" id="recent">
+                    <div class="widgetindex">Recent Articles</div>
+                    <div id="recent-articles"></div>
+                </section>
+            </section>
+        </section>
+<section id="subcol">
+    <div class="box">
+        <div class="subcolbtn">
+            <a href="https://qmainconts.dev/"></a>
+            >> キューマンのコンテンツ置き場
+        </div>
+        <section class="widgetgroup">
+            <h3 class="widgetindex">Profile</h3>
+            <p>オタクコンテンツで命を繋いでいる人間</p>
+        </section>
+        <section class="widgetgroup">
+            <h3 class="widgetindex">Accounts</h3>
+            <ul>
+                <li>X: <a href="https://x.com/QmanEnobikto" target="_blank">@QmanEnobikto</a>
+                </li>
+                <li>GitHub: <a href="https://github.com/Qman11010101" target="_blank">Qman11010101</a></li>
+                <li>Qiita: <a href="https://qiita.com/KjumanEnobikto" target="_blank">@KjumanEnobikto</a>
+                </li>
+                <li>Zenn: <a href="https://zenn.dev/kjumanenobikto" target="_blank">@kjumanenobikto</a></li>
+                <li>カクヨム: <a href="https://kakuyomu.jp/users/QmanEnobikto" target="_blank">QmanEnobikto</a>
+                </li>
+            </ul>
+        </section>
+        <section class="widgetgroup">
+            <h3 class="widgetindex">Category</h3>
+            <div id="categorydisplay"></div>
+        </section>
+    </div>
+    <nav class="box toc-side">
+        <ul id="toc-side-wrapper"></ul>
+    </nav>
+</section>
+</main>
+<footer>
+    <p>当ホームページに記載されている会社名・製品名・システム名などは、各社の登録商標、もしくは商標です。</p>
+    <p>© 2022 Kjuman Enobikto All rights reserved.</p>
+</footer>
+</body>
+
+</html>
